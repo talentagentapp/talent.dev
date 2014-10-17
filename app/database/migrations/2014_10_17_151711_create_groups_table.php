@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateGroupsTable extends Migration {
+class CreateGroupsTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -18,15 +19,8 @@ class CreateGroupsTable extends Migration {
 
             $table->string('name', 255);
             $table->text('description')->nullable();
+            $table->string('img', 255)->nullable();
             $table->timestamps();
-        });
-
-        Schema::table('talent', function(Blueprint $table)
-        {
-            // MOVE TO NEW MIGRATION for TALENT table
-            $table->integer('group_id')->nullable();
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null');
-
         });
     }
 
