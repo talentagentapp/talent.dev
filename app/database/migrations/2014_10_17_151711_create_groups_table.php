@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateGroupsTable extends Migration {
+class CreateGroupsTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -39,6 +40,8 @@ class CreateGroupsTable extends Migration {
     public function down()
     {
         Schema::drop('groups');
+
+        Schema::drop('talent');
     }
 
 }
