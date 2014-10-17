@@ -125,11 +125,22 @@ class UsersController extends \BaseController {
 
 			// ->withErrors($validator));
 		} else {
+			// this would pass the authenticated id if the user is already logged in
+			//$user->user_id = Auth::id();
 
-			$user->title = Input::get('title');
-			$user->content = Input::get('content');
+            $table->role_id = Input::get('role_id');
 
-			$user->user_id = Auth::id();
+            $table->group_id = Input::get('group_id');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null');
+            
+            $table->string('role_type', 128);
+            
+            $table->string('email', 128)->unique();
+            $table->string('username', 128)->unique();
+            $table->string('password', 255);
+            $table->string('first', 128);
+            $table->string('last', 128);
+            $table->enum('sex', ['m', 'f', 'not say']);
 
 
 			if(Input::hasFile('image')) {
