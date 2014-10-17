@@ -1,0 +1,1 @@
+/vagrant/sites/talent.dev/app/views/gigs/edit.blade.php

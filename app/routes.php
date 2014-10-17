@@ -17,3 +17,7 @@ Route::get('/', function()
 });
 
 Route::resource('users', 'UsersController');
+//if you have a landing page that directs you to the index, then:
+//->with($some-kinda-value-that-tells you whether its an agent or talent)
+
+//

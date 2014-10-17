@@ -17,6 +17,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface
      */
     protected $table = 'users';
 
+    const DATE_FORMAT = 'l F jS Y @ g:i a';
+
+    // public static $rules = array(
+
+    // );
     /**
      * The attributes excluded from the model's JSON form.
      *
