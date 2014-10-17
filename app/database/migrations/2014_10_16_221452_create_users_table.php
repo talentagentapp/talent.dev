@@ -18,12 +18,8 @@ class CreateUsersTable extends Migration {
 
             //role_id will be set when creating account
             //number will correspond to type of role
-            $table->integer('role_id')->unsigned();
-
-            $table->integer('group_id')->nullable();
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null');
-            
             $table->string('role_type', 128);
+            $table->integer('role_id')->unsigned();
             
             $table->string('email', 128)->unique();
             $table->string('username', 128)->unique();
@@ -33,6 +29,7 @@ class CreateUsersTable extends Migration {
             $table->enum('sex', ['m', 'f', 'not say']);
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 
