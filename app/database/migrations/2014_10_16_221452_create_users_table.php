@@ -18,8 +18,11 @@ class CreateUsersTable extends Migration {
 
             //role_id will be set when creating account
             //number will correspond to type of role
+            //role_id needs a drop down in the view
+
             $table->integer('role_id')->unsigned();
 
+            //group_id should be a dropdown that populates itself automatically
             $table->integer('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null');
             
@@ -30,6 +33,8 @@ class CreateUsersTable extends Migration {
             $table->string('password', 255);
             $table->string('first', 128);
             $table->string('last', 128);
+
+            //sex needs a drop down
             $table->enum('sex', ['m', 'f', 'not say']);
             $table->rememberToken();
             $table->timestamps();
