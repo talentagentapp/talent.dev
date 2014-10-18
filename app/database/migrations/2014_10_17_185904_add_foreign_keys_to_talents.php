@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToTalent extends Migration {
+class AddForeignKeysToTalents extends Migration
+{
 
     /**
      * Run the migrations.
@@ -12,11 +13,15 @@ class AddForeignKeysToTalent extends Migration {
      */
     public function up()
     {
-        Schema::table('talent', function(Blueprint $table)
+        Schema::table('talents', function(Blueprint $table)
         {
             // MOVE TO NEW MIGRATION for TALENT table
             $table->integer('group_id')->unsigned()->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null');
+            
+            //NULLABLE IS TEMPORARY UNTIL CONTROLLER LOGIC
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,10 +33,12 @@ class AddForeignKeysToTalent extends Migration {
      */
     public function down()
     {
-        Schema::table('talent', function(Blueprint $table)
+        Schema::table('talents', function(Blueprint $table)
         {
-            $table->dropForeign('talent_group_id_foreign');
-
+            $table->dropForeign('talents_user_id_foreign');
+            $table->dropColumn('user_id');
+            
+            $table->dropForeign('talents_group_id_foreign');
             $table->dropColumn('group_id');
         });
     }
