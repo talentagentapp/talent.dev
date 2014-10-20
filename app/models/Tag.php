@@ -2,7 +2,7 @@
 
 class Tag extends \Eloquent
 {
-   	protected $table = 'users';
+   	protected $table = 'tags';
 	//function tags represents relationships, and is polymorphic to 'User' and 'Role' 
     public function tags()
     {

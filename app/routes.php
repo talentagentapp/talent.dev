@@ -14,14 +14,13 @@
 Route::get('/', function()
 {
 	//use jquery to determine which page redirect happens pending "agent" or "user"
-    return View::make('landingPage');
+    return View::make('home', 'HomeController');
 });
 
-Route::get('/login', 'LoginController@showLogin');
-
-Route::resource('users', 'UsersController')->with('newUserType', $newUserType);
-//if you have a landing page that directs you to the index, then:
-//->with($some-kinda-value-that-tells you whether its an agent or talent)
-//$newUserType refers which kind of user input request, for agent or talent.
+Route::resource('users', 'UsersController');
+//->with('newUserType', $newUserType);
+// //if you have a landing page that directs you to the index, then:
+// //->with($some-kinda-value-that-tells you whether its an agent or talent)
+// //$newUserType refers which kind of user input request, for agent or talent.
 
 Route::resource('gigs', 'GigsController');

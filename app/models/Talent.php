@@ -2,11 +2,10 @@
 
 class Talent extends \Eloquent
 {
-    protected $fillable = [];
+    protected $table = 'talents'
 
     public function users() 
     {
     	morphMany('User', 'role');
-    	
     }
 }
