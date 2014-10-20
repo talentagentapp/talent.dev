@@ -25,8 +25,12 @@ Route::resource('users', 'UsersController');
 
 Route::resource('gigs', 'GigsController');
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+Route::get('user/manage', 'ManageAccounts');
+>>>>>>> master
