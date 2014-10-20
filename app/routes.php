@@ -13,11 +13,15 @@
 
 Route::get('/', function()
 {
-    return View::make('hello');
+	//use jquery to determine which page redirect happens pending "agent" or "user"
+    return View::make('landingPage');
 });
 
-Route::resource('users', 'UsersController');
+Route::get('/login', 'LoginController@showLogin');
+
+Route::resource('users', 'UsersController')->with('newUserType', $newUserType);
 //if you have a landing page that directs you to the index, then:
 //->with($some-kinda-value-that-tells you whether its an agent or talent)
+//$newUserType refers which kind of user input request, for agent or talent.
 
-//
+Route::resource('gigs', 'GigsController');

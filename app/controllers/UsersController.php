@@ -48,6 +48,8 @@ class UsersController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+		//write an if statement that uses $user->role_id do save to one users table or another
+
 		User::create($data);
 
 		return Redirect::route('users.index');
@@ -112,7 +114,7 @@ class UsersController extends \BaseController {
 	protected function saveUser(User $user)
 	{
 		$validator = Validator::make(Input::all(),User::$rules);
-
+		//write an if statement to save user_id 
 		if ($validator->fails()) {
 			//***error message needs to be updated with rules
 
@@ -125,11 +127,22 @@ class UsersController extends \BaseController {
 
 			// ->withErrors($validator));
 		} else {
+			// this would pass the authenticated id if the user is already logged in
+			//$user->user_id = Auth::id();
 
-			$user->title = Input::get('title');
-			$user->content = Input::get('content');
+            $user->role_id = Input::get('role_id');
 
-			$user->user_id = Auth::id();
+            $user->group_id = Input::get('group_id');
+
+            //role_type should be a drop down, which we will set independently
+            $user->role_type = Input::get('role_type')
+            
+            $user->email = Input::get('email');
+            $user->username = Input::get('username');
+            $user->password = Input::get('password');
+            $user->first = Input::get('first');
+            $user->last = Input::get('last');
+            $user->sex = Input::get('sex');
 
 
 			if(Input::hasFile('image')) {
