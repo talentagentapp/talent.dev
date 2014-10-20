@@ -6,16 +6,17 @@ class UsersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
 	public function index()
 	{
 		//$search and $query are for a future search feature
-		$search = Input::get('search');
+		// $search = Input::get('search');
 
-		$query = User::with('user');
+		// $query = User::with('user');
 
-		$query->where('first', 'last', "%search%");
+		// $query->where('first', 'last', "%search%");
 
-		$query->orWhere('first')
+		// $query->orWhere('first')
 		//$users where roletype = 'this'
 
 		//if $users = $agent, {
@@ -23,7 +24,7 @@ class UsersController extends \BaseController {
 		//}
 		$users = User::all();
 
-		return View::make('users.index', compact('users'));
+		return View::make('users.index')->with('users', $users);
 	}
 	/**
 	 * Show the form for creating a new user
@@ -50,9 +51,11 @@ class UsersController extends \BaseController {
 
 		//write an if statement that uses $user->role_id do save to one users table or another
 
-		User::create($data);
+		$user = new User;
 
-		return Redirect::route('users.index');
+		return $this->saveUser($user);
+
+
 	}
 	/**
 	 * Display the specified user.
@@ -138,32 +141,68 @@ class UsersController extends \BaseController {
             $user->role_type = Input::get('role_type')
             
             $user->email = Input::get('email');
+
             $user->username = Input::get('username');
+
             $user->password = Input::get('password');
+
             $user->first = Input::get('first');
+
             $user->last = Input::get('last');
+
             $user->sex = Input::get('sex');
 
+		if ($role_id == 2){
+
+            $talents->dob = Input::get('dob');
+
+            $talents->bio = Input::get('bio');
+
+            $talents->skills = Input::get('skills');
+
+            $talents->img = Input::get('img');
+
+		}else{
+
+            $agents->company = Input::get('company');
+
+            $agents->bio = Input::get('bio');
+
+            $agents->img = Input::get('img');
+		}
 
 			if(Input::hasFile('image')) {
 				$file = Input::file('image');
+
 				$destination_path = public_path() . '/img/';
+
 				$filename = str_random(6) . '_' . $file->getClientOriginalName();
+
 				$uploadSuccess = $file->move($destination_path, $filename);
+
+				$user->image_name = '/img/' . $filename;
+			}else{
+				//rewrite to specify a default image filepath
+				$file = Input::file('image');
+
+				$destination_path = public_path() . '/img/';
+
+				$filename = str_random(6) . '_' . $file->getClientOriginalName();
+
+				$uploadSuccess = $file->move($destination_path, $filename);
+
 				$user->image_name = '/img/' . $filename;
 			}
 
 			$user->save();
 	
-			$message = 'Post was successfully saved';
+			$message = 'User was successfully saved';
 
 			Session::flash('successMessage', $message);
 
 			Log::info('User was successfully saved', Input::all());
 
 			return Redirect::action('UserController@show',$user->id);
-
 		}
 	}
-
 }
