@@ -6,6 +6,11 @@ class UsersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+<<<<<<< HEAD
+	
+
+=======
+>>>>>>> master
 
 	public function index()
 	{
@@ -16,7 +21,11 @@ class UsersController extends \BaseController {
 
 		// $query->where('first', 'last', "%search%");
 
+<<<<<<< HEAD
+		$query->orWhere('first');
+=======
 		// $query->orWhere('first')
+>>>>>>> master
 		//$users where roletype = 'this'
 
 		//if $users = $agent, {
@@ -138,7 +147,7 @@ class UsersController extends \BaseController {
             $user->group_id = Input::get('group_id');
 
             //role_type should be a drop down, which we will set independently
-            $user->role_type = Input::get('role_type')
+            $user->role_type = Input::get('role_type');
             
             $user->email = Input::get('email');
 
