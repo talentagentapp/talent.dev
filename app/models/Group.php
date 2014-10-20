@@ -1,5 +1,5 @@
 <?php
 
 class Group extends \Eloquent {
-	protected $fillable = [];
+	protected $table = 'groups';
 }
