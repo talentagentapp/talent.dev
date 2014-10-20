@@ -1,11 +1,11 @@
 <?php
 
-class Agent extends \Eloquent
+class Agent extends BaseModel
 {
     protected $table = 'agents';
 
     public function users()
     {
-        morphMany('User', 'role');
+        return $this->morphOne('User', 'role');
     }
 }
