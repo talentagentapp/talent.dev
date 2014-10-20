@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
         foreach(range(1, 25) as $index)
         {
             User::create([
-                'role_id'    => $faker->randomElement($array = ['1','2']),
+                'talent'     => $faker->boolean($chanceOfGettingTrue = 50),
                 'email'      => $faker->unique()->email,
                 'username'   => $faker->unique()->userName,
                 'password'   => 'password',
