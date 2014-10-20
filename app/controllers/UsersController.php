@@ -6,6 +6,9 @@ class UsersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	
+
+
 	public function index()
 	{
 		//$search and $query are for a future search feature
@@ -135,7 +138,7 @@ class UsersController extends \BaseController {
             $user->group_id = Input::get('group_id');
 
             //role_type should be a drop down, which we will set independently
-            $user->role_type = Input::get('role_type')
+            $user->role_type = Input::get('role_type');
             
             $user->email = Input::get('email');
             $user->username = Input::get('username');
