@@ -22,10 +22,6 @@ class CreateUsersTable extends Migration
             //role_id needs a drop down in the view
 
             $table->integer('role_id')->unsigned();
-
-            //group_id should be a dropdown that populates itself automatically
-            $table->integer('group_id')->nullable();
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null');
                         
             $table->string('email', 128)->unique();
             $table->string('username', 128)->unique();

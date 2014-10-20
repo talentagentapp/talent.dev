@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateGigsTable extends Migration {
+class CreateGigsTable extends Migration
+{
 
 	/**
 	 * Run the migrations.
@@ -19,7 +20,6 @@ class CreateGigsTable extends Migration {
 			$table->text('gig_desc');
 			$table->date('gig_date');
 			$table->string('location');
-			$table->integer('agent_id');
 			$table->timestamps();
 		});
 	}

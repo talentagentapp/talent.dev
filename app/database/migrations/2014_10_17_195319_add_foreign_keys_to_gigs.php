@@ -14,7 +14,9 @@ class AddForeignKeysToGigs extends Migration {
 	{
 		Schema::table('gigs', function(Blueprint $table)
 		{
-			$table->foreign('agent_id')->references('id')->on('agent')->onDelete('set null');
+			//NULLABLE IS TEMPORARY
+			$table->integer('agent_id')->unsigned()->nullable();
+			$table->foreign('agent_id')->references('id')->on('agents');
 		});
 	}
 
@@ -29,6 +31,7 @@ class AddForeignKeysToGigs extends Migration {
 		Schema::table('gigs', function(Blueprint $table)
 		{
 			$table->dropForeign('gigs_agent_id_foreign');
+			$table->dropColumn('agent_id');
 		});
 	}
 
