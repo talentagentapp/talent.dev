@@ -2,7 +2,7 @@
 
 class Agent extends \Eloquent
 {
-    protected $fillable = [];
+    protected $table = 'agents';
 
     public function users()
     {

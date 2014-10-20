@@ -7,7 +7,6 @@ class Gig extends \Eloquent {
 		// 'title' => 'required'
 	];
 
-	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $table = 'gigs';
 
 }
