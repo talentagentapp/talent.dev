@@ -1,13 +1,23 @@
 <?php
 
-class Tag extends \Eloquent
+class Tag extends BaseModel
 {
    	protected $table = 'tags';
 	//function tags represents relationships, and is polymorphic to 'User' and 'Role' 
     public function tags()
     {
-    	// --****Not sure about 'role'--
+    	// --Not sure about 'role'--
     	// many to many, maybe polymorphic?
         morphMany('User', 'role');
+    }
+
+    public function setTagAttribute($value)
+    {
+        $this->attributes['tag'] = strtolower($value);
+    }
+
+    public function talents()
+    {
+        $this->belongsToMany('Talent');
     }
 }

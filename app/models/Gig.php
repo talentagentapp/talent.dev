@@ -1,12 +1,16 @@
 <?php
 
-class Gig extends \Eloquent {
-
+class Gig extends BaseModel
+{
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		// 'foo' => 'required'
 	];
 
 	protected $table = 'gigs';
 
+    public function agents()
+    {
+        return $this->belongsTo('Agent');
+    }
 }

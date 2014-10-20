@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
 		$this->call('TalentsTableSeeder');
 		$this->call('AgentsTableSeeder');
 		$this->call('GigsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('CommentsTableSeeder');
+		$this->call('TagsTableSeeder');
 	}
 
 }
