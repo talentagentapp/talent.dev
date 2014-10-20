@@ -2,7 +2,7 @@
 
 class Talent extends \Eloquent
 {
-    protected $table = 'talents'
+    protected $table = 'talents';
 
     public function users() 
     {
