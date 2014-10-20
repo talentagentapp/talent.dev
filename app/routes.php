@@ -24,3 +24,9 @@ Route::resource('users', 'UsersController');
 // //$newUserType refers which kind of user input request, for agent or talent.
 
 Route::resource('gigs', 'GigsController');
+
+
+
+
+
+
