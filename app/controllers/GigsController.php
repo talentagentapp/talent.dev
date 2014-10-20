@@ -15,7 +15,7 @@ class GigsController extends \BaseController {
 		// $query = Gig::with('agent');
 		// $gigs = Gig::all();
 
-		return View::make('gigs.index', compact('gigs'));
+		return View::make('gigs.index')->with('gigs', $gigs);
 	}
 
 	/**
@@ -125,18 +125,38 @@ class GigsController extends \BaseController {
             $gig->role_type = Input::get('role_type')
             
 			$gig->name = Input::get('name');
+
 			$gig->gig_desc = Input::get('gig_desc');
+
 			$gig->gig_date = Input::get('gig_date');
+
 			$gig->location = Input::get('location');
+
 			$gig->agent_id = Input::get('agent_id');
 
 			if(Input::hasFile('image')) {
+
 				$file = Input::file('image');
+
 				$destination_path = public_path() . '/img/';
+
 				$filename = str_random(6) . '_' . $file->getClientOriginalName();
+
 				$uploadSuccess = $file->move($destination_path, $filename);
+
 				$user->image_name = '/img/' . $filename;
-			}
+
+			}else{
+				//rewrite to specify a default image filepath
+				$file = Input::file('image');
+
+				$destination_path = public_path() . '/img/';
+
+				$filename = str_random(6) . '_' . $file->getClientOriginalName();
+
+				$uploadSuccess = $file->move($destination_path, $filename);
+
+				$user->image_name = '/img/' . $filename;
 
 			$gig->save();
 	
