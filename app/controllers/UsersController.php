@@ -15,7 +15,7 @@ class UsersController extends \BaseController {
 
 		$query->where('first', 'last', "%search%");
 
-		$query->orWhere('first')
+		$query->orWhere('first');
 		//$users where roletype = 'this'
 
 		//if $users = $agent, {

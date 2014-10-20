@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<<html>
+<html>
 <head>
 	<title>@yield('project title')</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -36,13 +36,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
+        <li class="active"><a href="#">My Profile</a></li>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -80,13 +80,17 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="container">
+
+@yield('content')
+
+</div>
+
+
 <footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 	</script>
-	<script src="js/docs.min.js"></script>
-	<script src="js/moment.js"></script>
-	<script src="js/my_moment_code.js"></script>
 </footer>	
 
 </body>
-</html>>
+</html>

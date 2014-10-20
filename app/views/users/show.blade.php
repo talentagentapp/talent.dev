@@ -6,7 +6,7 @@
 
 	<article>
 		<h1>{{{ $profile->username }}}</h1>
-		<p>{{{ $user->bio }}}</p>
+		<p>{{{ $user->profile }}}</p>
 	</article>
 
 @stop
