@@ -10,15 +10,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/mock', function()
-// <<<<<<< HEAD
-{
-	return View::make('mock');
-});
-// =======
 
 Route::get('/', 'HomeController@showLanding');
-// >>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 
 
 Route::resource('users', 'UsersController');
@@ -29,12 +22,6 @@ Route::resource('users', 'UsersController');
 
 Route::resource('gigs', 'GigsController');
 
-// <<<<<<< HEAD
-// <<<<<<< HEAD
-
-
-
-
 
 // =======
 // Route::get('user/manage', 'ManageAccounts');
@@ -42,4 +29,3 @@ Route::resource('gigs', 'GigsController');
 // =======
 
 Route::get('user/manage', 'ManageAccounts');
-// >>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
