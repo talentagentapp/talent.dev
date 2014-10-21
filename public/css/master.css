@@ -1,0 +1,50 @@
+#contact {
+  color: white ;
+}
+
+
+#topbar {
+  color: white;
+  background: #4f4a41;
+  padding: 10px 0 10px 0;
+  text-align: center;
+  height: 36px;
+  overflow: visible;
+  /*overflow: hidden;*/
+  -webkit-transition: height 0.5s linear;
+  -moz-transition: height 0.5s linear;
+  transition: height 0.5s linear;
+}
+#topbar a {
+  color: #fff;
+  font-size:1.3em;
+  line-height: 1.25em;
+  text-decoration: none;
+  opacity: 0.5;
+  font-weight: bold;
+}
+#topbar a:hover {
+  opacity: 1;
+}
+ 
+#tophiddenbar {
+  display: block;
+  width: 100%;
+  background: #4f4a41;
+  color: #b09f82;
+  font-weight: bold;
+  padding: 8px 0; 
+  font-size: 1.3em;
+  text-align: center;
+  text-shadow: 1px 1px 0 #444;
+}
+#tophiddenbar a {
+  color: #fff;
+  font-size: 1.0em;
+  text-decoration: none;
+  opacity: 0.5;
+  text-shadow: none;
+}
+#tophiddenbar a:hover { opacity: 1; }
+ 
+#topbar:hover { height: 60px; }

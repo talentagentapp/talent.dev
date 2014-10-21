@@ -33,6 +33,7 @@ class UsersController extends \BaseController {
 		//}
 		$users = User::all();
 
+		// create IndexView with variables below
 		return View::make('users.index')->with('users', $users);
 	}
 	/**
@@ -75,7 +76,7 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::findOrFail($id);
-
+		// refers to individual profiles for users
 		return View::make('users.show', compact('user'));
 	}
 	/**
@@ -87,7 +88,7 @@ class UsersController extends \BaseController {
 	public function edit($id)
 	{
 		$user = User::find($id);
-
+		//auth for user "edit" permissions on individual profiles
 		return View::make('users.edit', compact('user'));
 	}
 	/**
@@ -98,6 +99,7 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		// Refers to error messages 
 		$user = User::findOrFail($id);
 
 		$validator = Validator::make($data = Input::all(), User::$rules);
@@ -119,6 +121,7 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
+		// allows user to delete profile
 		User::destroy($id);
 
 		return Redirect::route('users.index');
@@ -142,7 +145,8 @@ class UsersController extends \BaseController {
 			// this would pass the authenticated id if the user is already logged in
 			//$user->user_id = Auth::id();
 
-            $user->role_id = Input::get('role_id');
+			// bool for agent / talent option 
+            $user->talent = Input::get('talent');
 
             $user->group_id = Input::get('group_id');
 
@@ -161,7 +165,7 @@ class UsersController extends \BaseController {
 
             $user->sex = Input::get('sex');
 
-		if ($role_id == 2){
+		if ($role_id == 1){
 
             $talents->dob = Input::get('dob');
 
