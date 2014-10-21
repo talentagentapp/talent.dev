@@ -25,21 +25,18 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      */
     protected $hidden = array('password', 'remember_token');
 
-    // public static $rules = array(
-
-    // );
-
-    const DATE_FORMAT = 'l F jS Y @ g:i a';
-
-    public function role()
-    {
-        return $this->morphTo();
-    }
-    
-    public function comments()
-    {
-        return $this->hasMany('Comment');
-    }
+    public static $rules =
+    [
+        'talent'     => 'required|boolean',
+        'email'      => 'required|email',
+        'username'   => 'required|alpha_dash|min:5|max:25',
+        'password'   => 'required|min:5',
+        'first'      => 'required|alpha',
+        'last'       => 'required|alpha',
+        'img'        => 'image',
+        'experience' => 'required',
+        'sex'        => 'required',
+    ];
 
     public function setPasswordAttribute($value)
     {
@@ -59,6 +56,16 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function getLastAttribute($value)
     {
         return ucfirst($value);
+    }
+
+    public function role()
+    {
+        return $this->morphTo();
+    }
+    
+    public function comments()
+    {
+        return $this->hasMany('Comment');
     }
 
 }

@@ -15,8 +15,6 @@ class AgentsTableSeeder extends Seeder
 		{
 			Agent::create([
                 'company'    => $faker->company,
-                'bio'        => $faker->paragraph($nbSentences = 3),
-                'img'        => $faker->imageUrl($width = 300, $height = 300),
                 'created_at' => $faker->dateTimeThisYear($max = 'now'),
 			]);
 		}
