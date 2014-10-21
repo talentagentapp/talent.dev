@@ -54,7 +54,10 @@
 </head>    
 
 <body>
+<<<<<<< HEAD
 <!--Logic for sliding navbar  -->
+=======
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 <!-- <div class="tophiddenbar" id="tophiddenbar">
     <div class="container">
     	<div id="topbar"><a href="http://designshack.net">Back to Design Shack</a>
@@ -126,6 +129,33 @@
 
 @yield('content')
 
+<<<<<<< HEAD
+=======
+
+<!-- <div><li>
+var number = 0;
+
+if(% 3 == 0);
+{
+	 console.log (Fizz)
+}   elseif (% 5 == 0);
+
+{
+	console.log ("Buzz");
+} elseif (% 3 == 0 && % 5 == 0); 
+
+{
+	console.log ("FizzBuzz"); 
+} 
+
+var number = 1+;
+</li></div>
+
+ -->
+
+
+
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 <footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 	</script>	

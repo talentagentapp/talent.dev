@@ -11,15 +11,18 @@
 |
 */
 Route::get('/mock', function()
+<<<<<<< HEAD
 {
 	return View::make('mock');
 });
+=======
+	{
+		return View::make('mock');
+	});
 
-Route::get('/', function()
-{
-	//use jquery to determine which page redirect happens pending "agent" or "user"
-    return View::make('home', 'HomeController');
-});
+Route::get('/', 'HomeController@showLanding');
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
+
 
 Route::resource('users', 'UsersController');
 //->with('newUserType', $newUserType);
@@ -29,6 +32,7 @@ Route::resource('users', 'UsersController');
 
 Route::resource('gigs', 'GigsController');
 
+<<<<<<< HEAD
 // <<<<<<< HEAD
 
 
@@ -38,3 +42,7 @@ Route::resource('gigs', 'GigsController');
 // =======
 // Route::get('user/manage', 'ManageAccounts');
 // >>>>>>> master
+=======
+
+Route::get('user/manage', 'ManageAccounts');
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63

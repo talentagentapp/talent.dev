@@ -6,11 +6,6 @@ class UsersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-<<<<<<< HEAD
-	
-
-=======
->>>>>>> master
 
 	public function index()
 	{
@@ -21,16 +16,18 @@ class UsersController extends \BaseController {
 
 		// $query->where('first', 'last', "%search%");
 
-<<<<<<< HEAD
-		$query->orWhere('first');
-=======
+
+		//$query->orWhere('first');
+
 		// $query->orWhere('first')
->>>>>>> master
+
 		//$users where roletype = 'this'
 
 		//if $users = $agent, {
 			//$users = 
 		//}
+
+		//**add pagination 
 		$users = User::all();
 
 		// create IndexView with variables below
@@ -75,9 +72,17 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
+<<<<<<< HEAD
 		$user = User::findOrFail($id);
 		// refers to individual profiles for users
 		return View::make('users.show', compact('user'));
+=======
+		$user = User::find($id);
+
+		//write 404 error 
+
+		return View::make('users.show')->with('user', $user);
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 	}
 	/**
 	 * Show the form for editing the specified user.
@@ -87,8 +92,15 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		//**write authentication.
 		$user = User::find($id);
+<<<<<<< HEAD
 		//auth for user "edit" permissions on individual profiles
+=======
+		//**double check next line
+		$talent = User::find('talent');
+
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 		return View::make('users.edit', compact('user'));
 	}
 	/**
@@ -99,8 +111,14 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
+<<<<<<< HEAD
 		// Refers to error messages 
 		$user = User::findOrFail($id);
+=======
+		$user = User::find($id);
+
+		//write a 404 statement for fail
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
@@ -108,7 +126,7 @@ class UsersController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-
+		//I think there's an error here.
 		$user->update($data);
 
 		return Redirect::route('users.index');
@@ -121,7 +139,11 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
+<<<<<<< HEAD
 		// allows user to delete profile
+=======
+		//add some confirmation message
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 		User::destroy($id);
 
 		return Redirect::route('users.index');
@@ -145,7 +167,10 @@ class UsersController extends \BaseController {
 			// this would pass the authenticated id if the user is already logged in
 			//$user->user_id = Auth::id();
 
+<<<<<<< HEAD
 			// bool for agent / talent option 
+=======
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
             $user->talent = Input::get('talent');
 
             $user->group_id = Input::get('group_id');
@@ -165,24 +190,28 @@ class UsersController extends \BaseController {
 
             $user->sex = Input::get('sex');
 
+<<<<<<< HEAD
 		if ($role_id == 1){
+=======
+			if ($talent == 1){
+>>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 
-            $talents->dob = Input::get('dob');
+	            $talents->dob = Input::get('dob');
 
-            $talents->bio = Input::get('bio');
+	            $talents->bio = Input::get('bio');
 
-            $talents->skills = Input::get('skills');
+	            $talents->skills = Input::get('skills');
 
-            $talents->img = Input::get('img');
+	            $talents->img = Input::get('img');
 
-		}else{
+			}else{
 
-            $agents->company = Input::get('company');
+	            $agents->company = Input::get('company');
 
-            $agents->bio = Input::get('bio');
+	            $agents->bio = Input::get('bio');
 
-            $agents->img = Input::get('img');
-		}
+	            $agents->img = Input::get('img');
+			}
 
 			if(Input::hasFile('image')) {
 				$file = Input::file('image');
