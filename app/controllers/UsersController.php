@@ -72,18 +72,13 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-<<<<<<< HEAD
-		$user = User::findOrFail($id);
-		// refers to individual profiles for users
-		return View::make('users.show', compact('user'));
-=======
 		$user = User::find($id);
 
-		//write 404 error 
-
+		//TODO: write 404 error 
 		return View::make('users.show')->with('user', $user);
->>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
+
 	}
+
 	/**
 	 * Show the form for editing the specified user.
 	 *
@@ -94,14 +89,12 @@ class UsersController extends \BaseController {
 	{
 		//**write authentication.
 		$user = User::find($id);
-<<<<<<< HEAD
+
 		//auth for user "edit" permissions on individual profiles
-=======
 		//**double check next line
 		$talent = User::find('talent');
-
->>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 		return View::make('users.edit', compact('user'));
+
 	}
 	/**
 	 * Update the specified user in storage.
@@ -111,15 +104,10 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-<<<<<<< HEAD
 		// Refers to error messages 
-		$user = User::findOrFail($id);
-=======
 		$user = User::find($id);
 
 		//write a 404 statement for fail
->>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
-
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
 		if ($validator->fails())
@@ -139,21 +127,18 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-<<<<<<< HEAD
 		// allows user to delete profile
-=======
 		//add some confirmation message
->>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 		User::destroy($id);
-
 		return Redirect::route('users.index');
+
 	}
 	protected function saveUser(User $user)
 	{
 		$validator = Validator::make(Input::all(),User::$rules);
 		//write an if statement to save user_id 
 		if ($validator->fails()) {
-			//***error message needs to be updated with rules
+		//***error message needs to be updated with rules
 
 
 			Session::flash('errorMessage', 'Your profile must have a username, password...');
@@ -167,10 +152,7 @@ class UsersController extends \BaseController {
 			// this would pass the authenticated id if the user is already logged in
 			//$user->user_id = Auth::id();
 
-<<<<<<< HEAD
 			// bool for agent / talent option 
-=======
->>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
             $user->talent = Input::get('talent');
 
             $user->group_id = Input::get('group_id');
@@ -190,11 +172,10 @@ class UsersController extends \BaseController {
 
             $user->sex = Input::get('sex');
 
-<<<<<<< HEAD
+
 		if ($role_id == 1){
-=======
+
 			if ($talent == 1){
->>>>>>> 8243c866bcf684c7c69a26031781548b9c6cdc63
 
 	            $talents->dob = Input::get('dob');
 
@@ -245,6 +226,7 @@ class UsersController extends \BaseController {
 			Log::info('User was successfully saved', Input::all());
 
 			return Redirect::action('UserController@show',$user->id);
+			}
 		}
 	}
 }
