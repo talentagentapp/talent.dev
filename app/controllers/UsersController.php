@@ -140,7 +140,6 @@ class UsersController extends \BaseController {
 		if ($validator->fails()) {
 		//***error message needs to be updated with rules
 
-
 			Session::flash('errorMessage', 'Your profile must have a username, password...');
 
 			Log::error('Post validator failed', Input::all());

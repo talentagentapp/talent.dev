@@ -2,13 +2,14 @@
 
 class Comment extends BaseModel
 {
-    protected $fillable = [];
+    protected $table = 'comments';
 
     public static $rules =
     [
         'rating'  => 'required|integer',
         'comment' => 'required|alpha_num',
     ];
+
 
     public function users()
     {
