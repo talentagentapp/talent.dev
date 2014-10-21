@@ -19,7 +19,6 @@ class CreateAgentsTable extends Migration
 
             $table->string('company', 255)->nullable();
             $table->text('bio')->nullable();
-            $table->string('img', 255)->nullable();
             $table->timestamps();
         });
     }

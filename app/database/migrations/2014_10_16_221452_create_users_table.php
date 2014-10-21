@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 255);
             $table->string('first', 128);
             $table->string('last', 128);
+            $table->string('img', 255)->nullable();
             $table->enum('experience', ['0-1', '1-5', '5-10', '10+']);
             $table->enum('sex', ['m', 'f', 'not say']);
             $table->rememberToken();
