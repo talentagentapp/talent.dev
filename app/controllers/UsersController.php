@@ -16,16 +16,18 @@ class UsersController extends \BaseController {
 
 		// $query->where('first', 'last', "%search%");
 
-<<<<<<< HEAD
-		$query->orWhere('first');
-=======
+
+		//$query->orWhere('first');
+
 		// $query->orWhere('first')
->>>>>>> master
+
 		//$users where roletype = 'this'
 
 		//if $users = $agent, {
 			//$users = 
 		//}
+
+		//**add pagination 
 		$users = User::all();
 
 		return View::make('users.index')->with('users', $users);
@@ -69,9 +71,11 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$user = User::findOrFail($id);
+		$user = User::find($id);
 
-		return View::make('users.show', compact('user'));
+		//write 404 error 
+
+		return View::make('users.show')->with('user', $user);
 	}
 	/**
 	 * Show the form for editing the specified user.
@@ -81,7 +85,10 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		//**write authentication.
 		$user = User::find($id);
+		//**double check next line
+		$talent = User::find('talent');
 
 		return View::make('users.edit', compact('user'));
 	}
@@ -93,7 +100,9 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$user = User::findOrFail($id);
+		$user = User::find($id);
+
+		//write a 404 statement for fail
 
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
@@ -101,7 +110,7 @@ class UsersController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-
+		//I think there's an error here.
 		$user->update($data);
 
 		return Redirect::route('users.index');
@@ -114,6 +123,7 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
+		//add some confirmation message
 		User::destroy($id);
 
 		return Redirect::route('users.index');
@@ -137,7 +147,7 @@ class UsersController extends \BaseController {
 			// this would pass the authenticated id if the user is already logged in
 			//$user->user_id = Auth::id();
 
-            $user->role_id = Input::get('role_id');
+            $user->talent = Input::get('talent');
 
             $user->group_id = Input::get('group_id');
 
@@ -156,24 +166,24 @@ class UsersController extends \BaseController {
 
             $user->sex = Input::get('sex');
 
-		if ($role_id == 2){
+			if ($talent == 1){
 
-            $talents->dob = Input::get('dob');
+	            $talents->dob = Input::get('dob');
 
-            $talents->bio = Input::get('bio');
+	            $talents->bio = Input::get('bio');
 
-            $talents->skills = Input::get('skills');
+	            $talents->skills = Input::get('skills');
 
-            $talents->img = Input::get('img');
+	            $talents->img = Input::get('img');
 
-		}else{
+			}else{
 
-            $agents->company = Input::get('company');
+	            $agents->company = Input::get('company');
 
-            $agents->bio = Input::get('bio');
+	            $agents->bio = Input::get('bio');
 
-            $agents->img = Input::get('img');
-		}
+	            $agents->img = Input::get('img');
+			}
 
 			if(Input::hasFile('image')) {
 				$file = Input::file('image');

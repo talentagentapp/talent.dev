@@ -16,9 +16,21 @@ class BaseController extends Controller {
     }
 
     //** you might need to add parent::_construct(); to extend the constructor into GigsController and UsersController.
+<<<<<<< HEAD
+    // public function __construct()
+    // {
+    //     // call base controller constructor
+    //     parent::__construct();
+    //     //**Update the authorization to include all views.
+    //     // run auth filter before all methods on this controller except index and show
+        
+    //     $this->beforeFilter('auth', array('except' => array('index', 'show')));
+    // }
+=======
     public function __construct()
     {
         
 
     }
+>>>>>>> e11edd3a8baafb06454b5a550f1e445ebb17afc5
 }
