@@ -7,8 +7,8 @@ class Talent extends BaseModel
     public static $rules =
     [
         'dob'    => 'date',
-        'bio'    => 'alpha',
-        'skills' => 'alpha',
+        'bio'    => 'alpha_num',
+        'skills' => 'alpha_num',
     ];
 
     public function users() 

@@ -6,7 +6,8 @@ class Agent extends BaseModel
 
     public static $rules =
     [
-        'field' => 'ruleForField',
+        'company' => 'alpha_num|required',
+        'bio'     => 'alpha_num',
     ];
 
     public function users()

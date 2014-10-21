@@ -6,7 +6,8 @@ class Comment extends BaseModel
 
     public static $rules =
     [
-        'field' => 'ruleForField',
+        'rating'  => 'required|integer',
+        'comment' => 'required|alpha_num',
     ];
 
     public function users()
