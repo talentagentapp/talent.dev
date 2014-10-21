@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface
+class User extends BaseModel implements UserInterface, RemindableInterface
 {
 
     use UserTrait, RemindableTrait;
@@ -17,11 +17,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
      */
     protected $table = 'users';
 
-    const DATE_FORMAT = 'l F jS Y @ g:i a';
 
-    // public static $rules = array(
-
-    // );
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -29,9 +25,40 @@ class User extends Eloquent implements UserInterface, RemindableInterface
      */
     protected $hidden = array('password', 'remember_token');
 
+    // public static $rules = array(
+
+    // );
+
+    const DATE_FORMAT = 'l F jS Y @ g:i a';
+
     public function role()
     {
         return $this->morphTo();
+    }
+    
+    public function comments()
+    {
+        return $this->hasMany('Comment');
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = strtolower($value);
+    }
+
+    public function getFirstAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getLastAttribute($value)
+    {
+        return ucfirst($value);
     }
 
 }

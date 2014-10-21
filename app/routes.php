@@ -10,12 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/mock', function()
+	{
+		return View::make('mock');
+	});
 
-Route::get('/', function()
-{
-	//use jquery to determine which page redirect happens pending "agent" or "user"
-    return View::make('home', 'HomeController');
-});
+Route::get('/', 'HomeController@showLanding');
+
 
 Route::resource('users', 'UsersController');
 //->with('newUserType', $newUserType);
@@ -24,5 +25,6 @@ Route::resource('users', 'UsersController');
 // //$newUserType refers which kind of user input request, for agent or talent.
 
 Route::resource('gigs', 'GigsController');
+
 
 Route::get('user/manage', 'ManageAccounts');
