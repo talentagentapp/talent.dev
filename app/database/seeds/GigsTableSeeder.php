@@ -14,11 +14,11 @@ class GigsTableSeeder extends Seeder
 		foreach(range(1, 5) as $index)
 		{
 			Gig::create([
-                'name'       => $faker->bs,
-                'gig_desc'   => $faker->paragraph($nbSentences = 3),
-                'gig_date'   => $faker->dateTimeBetween($startDate = 'now', $endDate = '+3 years'),
-                'location'   => $faker->address,
-                'created_at' => $faker->dateTimeThisYear($max = 'now')
+                'name'        => $faker->bs,
+                'description' => $faker->paragraph($nbSentences = 3),
+                'date'        => $faker->dateTimeBetween($startDate = 'now', $endDate = '+3 years'),
+                'location'    => $faker->address,
+                'created_at'  => $faker->dateTimeThisYear($max = 'now')
 			]);
 		}
 	}
