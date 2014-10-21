@@ -4,6 +4,11 @@ class Talent extends BaseModel
 {
     protected $table = 'talents';
 
+    public static $rules =
+    [
+        'field' => 'ruleForField',
+    ];
+
     public function users() 
     {
     	return $this->morphOne('User', 'role');

@@ -25,11 +25,18 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      */
     protected $hidden = array('password', 'remember_token');
 
-    // public static $rules = array(
-
-    // );
-
-    const DATE_FORMAT = 'l F jS Y @ g:i a';
+    public static $rules =
+    [
+        'talent'     => 'required|boolean',
+        'email'      => 'required|email',
+        'username'   => 'required|',
+        'password'   => 'required|',
+        'first'      => 'required|alpha|',
+        'last'       => 'required|alpha|',
+        'img'        => 'image',
+        'experience' => 'required|',
+        'sex'        => 'required|',
+    ];
 
     public function role()
     {

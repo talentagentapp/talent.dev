@@ -2,12 +2,12 @@
 
 class Gig extends BaseModel
 {
-	// Add your validation rules here
-	public static $rules = [
-		// 'foo' => 'required'
-	];
+    protected $table = 'gigs';
 
-	protected $table = 'gigs';
+    public static $rules =
+    [
+        'field' => 'ruleForField',
+    ];
 
     public function agents()
     {

@@ -2,12 +2,17 @@
 
 class Tag extends BaseModel
 {
-   	protected $table = 'tags';
-	//function tags represents relationships, and is polymorphic to 'User' and 'Role' 
+    protected $table = 'tags';
+
+    public static $rules =
+    [
+        'field' => 'ruleForField',
+    ];
+    //function tags represents relationships, and is polymorphic to 'User' and 'Role' 
     public function tags()
     {
-    	// --Not sure about 'role'--
-    	// many to many, maybe polymorphic?
+        // --Not sure about 'role'--
+        // many to many, maybe polymorphic?
         morphMany('User', 'role');
     }
 

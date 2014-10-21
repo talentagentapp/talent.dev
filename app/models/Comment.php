@@ -2,7 +2,12 @@
 
 class Comment extends BaseModel
 {
-	protected $fillable = [];
+    protected $fillable = [];
+
+    public static $rules =
+    [
+        'field' => 'ruleForField',
+    ];
 
     public function users()
     {
