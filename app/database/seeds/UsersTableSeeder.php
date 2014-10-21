@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
                 'first'      => $faker->firstName,
                 'last'       => $faker->lastName,
                 'img'        => $faker->imageUrl($width = 300, $height = 300),
+                'bio'        => $faker->paragraph($nbSentences = 3),
                 'experience' => $faker->randomElement($array = ['0-1','1-5','5-10', '10+']),
                 'sex'        => $faker->randomElement($array = ['m','f','not say']),
                 'created_at' => $faker->dateTimeThisYear($max = 'now'),

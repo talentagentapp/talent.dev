@@ -17,7 +17,6 @@ class CreateTalentsTable extends Migration
             $table->increments('id');
 
             $table->date('dob')->nullable();
-            $table->text('bio')->nullable();
             $table->string('skills', 255)->nullable();
             $table->timestamps();
         });

@@ -15,7 +15,6 @@ class TalentsTableSeeder extends Seeder
 		{
 			Talent::create([
                 'dob'        => $faker->dateTimeBetween($startDate = '-90 years', $endDate = '-18 years'),
-                'bio'        => $faker->paragraph($nbSentences = 3),
                 'skills'     => $faker->sentence($nbWords = 6),
                 'created_at' => $faker->dateTimeThisYear($max = 'now'),
 			]);
