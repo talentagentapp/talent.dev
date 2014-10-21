@@ -171,9 +171,6 @@ class UsersController extends \BaseController {
 
             $user->sex = Input::get('sex');
 
-
-		if ($role_id == 1){
-
 			if ($talent == 1){
 
 	            $talents->dob = Input::get('dob');
