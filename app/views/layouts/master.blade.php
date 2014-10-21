@@ -23,8 +23,6 @@
 </head>    
 
 <body>
-  @yield('content')
-
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -51,7 +49,7 @@
               <ul class="nav navbar-nav">
                   <!--add logic so that login/logout toggles between opposing option, depending on current status -->
                 <li class="active"><li><a href=" ">Login</a>
-                <li><a href="{{{ action('HomeController@doLogout') }}}">Logout</a>  
+                <li><a href=" ">Logout</a>  
                   <!-- create a dropdown menu under the contact me button to include resume, ect -->
                  <li><a href=" ">link</a>
                 <li><a href="#contact">Contact Me</a></li>
@@ -81,11 +79,9 @@
 
       </div>
     </div>
-   
+</div>
 
 @yield('content')
-
-</div>
 
 
 <footer>

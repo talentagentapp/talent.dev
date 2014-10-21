@@ -6,11 +6,6 @@ class UsersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-<<<<<<< HEAD
-	
-
-=======
->>>>>>> master
 
 	public function index()
 	{
