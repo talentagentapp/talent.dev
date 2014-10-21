@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 class BaseModel extends Eloquent
 {
-    const DATE_FORMAT = 'l F jS Y @ g:i a';
+    const DATE_FORMAT = "F jS, Y @ g";
 
     public function getCreatedAtAttribute($value)
     {

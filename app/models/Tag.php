@@ -6,8 +6,9 @@ class Tag extends BaseModel
 
     public static $rules =
     [
-        'field' => 'ruleForField',
+        'tag' => 'required|alpha',
     ];
+    
     //function tags represents relationships, and is polymorphic to 'User' and 'Role' 
     public function tags()
     {

@@ -6,7 +6,9 @@ class Group extends BaseModel
 
     public static $rules =
     [
-        'field' => 'ruleForField',
+        'name'        => 'required|alpha_num',
+        'description' => 'alpha_num',
+        'img'         => 'image',
     ];
 
     public function talents()
