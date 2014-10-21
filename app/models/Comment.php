@@ -2,7 +2,7 @@
 
 class Comment extends BaseModel
 {
-	protected $fillable = [];
+    protected $table = 'comments';
 
     public function users()
     {
