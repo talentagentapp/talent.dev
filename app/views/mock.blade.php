@@ -1,158 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Mock master.blade</title>	
-  <title>@yield('project title')</title>
-  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <!-- css optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+@extends('layouts.master')
 
-  <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="language" content="english">
-    <meta name="description" content="">
-    <meta name="author" content=""> 
+@section('content')
+<div class="container">
+  <div class="row">
+  <h2>Setting Up Your Profile</h2>
+  <hr>
 
-    <link rel="icon" href="../../favicon.ico">
+  {{ Form::open(array('action' => 'UsersController@store', 'files' => true, 'class' => 'form-horizontal', 'id' => "contact-form")) }}
 
-	<!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-	<title>Sliding Box with CSS3 Transitions</title>
-	<meta name="author" content="Jake Rocheleau">
-	<link rel="shortcut icon" href="http://designshack.net/favicon.ico">
-	<link rel="icon" href="http://designshack.net/favicon.ico"> -->
-<!-- 	<link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
- -->
-	<!-- <link rel="stylesheet" type="text/css" media="all" href="css/master.blade.css"> -->
-	                            
+  <div class='form-group'>
+    {{ Form::label('role', 'What is your Role in the entertainment industry:') }} <br>
+    {{ Form::select('role', array('I am a talent Agent or Manager', 'I am the talent')) }}
+  </div>
 
-    @yield('style')
+  <h3>Contact Information</h3>
+  <div class='form-group'>
+    {{ Form::label('first-name', 'First Name:', array('class' => 'col-sm-0 control-label')) }}
+    {{ Form::text('first-name', Input::old('first-name'), array('class' => 'form-control')) }}
+  </div>
 
-    <style>
+  <div class="form-group">
+    {{ Form::label('last-name', 'Last Name:', array('class' => 'col-sm-0 control-label')) }}
+    {{ Form::text('last-name', Input::old('last-name'), array('class' => 'form-control')) }}
+  </div>
 
-	#bg {
-	  position: fixed; 
-	  top: -50%; 
-	  left: -50%; 
-	  width: 200%; 
-	  height: 200%;
-	}
-	#bg img {
-	  position: absolute; 
-	  top: 0; 
-	  left: 0; 
-	  right: 0; 
-	  bottom: 0; 
-	  margin: auto; 
-	  min-width: 50%;
-	  min-height: 50%;
-	}
-    </style>
-</head>    
+  <div class="form-group">
+    {{ Form::label('email', 'E-mail Address:', array('class' => 'col-sm-0 control-label')) }}
+    {{ Form::text('email', Input::old('email'), array('class' => 'form-control')) }}
+  </div>  
 
-<body>
-<!-- <div class="tophiddenbar" id="tophiddenbar">
-    <div class="container">
-    	<div id="topbar"><a href="http://designshack.net">Back to Design Shack</a>
-    	  <li><a href="#contact">Contact Me</a></li>
-        </div> 
-    </div>  
-</div> -->
+  <h3>Profile Information</h3>
+  <div class='form-group'>  
+    {{ Form::label('user', 'Desired Username:', array('class' => 'col-sm-0 control-label')) }}
+    {{ Form::text('user', Input::old('user'), array('class' => 'form-control')) }}
+  </div>  
 
-    <div class="navbar navbar-inverse navbar-static-top" role="navigation"> 
-	    <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" <a href="">Home</a></li>
-            </div>
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><li><a href=" ">Login</a>
-                <li><a href=" ">Logout</a>  
-                  <li><a href=" ">link</a>
-                   <li><a href="#contact">Contact Me</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events Calendar <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">January</a></li>
-                    <li><a href="#">February</a></li>
-                    <li><a href="#">March</a></li>
-                    <li><a href="#">April</a></li>
-                    <li><a href="#">May</a></li>
-                    <li><a href="#">June</a></li>
-                    <li><a href="#">July</a></li>
-                    <li><a href="#">August</a></li>
-                    <li><a href="#">September</a></li>
-                    <li><a href="#">October</a></li>
-                    <li><a href="#">November</a></li>
-                    <li><a href="#">December</a></li>
-                    <li class="divider"></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+  <div class="form-group">
+    <h4>Desired Password :</h4>
+      {{ Form::password('password', array('class' => 'form-control', 'value' => Input::old('password'))) }}
+  </div>
 
-      </div>
+  <div class="form-group">
+    <h4>Please Retype Your Password</h4>
+    {{ Form::password('password', Input::old('password'), array('class' => 'form-control')) }}
+  </div>
+
+
+  <h4>Gender :</h4>
+  <div class='form-group'>
+    {{ Form::select('Gender', array('Male', 'Female')) }}
+  </div> <br>
+
+  <div class="form-group">
+    <div class="col-sm-offset-0 col-sm-12">
+      <button>Submit Form</button>
+      {{-- Form::submit('Submit Form') --}} 
     </div>
-</div>
-	</div>
-	</div>
-	</div>
+  </div>
 
 
-<!-- Sets background image  -->
-<div id="bg">
-  <img src="/img/metropolis_skyline.jpg" alt="">
-</div>
+</div>    
 
-@yield('content')
+{{ Form::close() }}
 
-
-<!-- <div><li>
-var number = 0;
-
-if(% 3 == 0);
-{
-	 console.log (Fizz)
-}   elseif (% 5 == 0);
-
-{
-	console.log ("Buzz");
-} elseif (% 3 == 0 && % 5 == 0); 
-
-{
-	console.log ("FizzBuzz"); 
-} 
-
-var number = 1+;
-</li></div>
-
- -->
-
-
-
-<footer>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
-	</script>	
-</footer>
-
-</body>
-</html>
+@stop

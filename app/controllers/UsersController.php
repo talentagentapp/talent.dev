@@ -30,6 +30,7 @@ class UsersController extends \BaseController {
 		//**add pagination 
 		$users = User::all();
 
+		// create IndexView with variables below
 		return View::make('users.index')->with('users', $users);
 	}
 	/**
@@ -73,10 +74,11 @@ class UsersController extends \BaseController {
 	{
 		$user = User::find($id);
 
-		//write 404 error 
-
+		//TODO: write 404 error 
 		return View::make('users.show')->with('user', $user);
+
 	}
+
 	/**
 	 * Show the form for editing the specified user.
 	 *
@@ -87,10 +89,12 @@ class UsersController extends \BaseController {
 	{
 		//**write authentication.
 		$user = User::find($id);
+
+		//auth for user "edit" permissions on individual profiles
 		//**double check next line
 		$talent = User::find('talent');
-
 		return View::make('users.edit', compact('user'));
+
 	}
 	/**
 	 * Update the specified user in storage.
@@ -100,10 +104,10 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		// Refers to error messages 
 		$user = User::find($id);
 
 		//write a 404 statement for fail
-
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
 		if ($validator->fails())
@@ -123,17 +127,18 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
+		// allows user to delete profile
 		//add some confirmation message
 		User::destroy($id);
-
 		return Redirect::route('users.index');
+
 	}
 	protected function saveUser(User $user)
 	{
 		$validator = Validator::make(Input::all(),User::$rules);
 		//write an if statement to save user_id 
 		if ($validator->fails()) {
-			//***error message needs to be updated with rules
+		//***error message needs to be updated with rules
 
 
 			Session::flash('errorMessage', 'Your profile must have a username, password...');
@@ -147,6 +152,7 @@ class UsersController extends \BaseController {
 			// this would pass the authenticated id if the user is already logged in
 			//$user->user_id = Auth::id();
 
+			// bool for agent / talent option 
             $user->talent = Input::get('talent');
 
             $user->group_id = Input::get('group_id');
@@ -165,6 +171,9 @@ class UsersController extends \BaseController {
             $user->last = Input::get('last');
 
             $user->sex = Input::get('sex');
+
+
+		if ($role_id == 1){
 
 			if ($talent == 1){
 
@@ -217,6 +226,7 @@ class UsersController extends \BaseController {
 			Log::info('User was successfully saved', Input::all());
 
 			return Redirect::action('UserController@show',$user->id);
+			}
 		}
 	}
 }
