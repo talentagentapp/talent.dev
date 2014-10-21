@@ -81,8 +81,8 @@ class GigsController extends \BaseController {
 	public function update($id)
 	{	
 		//**find or fail optional
-		$gig = Gig::findOrFail($id);
-
+		$gig = Gig::find($id);
+		//write a 404 statement for fail
 		return $this->saveGig($gig);
 	}
 

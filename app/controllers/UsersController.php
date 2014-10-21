@@ -89,7 +89,9 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$user = User::findOrFail($id);
+		$user = User::find($id);
+
+		//write a 404 statement for fail
 
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
