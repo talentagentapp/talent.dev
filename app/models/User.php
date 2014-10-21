@@ -29,24 +29,14 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     [
         'talent'     => 'required|boolean',
         'email'      => 'required|email',
-        'username'   => 'required|',
-        'password'   => 'required|',
-        'first'      => 'required|alpha|',
-        'last'       => 'required|alpha|',
+        'username'   => 'required|alpha_dash|min:5|max:25',
+        'password'   => 'required|min:5',
+        'first'      => 'required|alpha',
+        'last'       => 'required|alpha',
         'img'        => 'image',
-        'experience' => 'required|',
-        'sex'        => 'required|',
+        'experience' => 'required',
+        'sex'        => 'required',
     ];
-
-    public function role()
-    {
-        return $this->morphTo();
-    }
-    
-    public function comments()
-    {
-        return $this->hasMany('Comment');
-    }
 
     public function setPasswordAttribute($value)
     {
@@ -66,6 +56,16 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function getLastAttribute($value)
     {
         return ucfirst($value);
+    }
+
+    public function role()
+    {
+        return $this->morphTo();
+    }
+    
+    public function comments()
+    {
+        return $this->hasMany('Comment');
     }
 
 }
