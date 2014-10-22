@@ -174,23 +174,9 @@ class UsersController extends \BaseController {
 				$file = Input::file('image');
 				$destination_path = public_path() . '/img/';
 				$filename = str_random(6) . '_' . $file->getClientOriginalName();
-
 				$uploadSuccess = $file->move($destination_path, $filename);
-
 				$user->image_name = '/img/' . $filename;
-			}
-			//  else {
-			// 	//rewrite to specify a default image filepath
-			// 	$file = Input::file('image');
-
-			// 	$destination_path = public_path() . '/img/';
-
-			// 	$filename = str_random(6) . '_' . $file->getClientOriginalName();
-
-			// 	$uploadSuccess = $file->move($destination_path, $filename);
-
-			// 	$user->image_name = '/img/' . $filename;
-			// }
+				}
 
 			$user->save();
 
@@ -200,7 +186,6 @@ class UsersController extends \BaseController {
 			Log::info($message, Input::all());
 
 			return Redirect::action('UserController@show',$user->id);
-		}
 	}
 }
 
