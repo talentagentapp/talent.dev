@@ -126,10 +126,16 @@
 
 <script>
 
-$talentInputs = $('#talentInputs').hide();
+$talentInputs = $('#talentInputs');
 
-$agentInputs = $('#agentInputs').hide();
+$talentInputs.hide();
 
+
+$agentInputs = $('#agentInputs');
+
+$agentInputs.hide();
+
+//maybe use .change() or .val() or :selected
 function showTalent(){
 	$("#showTalent").click(function(event){
 		event.preventDefault();
@@ -143,7 +149,6 @@ function showAgent(){
 		$("#agentInputs").slideToggle(500)
 	});
 }
-
 </script>
 
 @stop
