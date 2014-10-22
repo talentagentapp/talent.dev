@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h2>Setting Up Your Profile</h2>
-			<hr>
+			<hr>,
 
 			{{ Form::open(array('action' => 'UsersController@store', 'files' => true, 'class' => 'form-horizontal', 'id' => "contact-form")) }}
 
