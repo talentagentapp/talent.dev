@@ -16,7 +16,6 @@
 
 			{{ Form::open(array('action' => 'UsersController@store', 'files' => true, 'class' => 'form-horizontal', 'id' => "contact-form")) }}
 
-
 			<h3>Contact Information</h3>
 			<div class='form-group'>
 				{{ Form::label('first', 'First Name:', array('class' => 'col-sm-0 control-label')) }}
@@ -64,11 +63,16 @@
 				<br>{{ Form::select('sex', array('m' => 'Male', 'f' =>'Female', 'not say' => 'Prefer to leave blank')) }}
 			</div><br>
 
-
 			<div class="form-group">
 				{{ Form::label('experience', 'Please Enter Your Years of Experience in this field:') }}<br>
 				{{ Form::select('experience', array('0-1' => '0-1 Years', '1-5' => '1-5 Years', '5-10' => '5-10 Years', '10+' => '10+ Years')) }}
 				@if ($errors->has('experience')) <p class='help-block'>{{ $errors->first('experience') }}</p> @endif
+			</div><br>
+
+			<div class='form-group'>
+				{{ Form::label('skills', 'What skills do you have pertaining to this field:', array('class' => 'col-sm-0 control-label')) }}
+				{{ Form::text('skills', Input::old('first'), array('class' => 'form-control')) }}
+				@if ($errors->has('skills')) <p class="help-block">{{ $errors->skills('skills') }}</p> @endif
 			</div><br> 
 
 			<div class='form-group'>

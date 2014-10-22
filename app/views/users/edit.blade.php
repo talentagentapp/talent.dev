@@ -71,6 +71,12 @@
 				@if ($errors->has('experience')) <p class='help-block'>{{ $errors->first('experience') }}</p> @endif
 			</div><br> 
 
+			<div class="form-group">
+				{{ Form::label('skills', 'What skills do you have pertaining to this field:', array('	class' => 'col-sm-0 control-label')) }}
+				{{ Form::text('skills', $user->skills, array('class' => 'form-control')) }}
+				@if ($errors->has('skills')) <p class="help-block">{{ $errors->first('skills') }}</p> @endif
+			</div><br>
+
 			<div class='form-group'>
 				{{ Form::label('talent', 'What is your Role in the entertainment industry:') }}<br>
 				{{ Form::select('talent', array('0' => 'I am an Agent or Manager', '1' => 'I am the talent')) }}
@@ -79,8 +85,7 @@
 
 			<div class='form-group'>
 				{{ Form::label('dob', 'Please Enter Your Date Of Birth:', array('class' => 'col-sm-0 control')) }}
-				{{-- Form::date('dob') --}}
-				<br><input type='date' name='dob' class=''>
+				<br><input type='date' name='dob' id='dob' class=''>
 			</div>
 
 

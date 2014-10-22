@@ -115,9 +115,9 @@ class UsersController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 		//I think there's an error here.
-		$user->update($data);
+		return $this->saveUser($user);
 
-		return Redirect::route('users.index');
+		
 	}
 	/**
 	 * Remove the specified user from storage.
@@ -133,7 +133,8 @@ class UsersController extends \BaseController {
 		return Redirect::route('users.index');
 
 	}
-	protected function saveUser($user)
+
+	protected function saveUser(User $user)
 	{
 		$validator = Validator::make(Input::all(),User::$rules);
 		//write an if statement to save user_id 
@@ -153,74 +154,50 @@ class UsersController extends \BaseController {
 			//$user->user_id = Auth::id();
 
 			// bool for agent / talent option 
-			$user->talent = Input::get('talent');
-
-			$user->group_id = Input::get('group_id');
-
-            //role_type should be a drop down, which we will set independently
-			$user->role_type = Input::get('role_type');
-
-			$user->email = Input::get('email');
-
+			$user->talent   = Input::get('talent');
+			$user->email    = Input::get('email');
 			$user->username = Input::get('username');
+			$user->password = Input::get('password');
+			$user->first    = Input::get('first');
+			$user->last     = Input::get('last');
+			$user->sex      = Input::get('sex');
+			$user->bio      = Input::get('bio');
 
-			$user->password = Input::get('password1');
-
-			$user->first = Input::get('first');
-
-			$user->last = Input::get('last');
-
-			$user->sex = Input::get('sex');
-
-			if ($talent == 1) {
-
-				$talents->dob = Input::get('dob');
-
-				$talents->bio = Input::get('bio');
-
-				$talents->skills = Input::get('skills');
-
-				$talents->img = Input::get('img');
-
+			if (Input::get('talent') == 1) {
+				$user->talents()->dob    = Input::get('dob');
+				$user->talents()->skills = Input::get('skills');
 			} else {
-
-				$agents->company = Input::get('company');
-
-				$agents->bio = Input::get('bio');
-
-				$agents->img = Input::get('img');
+				$user->agents()->company = Input::get('company');
 			}
 
 			if(Input::hasFile('image')) {
 				$file = Input::file('image');
-
 				$destination_path = public_path() . '/img/';
-
-				$filename = str_random(6) . '_' . $file->getClientOriginalName();
-
-				$uploadSuccess = $file->move($destination_path, $filename);
-
-				$user->image_name = '/img/' . $filename;
-			} else {
-				//rewrite to specify a default image filepath
-				$file = Input::file('image');
-
-				$destination_path = public_path() . '/img/';
-
 				$filename = str_random(6) . '_' . $file->getClientOriginalName();
 
 				$uploadSuccess = $file->move($destination_path, $filename);
 
 				$user->image_name = '/img/' . $filename;
 			}
+			//  else {
+			// 	//rewrite to specify a default image filepath
+			// 	$file = Input::file('image');
+
+			// 	$destination_path = public_path() . '/img/';
+
+			// 	$filename = str_random(6) . '_' . $file->getClientOriginalName();
+
+			// 	$uploadSuccess = $file->move($destination_path, $filename);
+
+			// 	$user->image_name = '/img/' . $filename;
+			// }
 
 			$user->save();
 
 			$message = 'User was successfully saved';
-
+			
 			Session::flash('successMessage', $message);
-
-			Log::info('User was successfully saved', Input::all());
+			Log::info($message, Input::all());
 
 			return Redirect::action('UserController@show',$user->id);
 		}
