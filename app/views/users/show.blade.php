@@ -1,12 +1,11 @@
-/vagrant/sites/talent.dev/app/views/users/show.blade.php
-
 @extends('layouts.master')
 
-@section('body')
+@section('content')
 
 	<article>
-		<h1>{{{ $profile->username }}}</h1>
-		<p>{{{ $user->profile }}}</p>
+		<header>
+			<!-- <h1>{{{-- $profile->name --}}}</h1> -->
+		</header>
 	</article>
 
 @stop
