@@ -51,12 +51,12 @@ class UsersController extends \BaseController {
 	{
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
-		if ($validator->fails())
-		{
+		if ($validator->fails()) {
+			dd($validator->messages());
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		//write an if statement that uses $user->role_id do save to one users table or another
+		//write an if statement that uses $user->talent do save to one users table or another
 
 		$user = new User;
 
@@ -110,8 +110,7 @@ class UsersController extends \BaseController {
 		//write a 404 statement for fail
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
-		if ($validator->fails())
-		{
+		if ($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 		//I think there's an error here.
@@ -133,7 +132,7 @@ class UsersController extends \BaseController {
 		return Redirect::route('users.index');
 
 	}
-	protected function saveUser(User $user)
+	protected function saveUser($user)
 	{
 		$validator = Validator::make(Input::all(),User::$rules);
 		//write an if statement to save user_id 
@@ -144,50 +143,51 @@ class UsersController extends \BaseController {
 
 			Log::error('Post validator failed', Input::all());
 
-			return Redirect::back()->withInput();
 
-			// ->withErrors($validator));
+			return Redirect::back()->withInput()->withErrors($validator);
+
+			 //);
 		} else {
 			// this would pass the authenticated id if the user is already logged in
 			//$user->user_id = Auth::id();
 
 			// bool for agent / talent option 
-            $user->talent = Input::get('talent');
+			$user->talent = Input::get('talent');
 
-            $user->group_id = Input::get('group_id');
+			$user->group_id = Input::get('group_id');
 
             //role_type should be a drop down, which we will set independently
-            $user->role_type = Input::get('role_type');
-            
-            $user->email = Input::get('email');
+			$user->role_type = Input::get('role_type');
 
-            $user->username = Input::get('username');
+			$user->email = Input::get('email');
 
-            $user->password = Input::get('password');
+			$user->username = Input::get('username');
 
-            $user->first = Input::get('first');
+			$user->password = Input::get('password1');
 
-            $user->last = Input::get('last');
+			$user->first = Input::get('first');
 
-            $user->sex = Input::get('sex');
+			$user->last = Input::get('last');
 
-			if ($talent == 1){
+			$user->sex = Input::get('sex');
 
-	            $talents->dob = Input::get('dob');
+			if ($talent == 1) {
 
-	            $talents->bio = Input::get('bio');
+				$talents->dob = Input::get('dob');
 
-	            $talents->skills = Input::get('skills');
+				$talents->bio = Input::get('bio');
 
-	            $talents->img = Input::get('img');
+				$talents->skills = Input::get('skills');
 
-			}else{
+				$talents->img = Input::get('img');
 
-	            $agents->company = Input::get('company');
+			} else {
 
-	            $agents->bio = Input::get('bio');
+				$agents->company = Input::get('company');
 
-	            $agents->img = Input::get('img');
+				$agents->bio = Input::get('bio');
+
+				$agents->img = Input::get('img');
 			}
 
 			if(Input::hasFile('image')) {
@@ -200,7 +200,7 @@ class UsersController extends \BaseController {
 				$uploadSuccess = $file->move($destination_path, $filename);
 
 				$user->image_name = '/img/' . $filename;
-			}else{
+			} else {
 				//rewrite to specify a default image filepath
 				$file = Input::file('image');
 
@@ -214,7 +214,7 @@ class UsersController extends \BaseController {
 			}
 
 			$user->save();
-	
+
 			$message = 'User was successfully saved';
 
 			Session::flash('successMessage', $message);
@@ -222,7 +222,7 @@ class UsersController extends \BaseController {
 			Log::info('User was successfully saved', Input::all());
 
 			return Redirect::action('UserController@show',$user->id);
-			}
 		}
 	}
 }
+

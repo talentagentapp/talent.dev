@@ -120,9 +120,9 @@
 
 
 <!-- Sets background image  -->
-<div id="bg">
+<!-- <div id="bg">
   <img src="/img/slow_metropolis.gif" alt="">
-</div>
+</div> -->
 
 @yield('content')
 
