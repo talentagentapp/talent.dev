@@ -6,8 +6,8 @@ class Group extends BaseModel
 
     public static $rules =
     [
-        'name'        => 'required|alpha_num',
-        'description' => 'alpha_num',
+        'name'        => 'required',
+        'description' => '',
         'img'         => 'image',
     ];
 

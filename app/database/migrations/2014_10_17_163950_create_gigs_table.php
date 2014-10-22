@@ -18,8 +18,8 @@ class CreateGigsTable extends Migration
 			$table->increments('id');
 			$table->string('name', 128);
 			$table->text('description');
-			$table->date('date');
 			$table->string('location', 256);
+			$table->date('date');
 			$table->timestamps();
 		});
 	}
