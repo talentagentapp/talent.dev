@@ -14,7 +14,7 @@ class GigsController extends \BaseController
         // $search = Input::get('search');
 
         // $query = Gig::with('agent');
-        // $gigs = Gig::all();
+        $gigs = Gig::all();
 
         return View::make('gigs.index')->with('gigs', $gigs);
     }

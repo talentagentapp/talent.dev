@@ -18,17 +18,17 @@
             <div class='form-group'>
                 {{ Form::label('description', 'Description:') }}
                 {{ Form::textarea('description', $gig->description, ['id' => 'description', 'class' => 'form-control']) }}
-                @if ($errors->has('description')) <p class="help-block">{{ $errors->first('description') }}</p> @endif
+                @if($errors->has('description')) <div class="alert alert-danger" role="alert">{{ $errors->first('description') }}</div> @endif
             </div>
             <div class='form-group'>
                 {{ Form::label('location', 'Where is This Event:') }}
                 {{ Form::text('location', $gig->location, ['id' => 'location', 'class' => 'form-control']) }}
-                @if ($errors->has('location')) <p class="help-block">{{ $errors->first('location') }}</p> @endif
+                @if($errors->has('location')) <div class="alert alert-danger" role="alert">{{ $errors->first('location') }}</div> @endif
             </div>
             <div class='from-group'>
                 {{ Form::label('date', 'When is This Occurring:') }}
                 <br><input type='date' name='date' id='date' class='form-control'><br>
-                @if ($errors->has('date')) <p class="help-block">{{ $errors->first('date') }}</p> @endif
+                @if($errors->has('date')) <div class="alert alert-danger" role="alert">{{ $errors->first('date') }}</div> @endif
             </div>
             <div class='from-group'>
                 {{ Form::submit('Update Gig', ['class' => 'btn btn-default']) }}
