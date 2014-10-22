@@ -1,6 +1,7 @@
 <?php
 
-class GigsController extends \BaseController {
+class GigsController extends \BaseController
+{
 
 	/**
 	 * Display a listing of gigs
@@ -50,13 +51,13 @@ class GigsController extends \BaseController {
 	{
 		$gig = Gig::findOrFail($id);
 		$agent_id = $gig->agent_id;
-		$agent = Agent::find($agent_id)
-		if(!$gig){
+		$agent = Agent::find($agent_id);
+
+		if(!$gig) {
 			App:abort(404);
 		}
 
 		return View::make('gigs.show')->with('gig', $gig)->with('agent', $agent);
-			)
 	}
 
 	/**
@@ -117,18 +118,18 @@ class GigsController extends \BaseController {
 			// this would pass the authenticated id if the user is already logged in
 			//$user->user_id = Auth::id();
 
-            $gig->role_id = Input::get('role_id');
+			$gig->role_id = Input::get('role_id');
 
-            $gig->group_id = Input::get('group_id');
+			$gig->group_id = Input::get('group_id');
 
             //role_type should be a drop down, which we will set independently
-            $gig->role_type = Input::get('role_type')
-            
+			$gig->role_type = Input::get('role_type');
+
 			$gig->name = Input::get('name');
 
-			$gig->gig_desc = Input::get('gig_desc');
+			$gig->gig_desc = Input::get('description');
 
-			$gig->gig_date = Input::get('gig_date');
+			$gig->gig_date = Input::get('date');
 
 			$gig->location = Input::get('location');
 
@@ -146,7 +147,7 @@ class GigsController extends \BaseController {
 
 				$user->image_name = '/img/' . $filename;
 
-			}else{
+			} else {
 				//rewrite to specify a default image filepath
 				$file = Input::file('image');
 
@@ -158,15 +159,16 @@ class GigsController extends \BaseController {
 
 				$user->image_name = '/img/' . $filename;
 
-			$gig->save();
-	
-			$message = 'Gig was successfully saved';
+				$gig->save();
 
-			Session::flash('successMessage', $message);
+				$message = 'Gig was successfully saved';
 
-			Log::info('Gig was successfully saved', Input::all());
+				Session::flash('successMessage', $message);
 
-			return Redirect::action('GigController@show',$user->id);
+				Log::info('Gig was successfully saved', Input::all());
+
+				return Redirect::action('GigController@show',$user->id);
+			}
 		}
 	}
 }
