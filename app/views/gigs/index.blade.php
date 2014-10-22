@@ -10,13 +10,18 @@
             <hr>
 
             @forelse($gigs as $gig)
-            <h3>{{{ $gig->name }}}</h3>
+            <article>
+                <h3>{{{ $gig->name }}}</h3>
 
-            <p>What: {{{ $gig->description }}}</p>
+                <address>
+                    By [Agent Name Here].<br>
+                    Where: {{{ $gig->location }}}<br>
+                </address>
 
-            <p>Where: {{{ $gig->location }}}</p>
+                <p>Description: {{{ $gig->description }}}</p>
 
-            <p>When: {{{ $gig->date }}}</p>
+                <p>When: {{{ $gig->date }}}</p>
+            </article>
             @empty
             <p>No mo' gigs.</p>
             @endforelse
