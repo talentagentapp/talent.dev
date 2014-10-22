@@ -6,10 +6,10 @@ class Gig extends BaseModel
 
     public static $rules =
     [
-        'name'        => 'required|alpha_num',
-        'description' => 'alpha_num',
+        'name'        => 'required',
+        'description' => '',
+        'location'    => 'required',
         'date'        => 'required|date',
-        'location'    => 'required|alpha_num',
     ];
 
     public function agents()
