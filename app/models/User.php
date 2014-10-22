@@ -35,7 +35,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         'first'      => 'required|alpha',
         'last'       => 'required|alpha',
         'img'        => 'image',
-        //'experience' => 'required',
+        'experience' => 'required',
         'sex'        => 'required',
     ];
 
