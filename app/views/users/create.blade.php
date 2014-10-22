@@ -98,4 +98,26 @@
 
 	{{ Form::close() }}
 
+<script>
+
+$talentInputs = $('#talentInputs').hide();
+
+$agentInputs = $('#agentInputs').hide();
+
+function showTalent(){
+	$("#showTalent").click(function(event){
+		event.preventDefault();
+		$("#talentInputs").slideToggle(500);
+	});
+}
+
+function showAgent(){
+	$("#showAgent").click(function(event){
+		event.preventDefault();
+		$("#agentInputs").slideToggle(500)
+	});
+}
+
+</script>
+
 	@stop

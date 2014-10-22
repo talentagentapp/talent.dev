@@ -134,24 +134,6 @@ class UsersController extends \BaseController {
 	}
 	protected function saveUser($user)
 	{
-		$validator = Validator::make(Input::all(),User::$rules);
-		//write an if statement to save user_id 
-		if ($validator->fails()) {
-		//***error message needs to be updated with rules
-
-			Session::flash('errorMessage', 'Your profile must have a username, password...');
-
-			Log::error('Post validator failed', Input::all());
-
-
-			return Redirect::back()->withInput()->withErrors($validator);
-
-			 //);
-		} else {
-			// this would pass the authenticated id if the user is already logged in
-			//$user->user_id = Auth::id();
-
-			// bool for agent / talent option 
 			$user->talent = Input::get('talent');
 
 			$user->group_id = Input::get('group_id');
@@ -171,7 +153,11 @@ class UsersController extends \BaseController {
 
 			$user->sex = Input::get('sex');
 
-			if ($talent == 1) {
+			$talent = Input::get('talent');
+
+			//TODO: when javascript is written in to the create blade then we can have add the new inputs
+
+			// if ($talent == 1) {
 
 				$talents->dob = Input::get('dob');
 
@@ -179,39 +165,39 @@ class UsersController extends \BaseController {
 
 				$talents->skills = Input::get('skills');
 
-				$talents->img = Input::get('img');
+				// $talents->img = Input::get('img');
 
-			} else {
+			// } else {
 
 				$agents->company = Input::get('company');
 
 				$agents->bio = Input::get('bio');
 
 				$agents->img = Input::get('img');
-			}
+			// }
 
-			if(Input::hasFile('image')) {
-				$file = Input::file('image');
+			// if(Input::hasFile('image')) {
+			// 	$file = Input::file('image');
 
-				$destination_path = public_path() . '/img/';
+			// 	$destination_path = public_path() . '/img/';
 
-				$filename = str_random(6) . '_' . $file->getClientOriginalName();
+			// 	$filename = str_random(6) . '_' . $file->getClientOriginalName();
 
-				$uploadSuccess = $file->move($destination_path, $filename);
+				// $uploadSuccess = $file->move($destination_path, $filename);
 
-				$user->image_name = '/img/' . $filename;
-			} else {
-				//rewrite to specify a default image filepath
-				$file = Input::file('image');
+				// $user->image_name = '/img/' . $filename;
+			// } else {
+			// 	//rewrite to specify a default image filepath
+			// 	$file = Input::file('image');
 
-				$destination_path = public_path() . '/img/';
+			// 	$destination_path = public_path() . '/img/';
 
-				$filename = str_random(6) . '_' . $file->getClientOriginalName();
+			// 	$filename = str_random(6) . '_' . $file->getClientOriginalName();
 
-				$uploadSuccess = $file->move($destination_path, $filename);
+			// 	$uploadSuccess = $file->move($destination_path, $filename);
 
-				$user->image_name = '/img/' . $filename;
-			}
+			// 	$user->image_name = '/img/' . $filename;
+			// }
 
 			$user->save();
 
@@ -222,7 +208,6 @@ class UsersController extends \BaseController {
 			Log::info('User was successfully saved', Input::all());
 
 			return Redirect::action('UserController@show',$user->id);
-		}
 	}
 }
 
