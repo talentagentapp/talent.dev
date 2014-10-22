@@ -93,7 +93,8 @@ class UsersController extends \BaseController {
 		//auth for user "edit" permissions on individual profiles
 		//**double check next line
 		$talent = User::find('talent');
-		return View::make('users.edit', compact('user'));
+		$agent = User::find('agent');
+		return View::make('users.edit')->with('user', $user);
 
 	}
 	/**

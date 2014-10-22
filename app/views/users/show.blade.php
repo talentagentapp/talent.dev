@@ -5,7 +5,7 @@
 @section('body')
 
 	<article>
-		<h1>{{{ $profile->username }}}</h1>
+		<!-- <h1>{{{ $profile->username }}}</h1> -->
 		<p>{{{ $user->profile }}}</p>
 	</article>
 
