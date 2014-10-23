@@ -50,20 +50,16 @@ class UsersController extends \BaseController
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), User::$rules);
+		// $validator = Validator::make($data = Input::all(), User::$rules);
 
-		if ($validator->fails()) {
-			dd($validator->messages());
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
+		// if ($validator->fails()) {
+		// 	dd($validator->messages());
+		// 	return Redirect::back()->withErrors($validator)->withInput();
+		// }
 
 		//write an if statement that uses $user->talent do save to one users table or another
 
 		$user = new User;
-		$talent = new Talent;
-		$agent  = new Agent;
-
-
 
 		return $this->saveUser($user);
 
@@ -119,7 +115,6 @@ class UsersController extends \BaseController
 		if ($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-		//I think there's an error here.
 		return $this->saveUser($user);
 
 		
@@ -160,6 +155,7 @@ class UsersController extends \BaseController
 			//$user->user_id = Auth::id();
 
 			// bool for agent / talent option 
+
 			$user->talent   = Input::get('talent');
 			$user->email    = Input::get('email');
 			$user->username = Input::get('username');
@@ -169,35 +165,37 @@ class UsersController extends \BaseController
 			$user->sex      = Input::get('sex');
 			$user->bio      = Input::get('bio');
 
-			$user->save;
+			$user->save();
 
 			if (Input::get('talent') == 1) {
 				$talent = new Talent();
 
-				$user->talent()->dob     = Input::get('dob');
-				$user->talent()->skills  = Input::get('skills');
+				$talent->dob     = Input::get('dob');
+				$talent->skills  = Input::get('skills');
+				$talent->user_id = $user->id;
+				$talent->save();
 
 				// $user->role = $talent;
 			} else {
+				$agent = new Agent();
 				$agent->company = Input::get('company');
+				$agent->user_id = $user->id;
+				$agent->save();
 			}
 
-			// if(Input::hasFile('image')) {
-			// 	$file = Input::file('image');
-			// 	$destination_path = public_path() . '/img/';
-			// 	$filename = str_random(6) . '_' . $file->getClientOriginalName();
-			// 	$uploadSuccess = $file->move($destination_path, $filename);
-			// 	$user->image_name = '/img/' . $filename;
-			// }
-
-			$user->save();
+			if(Input::hasFile('image')) {
+				$file = Input::file('image');
+				$destination_path = public_path() . '/img/';
+				$filename = str_random(6) . '_' . $file->getClientOriginalName();
+				$uploadSuccess = $file->move($destination_path, $filename);
+				$user->image_name = '/img/' . $filename;
+			}
 
 			$message = 'User was successfully saved';
 			
 			Session::flash('successMessage', $message);
 			Log::info($message, Input::all());
 
-			// return Redirect::action('UserController@show',$user->id);
+			return Redirect::action('UsersController@show',$user->id);
 		}
-	}
-// }
+}
