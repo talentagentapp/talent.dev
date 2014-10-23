@@ -21,7 +21,7 @@
            <script type="text/javascript">
            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'talentapp'; // required: replace example with your forum shortname
-        var disqus_identifier = '{{ $gig->id }}';
+        var disqus_identifier = '{{ 'gig_' . $gig->id }}';
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
