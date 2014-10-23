@@ -52,17 +52,11 @@ class UsersController extends \BaseController
 	{
 		// $validator = Validator::make($data = Input::all(), User::$rules);
 
-<<<<<<< HEAD
-		if ($validator->fails()) {
-		($validator->messages());
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-=======
+
 		// if ($validator->fails()) {
-		// 	dd($validator->messages());
+		//  dd($validator->messages());
 		// 	return Redirect::back()->withErrors($validator)->withInput();
 		// }
->>>>>>> master
 
 		//write an if statement that uses $user->talent do save to one users table or another
 
