@@ -59,6 +59,27 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         return ucfirst($value);
     }
 
+    public function getSexAttribute($value)
+    {
+        switch ($value) {
+            case 'm':
+                return 'Male'
+                break;
+
+            case 'f':
+                return 'Female'
+                break;
+
+            case 'not say':
+                return "I'd rather not say."
+                break;
+            
+            default:
+                return 'Sex'
+                break;
+        }
+    }
+
     public function role()
     {
         return $this->morphTo();
