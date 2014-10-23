@@ -1,6 +1,7 @@
 <?php
 
-class UsersController extends \BaseController {
+class UsersController extends \BaseController
+{
 	/**
 	 * Display a listing of users
 	 *
@@ -164,10 +165,10 @@ class UsersController extends \BaseController {
 			$user->bio      = Input::get('bio');
 
 			if (Input::get('talent') == 1) {
-				$user->talents()->dob    = Input::get('dob');
-				$user->talents()->skills = Input::get('skills');
+				$user->talents->dob    = Input::get('dob');
+				$user->talents->skills = Input::get('skills');
 			} else {
-				$user->agents()->company = Input::get('company');
+				$agent->company = Input::get('company');
 			}
 
 			if(Input::hasFile('image')) {
@@ -176,7 +177,7 @@ class UsersController extends \BaseController {
 				$filename = str_random(6) . '_' . $file->getClientOriginalName();
 				$uploadSuccess = $file->move($destination_path, $filename);
 				$user->image_name = '/img/' . $filename;
-				}
+			}
 
 			$user->save();
 
@@ -186,6 +187,6 @@ class UsersController extends \BaseController {
 			Log::info($message, Input::all());
 
 			return Redirect::action('UserController@show',$user->id);
+		}
 	}
 }
-
