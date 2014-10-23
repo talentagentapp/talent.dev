@@ -53,7 +53,7 @@ class UsersController extends \BaseController
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
 		if ($validator->fails()) {
-			dd($validator->messages());
+		($validator->messages());
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -170,7 +170,17 @@ class UsersController extends \BaseController
 			} else {
 				$agent->company = Input::get('company');
 			}
+			// =======================
+			// if (Input::get('talent') == 1) {
+			// 	$user->talents->dob    = Input::get('dob');
+			// 	$user->talents->skills = Input::get('skills');
+			// } elseif (Input::get('talent') == 0) {
 
+			//   	$agent->agents->company = Input::get('company');
+			//   }
+
+		 // }
+			// =======================
 			if(Input::hasFile('image')) {
 				$file = Input::file('image');
 				$destination_path = public_path() . '/img/';

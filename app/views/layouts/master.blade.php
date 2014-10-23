@@ -28,6 +28,12 @@
   @yield('style')
 
   <style>
+  .container
+  {
+    /*background-color: black;*/
+    color: white;
+  }
+
   #bg
   {
     position: fixed; 
@@ -52,6 +58,13 @@
   {
     margin: 50px 0;
   }
+
+   <!-- Sets background image  -->
+ /* body 
+  {
+    background-image: url(/img/slow_metropolis.gif);
+  }*/
+
   </style>
 </head>    
 <body>
@@ -112,9 +125,9 @@
   </nav>
 
   <!-- Sets background image  -->
-<!-- <div id="bg">
+<div id="bg">
   <img src="/img/slow_metropolis.gif" alt="">
-</div> -->
+</div>
 
 @yield('content')
 
