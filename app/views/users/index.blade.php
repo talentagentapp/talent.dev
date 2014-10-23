@@ -1,4 +1,3 @@
-/vagrant/sites/talent.dev/app/views/users/index.blade.php
 @extends('layouts.master')
 
 
