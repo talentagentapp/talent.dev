@@ -1,24 +1,19 @@
-/vagrant/sites/talent.dev/app/views/users/index.blade.php
 @extends('layouts.master')
 
+@section('title', 'Users Index')
 
 @section('body')
+<div class="container">
+	<div class='row'>
+		<div class='col-md-12'>
+			@forelse($users as $user)
+			<h3>{{{ $user->first . ' ' . $user->last }}}</h3>
 
-	<div class="container">
-		{{{ Form::open() }}}
-
-		<div>
-			{{ Form::label('Search', 'search') }}
-		</div>	
-		<div>
-			{{ Form::text('search', Input::get('search')) }}
-		</div>	
-
-
-		{{{ Form::close() }}}
+			<h6>{{{ $user->skills }}}</h6>
+			@empty
+			<p>No mo' users.</p>
+			@endforelse
+		</div>
 	</div>
-
-    <!--Create logic below to iterate through individual user profiles-->
-    
-
+</div>
 @stop
