@@ -138,7 +138,7 @@ class GigsController extends \BaseController
             Session::flash('successMessage', $message);
             Log::info($message, Input::all());
 
-            return Redirect::action('GigsController@show', $user->id);
+            return Redirect::action('GigsController@show', $gig->id);
         }
     }
 }
