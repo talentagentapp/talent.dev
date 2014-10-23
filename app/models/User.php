@@ -38,7 +38,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         'experience' => 'required',
         'sex'        => 'required',
     ];
-
+    //=========================attributes===========================
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
@@ -58,12 +58,12 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     {
         return ucfirst($value);
     }
+    //========================relationships=========================
 
     public function role()
     {
         return $this->morphTo();
     }
-    
     public function comments()
     {
         return $this->hasMany('Comment');

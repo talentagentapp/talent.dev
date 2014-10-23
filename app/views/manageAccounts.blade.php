@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
+{{--Ch--}}
+
 <div class="container">
 	<div class='row'>
 		<div class='col-md-12'>
@@ -15,8 +17,10 @@
 					</tr>
 				</thead>
 				<tbody>
+					{{{ Form::open(array('route'=>'UsersController@destroy')) }}}
 					@forelse($users as $user)
 					<tr>
+						<button>Delete User(s)</button>
 						<td><input type="checkbox" name={{{$user->id}}}></td>
 						<td><a href="{{{action('UsersController@show', $user->id)}}}">{{{$user->username}}}</a></td>
 						<td>{{{$user->last}}}</td>
@@ -26,6 +30,7 @@
 					@empty
 					<p>No mo' users.</p>
 					@endforelse
+					{{{ Form::close() }}}
 				</tbody>
 			</table>
 		</div>

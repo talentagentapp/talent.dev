@@ -50,12 +50,19 @@ class UsersController extends \BaseController
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), User::$rules);
+		// $validator = Validator::make($data = Input::all(), User::$rules);
 
+<<<<<<< HEAD
 		if ($validator->fails()) {
 		($validator->messages());
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
+=======
+		// if ($validator->fails()) {
+		// 	dd($validator->messages());
+		// 	return Redirect::back()->withErrors($validator)->withInput();
+		// }
+>>>>>>> master
 
 		//write an if statement that uses $user->talent do save to one users table or another
 
@@ -115,7 +122,6 @@ class UsersController extends \BaseController
 		if ($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-		//I think there's an error here.
 		return $this->saveUser($user);
 
 		
@@ -137,24 +143,26 @@ class UsersController extends \BaseController
 
 	protected function saveUser(User $user)
 	{
-		$validator = Validator::make(Input::all(),User::$rules);
-		//write an if statement to save user_id 
-		if ($validator->fails()) {
-		//***error message needs to be updated with rules
 
-			Session::flash('errorMessage', 'Your profile must have a username, password...');
+		// $validator = Validator::make(Input::all(),User::$rules);
+		// //write an if statement to save user_id 
+		// if ($validator->fails()) {
+		// //***error message needs to be updated with rules
 
-			Log::error('Post validator failed', Input::all());
+		// 	Session::flash('errorMessage', 'Your profile must have a username, password...');
+
+		// 	Log::error('Post validator failed', Input::all());
 
 
-			return Redirect::back()->withInput()->withErrors($validator);
+		// 	return Redirect::back()->withInput()->withErrors($validator);
 
 			 //);
-		} else {
+		// } else {
 			// this would pass the authenticated id if the user is already logged in
 			//$user->user_id = Auth::id();
 
 			// bool for agent / talent option 
+
 			$user->talent   = Input::get('talent');
 			$user->email    = Input::get('email');
 			$user->username = Input::get('username');
@@ -164,11 +172,22 @@ class UsersController extends \BaseController
 			$user->sex      = Input::get('sex');
 			$user->bio      = Input::get('bio');
 
+			$user->save();
+
 			if (Input::get('talent') == 1) {
-				$user->talents->dob    = Input::get('dob');
-				$user->talents->skills = Input::get('skills');
+				$talent = new Talent();
+
+				$talent->dob     = Input::get('dob');
+				$talent->skills  = Input::get('skills');
+				$talent->user_id = $user->id;
+				$talent->save();
+
+				// $user->role = $talent;
 			} else {
+				$agent = new Agent();
 				$agent->company = Input::get('company');
+				$agent->user_id = $user->id;
+				$agent->save();
 			}
 			// =======================
 			// if (Input::get('talent') == 1) {
@@ -189,14 +208,11 @@ class UsersController extends \BaseController
 				$user->image_name = '/img/' . $filename;
 			}
 
-			$user->save();
-
 			$message = 'User was successfully saved';
 			
 			Session::flash('successMessage', $message);
 			Log::info($message, Input::all());
 
-			return Redirect::action('UserController@show',$user->id);
+			return Redirect::action('UsersController@show',$user->id);
 		}
-	}
 }
