@@ -10,6 +10,7 @@ class Talent extends BaseModel
         'bio'    => '',
         'skills' => '',
     ];
+    
 //============================relationships===========================
     public function user() 
     {

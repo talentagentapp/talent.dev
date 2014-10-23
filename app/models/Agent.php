@@ -9,6 +9,7 @@ class Agent extends BaseModel
         'company' => 'required',
         'bio'     => '',
     ];
+    
 //=============================relationships=============================
     public function user()
     {
