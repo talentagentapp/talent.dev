@@ -9,8 +9,8 @@ class Agent extends BaseModel
         'company' => 'required',
         'bio'     => '',
     ];
-
-    public function users()
+//=============================relationships=============================
+    public function user()
     {
         return $this->morphOne('User', 'role');
     }
