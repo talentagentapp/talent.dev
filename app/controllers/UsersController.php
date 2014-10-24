@@ -124,19 +124,18 @@ class UsersController extends \BaseController
 	protected function saveUser(User $user)
 	{
 		//====================begin validator===================
-		// $validator = Validator::make(Input::all(),User::$rules);
-		// //write an if statement to save user_id 
-		// if ($validator->fails()) {
-		// //***error message needs to be updated with rules
 
-		// 	Session::flash('errorMessage', 'Your profile must have a username, password...');
+		$validator = Validator::make(Input::all(),User::$rules);
 
-		// 	Log::error('Post validator failed', Input::all());
+		if ($validator->fails()) {
 
+			Session::flash('errorMessage', 'Your did it wrong');
 
-		// 	return Redirect::back()->withInput()->withErrors($validator);
+			Log::error('User validator failed', Input::all());
 
-		// } else {
+			return Redirect::back()->withInput();
+
+		} else {
 
 			$user->id       = Auth::id();
 
@@ -167,7 +166,7 @@ class UsersController extends \BaseController
 				$agent->company = Input::get('company');
 				$agent->user_id = $user->id;
 				$agent->save();
-			// } this closes the validator
+			} 
 
 			// =======================end validator====================
 			//this can be a method in a model
