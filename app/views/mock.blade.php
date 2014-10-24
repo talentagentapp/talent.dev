@@ -1,26 +1,82 @@
 @extends('layouts.master')
 
-@section('body')
+@section('title', "Landing")
 
-  <div class="container">
+<style>
+  /*refactor to correctly enable*/
+ /* .content
+  {
+    background-color: black;
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+  }
+*/
+  #bg
+  {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+  }
+  #bg img
+  {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+  }
 
-    {{{ Form::open() }}}
+  footer
+  {
+    margin: 50px 0;
+  }
 
-    <div>
-      {{ Form::file('image') }}
-     </div>
-      
-    <!-- <div>
-      {{-- Form::label('Search', 'search') --}}
+   <!-- Sets background image  -->
+  body 
+  /*{
+    background-image: url(/img/movie_projector.gif);
+  }*/
 
-      {{-- Form::text('search', Input::get('search')) --}}
-    </div>  
- -->
 
-    {{{ Form::close() }}}
+@section('content')
+
+<div class="container">
+  <div class="row">
+     {{ Form::open(array('action' => 'HomeController@doLogin', 'class' => 'form-horizontal', 'id' => 'login-page')) }}
+    <div class="form-group">
+      {{ Form::label('username', 'Username:', array('class' => "col-sm-1 control-label")) }}
+      <div class="col-sm-4">
+        {{ Form::text('username', Input::old('username'), array('class' => "form-control")) }}
+      </div>
+    </div>
+    <div class="form-group">
+      {{ Form::label('password', 'Password:', array('class' => "col-sm-1 control-label")) }}
+      <div class='col-sm-4'>
+        {{ Form::password('password', array('class' => 'form-control')) }}
+      </div>
+    </div>
   </div>
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-10">
+      <div class="checkbox">
+         {{ Form::checkbox('Remember me', 'yes', true) }}
+      </div>
+    </div>
+  </div>
+  <div class="form-group">    
+    <div class="form-group">
+      {{ Form::submit('Login', ['class' => 'btn btn-default']) }}
+    </div>
+  </div>
+</form> 
 
-    <!--Create logic below to iterate through individual user profiles-->
-    
+</div> 
 
 @stop

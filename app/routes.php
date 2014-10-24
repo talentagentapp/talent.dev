@@ -12,7 +12,6 @@
 */
 Route::get('/', 'HomeController@showLanding');
 
-
 Route::resource('users', 'UsersController');
 //->with('newUserType', $newUserType);
 // //if you have a landing page that directs you to the index, then:
