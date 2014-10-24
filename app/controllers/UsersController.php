@@ -10,29 +10,23 @@ class UsersController extends \BaseController
 
 	public function index()
 	{
-		//$search and $query are for a future search feature
 		// $search = Input::get('search');
 
 		// $query = User::with('user');
 
-		// $query->where('first', 'last', "%search%");
+		// $query->where('  ', 'like', "%$search%");
 
+		// $query->orWhere('   ', 'like', "%$search%");
 
-		//$query->orWhere('first');
+		// $users = $query->orderBy('created_at', 'desc')->paginate(4);
 
-		// $query->orWhere('first')
+		// return View::make('users.index')->with('users', $users);
 
-		//$users where roletype = 'this'
+		$users = User::all()->paginate(4);
 
-		//if $users = $agent, {
-			//$users = 
-		//}
-
-		//**add pagination 
-		$users = User::all();
+		return View::make('users.index')->with('users', $users);
 
 		// create IndexView with variables below
-		return View::make('users.index')->with('users', $users);
 	}
 	/**
 	 * Show the form for creating a new user
@@ -63,6 +57,10 @@ class UsersController extends \BaseController
 	public function show($id)
 	{
 		$user = User::find($id);
+
+		if(!$user){
+			App::abort(404);
+		}
 
 		//TODO: write 404 error 
 		return View::make('users.show')->with('user', $user);
@@ -116,6 +114,10 @@ class UsersController extends \BaseController
 	{
 		//allows user to delete profile
 		//add some confirmation message
+		$user = User::find($id);
+		if(!$user){
+			App::abort(404);
+		}
 		User::destroy($id);
 		return Redirect::route('users.index');
 
@@ -125,32 +127,26 @@ class UsersController extends \BaseController
 	{
 		//====================begin validator===================
 
-		$validator = Validator::make(Input::all(),User::$rules);
+		$user->talent   = Input::get('talent');
+		$user->email    = Input::get('email');
+		$user->username = Input::get('username');
+		$user->password = Input::get('password');
+		$user->first    = Input::get('first');
+		$user->last     = Input::get('last');
+		$user->sex      = Input::get('sex');
+		$user->bio      = Input::get('bio');
 
-		if ($validator->fails()) {
+		if (!$user->save()) {
 
-			Session::flash('errorMessage', 'Your did it wrong');
+			Session::flash('errorMessage', 'You did it wrong');
 
 			Log::error('User validator failed', Input::all());
 
-			return Redirect::back()->withInput();
+			return Redirect::back()->withInput()->withErrors($user->getErrors());
 
 		} else {
 
-			$user->id       = Auth::id();
-
 			// bool for agent / talent option 
-
-			$user->talent   = Input::get('talent');
-			$user->email    = Input::get('email');
-			$user->username = Input::get('username');
-			$user->password = Input::get('password');
-			$user->first    = Input::get('first');
-			$user->last     = Input::get('last');
-			$user->sex      = Input::get('sex');
-			$user->bio      = Input::get('bio');
-
-			$user->save();
 
 			if (Input::get('talent') == 1) {
 				$talent = new Talent();
@@ -158,14 +154,23 @@ class UsersController extends \BaseController
 				$talent->dob     = Input::get('dob');
 				$talent->skills  = Input::get('skills');
 				$talent->user_id = $user->id;
-				$talent->save();
+				if(!$talent->save()){
+					Session::flash('errorMessage', 'You did it wrong');
+
+					Log::error('Talent validator failed', Input::all());
+				}
 
 				// $user->role = $talent;
 			} else {
-				$agent = new Agent();
+				$agent = new Agent()
+
 				$agent->company = Input::get('company');
 				$agent->user_id = $user->id;
-				$agent->save();
+				if(!$agent->save()){
+					Session::flash('errorMessage', 'You did it wrong');
+
+					Log::error('Agent validator failed', Input::all());
+				}
 			} 
 
 			// =======================end validator====================
