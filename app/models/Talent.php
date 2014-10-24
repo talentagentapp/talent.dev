@@ -4,7 +4,7 @@ class Talent extends BaseModel
 {
     protected $table = 'talents';
 
-    public static $rules =
+    public $rules =
     [
         'dob'    => 'date',
         'bio'    => '',

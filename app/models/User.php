@@ -10,6 +10,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
     use UserTrait, RemindableTrait;
 
+
+
     /**
      * The database table used by the model.
      *
@@ -25,7 +27,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      */
     protected $hidden = array('password', 'remember_token');
 
-    public static $rules =
+    public $rules =
     [
         'talent'     => 'required|in:0,1',
         'email'      => 'required|email',
@@ -40,10 +42,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     ];
 
     //=========================attributes===========================
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);
-    }
+
+    protected $hashable = ['password'];
 
     public function setEmailAttribute($value)
     {

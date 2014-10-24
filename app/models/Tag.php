@@ -4,7 +4,7 @@ class Tag extends BaseModel
 {
     protected $table = 'tags';
 
-    public static $rules =
+    public $rules =
     [
         'tag' => 'required|alpha',
     ];

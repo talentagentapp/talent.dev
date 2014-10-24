@@ -50,21 +50,9 @@ class UsersController extends \BaseController
 	 */
 	public function store()
 	{
-		// $validator = Validator::make($data = Input::all(), User::$rules);
-
-
-		// if ($validator->fails()) {
-		//  dd($validator->messages());
-		// 	return Redirect::back()->withErrors($validator)->withInput();
-		// }
-
-		//write an if statement that uses $user->talent do save to one users table or another
-
 		$user = new User;
 
 		return $this->saveUser($user);
-
-
 	}
 	/**
 	 * Display the specified user.
@@ -117,8 +105,6 @@ class UsersController extends \BaseController
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 		return $this->saveUser($user);
-
-		
 	}
 	/**
 	 * Remove the specified user from storage.
@@ -128,7 +114,7 @@ class UsersController extends \BaseController
 	 */
 	public function destroy($id)
 	{
-		// allows user to delete profile
+		//allows user to delete profile
 		//add some confirmation message
 		User::destroy($id);
 		return Redirect::route('users.index');
@@ -137,7 +123,7 @@ class UsersController extends \BaseController
 
 	protected function saveUser(User $user)
 	{
-
+		//====================begin validator===================
 		// $validator = Validator::make(Input::all(),User::$rules);
 		// //write an if statement to save user_id 
 		// if ($validator->fails()) {
@@ -150,10 +136,9 @@ class UsersController extends \BaseController
 
 		// 	return Redirect::back()->withInput()->withErrors($validator);
 
-			 //);
 		// } else {
-			// this would pass the authenticated id if the user is already logged in
-			//$user->user_id = Auth::id();
+
+			$user->id       = Auth::id();
 
 			// bool for agent / talent option 
 
@@ -182,18 +167,10 @@ class UsersController extends \BaseController
 				$agent->company = Input::get('company');
 				$agent->user_id = $user->id;
 				$agent->save();
-			}
-			// =======================
-			// if (Input::get('talent') == 1) {
-			// 	$user->talents->dob    = Input::get('dob');
-			// 	$user->talents->skills = Input::get('skills');
-			// } elseif (Input::get('talent') == 0) {
+			// } this closes the validator
 
-			//   	$agent->agents->company = Input::get('company');
-			//   }
-
-		 // }
-			// =======================
+			// =======================end validator====================
+			//this can be a method in a model
 			if(Input::hasFile('image')) {
 				$file = Input::file('image');
 				$destination_path = public_path() . '/img/';
@@ -209,4 +186,5 @@ class UsersController extends \BaseController
 
 			return Redirect::action('UsersController@show',$user->id);
 		}
+	}
 }

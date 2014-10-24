@@ -4,7 +4,7 @@ class Comment extends BaseModel
 {
     protected $table = 'comments';
 
-    public static $rules =
+    public $rules =
     [
         'rating'  => 'required|integer',
         'comment' => 'required',

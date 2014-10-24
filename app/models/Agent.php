@@ -4,7 +4,7 @@ class Agent extends BaseModel
 {
     protected $table = 'agents';
 
-    public static $rules =
+    public $rules =
     [
         'company' => 'required',
         'bio'     => '',
