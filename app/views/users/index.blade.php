@@ -4,6 +4,8 @@
 
 @section('content')
 <div class="container">
+    <h1>Our Users</h1>
+    <hr>
     @forelse($users as $user)
     <div class='row'>
         <div class='col-md-4'>

@@ -21,12 +21,13 @@ Route::resource('users', 'UsersController');
 
 Route::resource('gigs', 'GigsController');
 
-Route::get('/manageAccounts', function(){
-		
-		$users = User::all();
+Route::get('/admin', function()
+{
+
+  $users = User::all();
 
 		// create IndexView with variables below
-		return View::make('manageAccounts')->with('users', $users);
+  return View::make('manageAccounts')->with('users', $users);
 });
 
 // Route::get('user/manage', 'ManageAccounts');
