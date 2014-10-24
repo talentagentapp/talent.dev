@@ -2,6 +2,14 @@
 
 class GigsController extends \BaseController
 {
+    // public function __construct()
+    // {
+    //     // call base controller constructor
+    //     parent::__construct();
+
+    //     // run auth filter before all methods on this controller except index and show
+    //     $this->beforeFilter('auth');
+    // }
 
     /**
      * Display a listing of gigs
