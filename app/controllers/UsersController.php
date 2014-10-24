@@ -2,6 +2,16 @@
 
 class UsersController extends \BaseController
 {
+	// public function __construct()
+ //    {
+ //        // call base controller constructor
+ //        parent::__construct();
+
+ //        // run auth filter before all methods on this controller except index and show
+ //        $this->beforeFilter('auth');
+ //    }
+
+	
 	/**
 	 * Display a listing of users
 	 *
@@ -191,4 +201,3 @@ class UsersController extends \BaseController
 			return Redirect::action('UsersController@show',$user->id);
 		}
 	}
-}
