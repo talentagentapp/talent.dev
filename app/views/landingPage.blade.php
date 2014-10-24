@@ -43,6 +43,7 @@
   {
     background-image: url(/img/movie_projector.gif);
   }
+  </style>
 
 
 @section('content')
@@ -51,9 +52,9 @@
   <div class="row">
      {{ Form::open(array('action' => 'HomeController@doLogin', 'class' => 'form-horizontal', 'id' => 'login-page')) }}
     <div class="form-group">
-      {{ Form::label('username', 'Username:', array('class' => "col-sm-1 control-label")) }}
+      {{ Form::label('email', 'Email:', array('class' => "col-sm-1 control-label")) }}
       <div class="col-sm-4">
-        {{ Form::text('username', Input::old('username'), array('class' => "form-control")) }}
+        {{ Form::text('email', Input::old('email'), array('class' => "form-control")) }}
       </div>
     </div>
     <div class="form-group">
@@ -66,12 +67,14 @@
   <div class="form-group">
     <div class="col-sm-offset-1 col-sm-10">
       <div class="checkbox">
-         {{ Form::checkbox('Remember me', 'yes', true) }}
+        <label>
+         {{ Form::checkbox('', 'yes', false) }} Remember Me
+        </label>
       </div>
     </div>
   </div>
   <div class="form-group">    
-    <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-10">
       {{ Form::submit('Login', ['class' => 'btn btn-default']) }}
     </div>
   </div>
