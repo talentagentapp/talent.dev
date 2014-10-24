@@ -28,12 +28,16 @@
   @yield('style')
 
   <style>
-  .container
+  /*refactor to correctly enable*/
+ /* .content
   {
-    /*background-color: black;*/
+    background-color: black;
     color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
   }
-
+*/
   #bg
   {
     position: fixed; 
@@ -60,8 +64,8 @@
   }
 
    <!-- Sets background image  -->
- /* body 
-  {
+  body 
+  /*{
     background-image: url(/img/slow_metropolis.gif);
   }*/
 
@@ -124,12 +128,9 @@
     </div>
   </nav>
 
-  <!-- Sets background image  -->
-<div id="bg">
-  <img src="/img/slow_metropolis.gif" alt="">
-</div>
 
 @yield('content')
+
 
 <footer>
   <div class='container'>
