@@ -4,7 +4,9 @@ use Carbon\Carbon;
 
 //write rules for all the models
 
-class BaseModel extends Eloquent
+use \Esensi\Model\Model;
+
+class BaseModel extends Model
 {
     const DATE_FORMAT = "F jS, Y @ g";
 

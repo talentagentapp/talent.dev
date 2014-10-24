@@ -134,9 +134,9 @@
 
 <footer>
   <div class='container'>
-    <hr>
     <div class="row">
       <div class="col-lg-12">
+        <hr>
         <p>Adam | Audrey | Cory | Codeup | 2014</p>
       </div>
     </div>

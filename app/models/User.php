@@ -27,16 +27,16 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
     public static $rules =
     [
-        'talent'     => 'required|in:0,1',
-        'email'      => 'required|email',
-        'username'   => 'required|alpha_dash|min:5|max:25',
-        'password'   => 'required|min:5',
+        'talent'             => 'required|in:0,1',
+        'email'              => 'required|email',
+        'username'           => 'required|alpha_dash|min:5|max:25',
+        'password'           => 'required|min:5',
         'password_confirmed' => 'same:password',
-        'first'      => 'required|alpha',
-        'last'       => 'required|alpha',
-        'img'        => 'image',
-        'experience' => 'required',
-        'sex'        => 'required',
+        'first'              => 'required|alpha',
+        'last'               => 'required|alpha',
+        'img'                => 'image',
+        'experience'         => 'required',
+        'sex'                => 'required',
     ];
 
     //=========================attributes===========================

@@ -17,7 +17,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					{{{ Form::open(array('route'=>'UsersController@destroy')) }}}
+					{{-- Form::open(array('route'=>'UsersController@destroy')) --}}
 					@forelse($users as $user)
 					<tr>
 						<button>Delete User(s)</button>
