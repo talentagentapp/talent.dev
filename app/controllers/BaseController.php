@@ -4,10 +4,7 @@ class BaseController extends Controller
 {
     public function __construct()
     {
-        
         $this->beforeFilter('csrf', ['on' => ['post', 'delete', 'put']]);
-
-        $this->beforeFilter('auth', array('except' => array('index', 'show')));
     }
 
     /**
