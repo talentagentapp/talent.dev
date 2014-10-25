@@ -8,9 +8,9 @@
 		<div id="createToggle">
 			<p>create user<p>
 				<div id="createUserToggle">
-					<a class="pure-button" href="?=talent">talent</a>
+					<button class="pure-button"><a class="pure-button" href="?=talent">talent</a></button>
 					<br>
-					<a class="pure-button" href="?=agent">agent or manager</a>
+					<button class="pure-button"><a class="pure-button" href="?=agent">agent or manager</a></button>
 				</div>
 		</div>
 			<br>
@@ -24,14 +24,14 @@
 						</div>
 						<div>
 							{{ Form::text('username', Input::old('username')) }}
-							{{$errors->first('username', '<span class="help-block">:message</span>')}}
+							{{$errors->first('username', '<span class="help-block">????</span>')}}
 						</div>
 						<div>
 							{{ Form::label('password', 'Password') }}
 						</div>
 						<div>
 							{{ Form::password('password') }}
-							{{$errors->first('password', '<span class="help-block">:message</span>')}}
+							{{$errors->first('password', '<span class="help-block">????</span>')}}
 						</div>
 						<div>
 							<button>Submit</button>
@@ -42,13 +42,7 @@
 			@else
 				<p>Logout</p>
 			@endif
-
 	</div>
-	<div id='agentOrTalent'>
-		<text>
-	</div>
-
-
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -70,7 +64,6 @@ $("#createToggle").hover(
 	{
 	$("#createUserToggle").toggle("slow");
 	});
-
 
 </script>
 
