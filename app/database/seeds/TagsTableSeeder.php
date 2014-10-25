@@ -5,18 +5,18 @@ use Faker\Factory as Faker;
 
 class TagsTableSeeder extends Seeder
 {
-	public function run()
-	{
+    public function run()
+    {
         DB::table('tags')->delete();
 
-		$faker = Faker::create();
+        $faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
-		{
-			Tag::create([
+        for ($i=0; $i < 10; $i++) {
+            $tag = new Tag;
+            $tag->fill([
                 'tag' => $faker->word
-			]);
-		}
-	}
-
+                ]);
+            $tag->forceSave();
+        }
+    }
 }
