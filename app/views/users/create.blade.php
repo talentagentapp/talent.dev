@@ -20,20 +20,20 @@
 			<div class='form-group'>
 				{{ Form::label('first', 'First Name:', array('class' => 'col-sm-0 control-label')) }}
 				{{ Form::text('first', Input::old('first'), array('class' => 'form-control')) }}
-				@if ($errors->has('first')) <p class="help-block">{{ $errors->first('first') }}</p> @endif
+                @if($errors->has('first')) <div class="alert alert-danger" role="alert">{{ $errors->first('first') }}</div> @endif
 			</div>
 
 			<div class="form-group">
 				{{ Form::label('last', 'Last Name:', array('class' => 'col-sm-0 control-label')) }}
 				{{ Form::text('last', Input::old('last'), array('class' => 'form-control')) }}
-				@if ($errors->has('last')) <p class="help-block">{{ $errors->first('last') }}</p> @endif
+                @if($errors->has('last')) <div class="alert alert-danger" role="alert">{{ $errors->first('last') }}</div> @endif
 
 			</div>
 
 			<div class="form-group">
 				{{ Form::label('email', 'E-mail Address:', array('class' => 'col-sm-0 control-label')) }}
 				{{ Form::text('email', Input::old('email'), array('class' => 'form-control')) }}
-				@if ($errors->has('email')) <p class="help-block">{{ $errors->first('email') }}</p> @endif
+                @if($errors->has('email')) <div class="alert alert-danger" role="alert">{{ $errors->first('email') }}</div> @endif
 			</div>	
 			<hr>
 
@@ -44,13 +44,14 @@
 				{{ Form::text('username', Input::old('username'), array('class' => 'form-control')) }}
 				<p class="help-block">Please make sure your username is between 5 and 25 characters long and only contains
 					numbers, letters, dashes and underscores.</p>
-					@if ($errors->has('username')) <p class="help-block">{{ $errors->first('username') }}</p> @endif
+                @if($errors->has('username')) <div class="alert alert-danger" role="alert">{{ $errors->first('username') }}</div> @endif
 				</div>	
 
 				<div class="form-group">
 					{{ Form::label('password', 'Desired Password:', array('class' => 'col-sm-0 control-label')) }}
 					{{ Form::password('password', array('class' => 'form-control')) }}
 					<p class="help-block">Please make sure your password is at least 5 characters long.</p>
+	                @if($errors->has('password')) <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div> @endif
 				</div>
 
 				<div class="form-group">
@@ -68,19 +69,19 @@
 				<div class="form-group">
 					{{ Form::label('experience', 'Please Enter Your Years of Experience in this field:') }}<br>
 					{{ Form::select('experience', array('0-1' => '0-1 Years', '1-5' => '1-5 Years', '5-10' => '5-10 Years', '10+' => '10+ Years')) }}
-					@if ($errors->has('experience')) <p class='help-block'>{{ $errors->first('experience') }}</p> @endif
+                @if($errors->has('experience')) <div class="alert alert-danger" role="alert">{{ $errors->first('experience') }}</div> @endif
 				</div><br>
 
 				<div class='form-group'>
 					{{ Form::label('skills', 'What skills do you have pertaining to this field:', array('class' => 'col-sm-0 control-label')) }}
 					{{ Form::text('skills', Input::old('first'), array('class' => 'form-control')) }}
-					@if ($errors->has('skills')) <p class="help-block">{{ $errors->skills('skills') }}</p> @endif
+                @if($errors->has('skills')) <div class="alert alert-danger" role="alert">{{ $errors->first('skills') }}</div> @endif
 				</div><br> 
 
 				<div class='form-group'>
 					{{ Form::label('talent', 'What is your Role in the entertainment industry:') }}<br>
 					{{ Form::select('talent', array('0' => 'I am an Agent or Manager', '1' => 'I am the talent')) }}
-					@if ($errors->has('talent')) <p class="help-block">{{ $errors->first('talent') }}</p> @endif
+                @if($errors->has('talent')) <div class="alert alert-danger" role="alert">{{ $errors->first('talent') }}</div> @endif
 				</div>
 
 				<div class='form-group'>
@@ -93,7 +94,7 @@
 				<div class="form-group">
 					{{ Form::label('bio', 'Biography:') }}
 					{{ Form::textarea('bio', '' , array('class' => 'form-control')) }}
-					@if ($errors->has('bio')) <p class="help-block">{{ $errors->first('bio') }}</p> @endif
+                @if($errors->has('bio')) <div class="alert alert-danger" role="alert">{{ $errors->first('bio') }}</div> @endif
 				</div><br>
 
 				<div class="form-group">
@@ -107,12 +108,13 @@
 				<div class-"form-group">
 					{{ Form::label('company', 'What agency do you work with? :') }}
 					{{ Form::text('company', Input::old('company'), array('class' => 'form-control')) }}
+                @if($errors->has('company')) <div class="alert alert-danger" role="alert">{{ $errors->first('company') }}</div> @endif
 				</div><br>
 
 				<div class-"form-group">
 					{{ Form::label('bio', 'Biography:') }}
 					{{ Form::textarea('bio', '' , array('class' => 'form-control')) }}
-					@if ($errors->has('bio')) <p class="help-block">{{ $errors->first('bio') }}</p> @endif
+                @if($errors->has('bio')) <div class="alert alert-danger" role="alert">{{ $errors->first('bio') }}</div> @endif
 				</div><br>
 
 				<div class="form-group">

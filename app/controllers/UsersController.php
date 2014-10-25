@@ -172,7 +172,7 @@ class UsersController extends \BaseController
 
 				// $user->role = $talent;
 			} else {
-				$agent = new Agent()
+				$agent = new Agent();
 
 				$agent->company = Input::get('company');
 				$agent->user_id = $user->id;
@@ -200,4 +200,5 @@ class UsersController extends \BaseController
 
 			return Redirect::action('UsersController@show',$user->id);
 		}
-	}
+	}	
+}
