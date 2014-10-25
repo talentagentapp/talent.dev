@@ -9,16 +9,17 @@ class TalentsTableSeeder extends Seeder
 	{
         DB::table('talents')->delete();
 
-		$faker = Faker::create();
+        $faker = Faker::create();
 
-		foreach(range(1, 15) as $index)
-		{
-			Talent::create([
+        for ($i=0; $i < 15; $i++) {
+            $talent = new Talent;
+            $talent->fill([
                 'dob'        => $faker->dateTimeBetween($startDate = '-90 years', $endDate = '-18 years'),
                 'skills'     => $faker->sentence($nbWords = 6),
                 'created_at' => $faker->dateTimeThisYear($max = 'now'),
-			]);
-		}
-	}
+                ]);
+            $talent->forceSave();
+        }
 
+    }
 }

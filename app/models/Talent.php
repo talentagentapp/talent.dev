@@ -4,15 +4,15 @@ class Talent extends BaseModel
 {
     protected $table = 'talents';
 
-    public static $rules =
+    public $rules =
     [
         'dob'    => 'date',
         'bio'    => '',
         'skills' => '',
     ];
-    
+
 //============================relationships===========================
-    public function user() 
+    public function user()
     {
     	return $this->morphOne('User', 'role');
     }

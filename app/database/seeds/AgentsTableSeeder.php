@@ -9,15 +9,15 @@ class AgentsTableSeeder extends Seeder
 	{
         DB::table('agents')->delete();
 
-		$faker = Faker::create();
+        $faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
-		{
-			Agent::create([
+        for ($i=0; $i < 10; $i++) {
+            $agent = new Agent;
+            $agent->fill([
                 'company'    => $faker->company,
                 'created_at' => $faker->dateTimeThisYear($max = 'now'),
-			]);
-		}
-	}
-
+                ]);
+            $agent->forceSave();
+        }
+    }
 }

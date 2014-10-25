@@ -4,7 +4,7 @@ class Group extends BaseModel
 {
     protected $table = 'groups';
 
-    public static $rules =
+    public $rules =
     [
         'name'        => 'required',
         'description' => '',
