@@ -9,7 +9,9 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->delete();
 
-        $user = User::create([
+        //SEED THE ADMIN ACCOUNT
+        $user = new User;
+        $user->fill([
             'role'       => 'admin',
             'email'      => 'admin@codeup.com',
             'username'   => 'admin',
@@ -17,20 +19,23 @@ class UsersTableSeeder extends Seeder
             'first'      => 'Code',
             'last'       => 'Up',
             'img'        => '/img/jessie_mathews.jpg',
-            'bio'        => 'BEWARE THE ADMINISTRATOR AND BANHAMMER'
-            'experience' => 'I attended admin school.'
-            'sex'        => 'm'
+            'bio'        => 'BEWARE THE ADMINISTRATOR AND BANHAMMER.',
+            'experience' => '10+',
+            'sex'        => 'm',
             ]);
+        $user->forceSave();
 
+        //CREATE THE FAKER
         $faker = Faker::create();
 
-        foreach(range(1, 25) as $index)
-        {
-            User::create([
-                'role'       => $faker->randomElement($array =['talent', 'agent', 'admin']),
+        //SEED THE DATABASE
+        for ($i=0; $i < 25; $i++) {
+            $user = new User;
+            $user->fill([
+                'role'       => $faker->randomElement($array =['talent', 'agent']),
                 'email'      => $faker->unique()->email,
                 'username'   => $faker->unique()->userName,
-                'password'   => 'password',
+                'password'   => $faker->word,
                 'first'      => $faker->firstName,
                 'last'       => $faker->lastName,
                 'img'        => $faker->imageUrl($width = 300, $height = 300),
@@ -39,6 +44,7 @@ class UsersTableSeeder extends Seeder
                 'sex'        => $faker->randomElement($array = ['m','f','not say']),
                 'created_at' => $faker->dateTimeThisYear($max = 'now'),
                 ]);
+            $user->forceSave();
         }
     }
 
