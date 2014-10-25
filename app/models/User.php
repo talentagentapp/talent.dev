@@ -25,7 +25,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      */
     protected $hidden = array('password', 'remember_token');
 
-    public static $rules =
+    public $rules =
     [
         'talent'             => 'required|in:0,1',
         'email'              => 'required|email',
@@ -76,7 +76,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     //         case 'not say':
     //             return "I'd rather not say."
     //             break;
-            
+
     //         default:
     //             return 'Sex'
     //             break;
@@ -87,7 +87,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     {
         return $this->morphTo();
     }
-    
+
     public function comments()
     {
         return $this->hasMany('Comment');
