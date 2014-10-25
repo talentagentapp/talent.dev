@@ -12,6 +12,8 @@
 */
 Route::get('/', 'HomeController@showLanding');
 
+Route::post('/', 'HomeController@doLogin');
+
 
 Route::resource('users', 'UsersController');
 //->with('newUserType', $newUserType);

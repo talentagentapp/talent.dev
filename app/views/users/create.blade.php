@@ -114,7 +114,7 @@
 				<div class-"form-group">
 					{{ Form::label('bio', 'Biography:') }}
 					{{ Form::textarea('bio', '' , array('class' => 'form-control')) }}
-                @if($errors->has('bio')) <div class="alert alert-danger" role="alert">{{ $errors->first('bio') }}</div> @endif
+                @if($errors->has('bioc')) <div class="alert alert-danger" role="alert">{{ $errors->first('bioc') }}</div> @endif
 				</div><br>
 
 				<div class="form-group">
