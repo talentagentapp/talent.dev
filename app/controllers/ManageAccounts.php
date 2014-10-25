@@ -1,16 +1,25 @@
 <?php
-//not sure about CRUD operation based in the Account manager. 
+//not sure about CRUD operation based in the Account manager.
 
 class ManageAccounts extends \BaseController
 {
-    // public function __construct()
-    // {
- //        // call base controller constructor
-    //  parent::__construct();
+    public function __construct()
+    {
+        // call base controller constructor
+        parent::__construct();
 
-    //  //TODO: finish manageAccounts
-    //  $this->beforeFilter('auth', ['except' => ['index', 'show']]);
-    // }
+        //TODO: custom function to determine if admin
+        $this->beforeFilter(function()
+        {
+            //check if user is admin
+            if (Auth::user()->username == 'admin') {
+                // $this->beforeFilter
+            } else {
+                return Redirect::to('/')->withErrors();
+            }
+            //if not, return response\error message
+        });
+    }
 
     /**
      * Display a listing of the resource.
