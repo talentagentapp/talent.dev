@@ -76,58 +76,64 @@
 					{{ Form::text('skills', Input::old('first'), array('class' => 'form-control')) }}
 					@if ($errors->has('skills')) <p class="help-block">{{ $errors->skills('skills') }}</p> @endif
 				</div><br> 
+				<!-- ================================== -->
 
 				<div class='form-group'>
 					{{ Form::label('talent', 'What is your Role in the entertainment industry:') }}<br>
-					{{ Form::select('talent', array('0' => 'I am an Agent or Manager', '1' => 'I am the talent')) }}
+					{{ Form::select('talent', array(null => 'Please Select an option', 'talent' => 'I am the talent', 'agent' => 'I am an Agent or Manager')) }}
 					@if ($errors->has('talent')) <p class="help-block">{{ $errors->first('talent') }}</p> @endif
-				</div>
-
-				<div class='form-group'>
-					{{ Form::label('dob', 'Please Enter Your Date Of Birth:', array('class' => 'col-sm-0 control')) }}
-					{{-- Form::date('dob') --}}
-					<br><input type='date' name='dob' class=''>
-				</div>
-
-
-				<div class="form-group">
-					{{ Form::label('bio', 'Biography:') }}
-					{{ Form::textarea('bio', '' , array('class' => 'form-control')) }}
-					@if ($errors->has('bio')) <p class="help-block">{{ $errors->first('bio') }}</p> @endif
 				</div><br>
 
-				<div class="form-group">
-					{{ Form::label('img', 'Please upload a profile photo') }}
-					{{ Form::file('img') }}
-					<p class="help-block">This step is optional.</p>
-				</div>
-				<hr>
+				    @if($_GET === 'role=talent') 
+				    	<!-- talent Options -->
+ 						<div class='form-group'>
+							{{ Form::label('dob', 'Please Enter Your Date Of Birth:', array('class' => 'col-sm-0 control')) }}
+							{{-- Form::date('dob') --}}
+							<br><input type='date' name='dob' class=''>
+						</div>
 
-				<!-- agent options -->
-				<div class-"form-group">
-					{{ Form::label('company', 'What agency do you work with? :') }}
-					{{ Form::text('company', Input::old('company'), array('class' => 'form-control')) }}
-				</div><br>
 
-				<div class-"form-group">
-					{{ Form::label('bio', 'Biography:') }}
-					{{ Form::textarea('bio', '' , array('class' => 'form-control')) }}
-					@if ($errors->has('bio')) <p class="help-block">{{ $errors->first('bio') }}</p> @endif
-				</div><br>
+						<div class="form-group">
+							{{ Form::label('bio', 'Biography:') }}
+							{{ Form::textarea('bio', '' , array('class' => 'form-control')) }}
+							@if ($errors->has('bio')) <p class="help-block">{{ $errors->first('bio') }}</p> @endif
+						</div><br>
 
-				<div class="form-group">
-					{{ Form::label('img', 'Please upload a profile photo') }}
-					{{ Form::file('img') }}
-					<p class="help-block">This step is optional.</p>
-				</div>
+						<div class="form-group">
+							{{ Form::label('img', 'Please upload a profile photo') }}
+							{{ Form::file('img') }}
+							<p class="help-block">This step is optional.</p>
+						</div>	
+					
+				    @elseif($_GET === 'role=agent') 
+						<!-- agent options -->
+						<div class-"form-group">
+							{{ Form::label('company', 'What agency do you work with? :') }}
+							{{ Form::text('company', Input::old('company'), array('class' => 'form-control')) }}
+						</div><br>
+
+						<div class-"form-group">
+							{{ Form::label('bio', 'Biography:') }}
+							{{ Form::textarea('bio', '' , array('class' => 'form-control')) }}
+							@if ($errors->has('bio')) <p class="help-block">{{ $errors->first('bio') }}</p> @endif
+						</div><br>
+
+						<div class="form-group">
+							{{ Form::label('img', 'Please upload a profile photo') }}
+							{{ Form::file('img') }}
+							<p class="help-block">This step is optional.</p>
+						</div><br>
+					@else
+						<p>Please select an option.</p>
+					@endif	
 
 				<div class="form-group">
 					{{ Form::submit('Create Account', ['class' => 'btn btn-default']) }}
 				</div>
-			</div>
-		</div>
-	</div>			
+				    
 
+		
+		
 	{{ Form::close() }}
 
 	<script>
