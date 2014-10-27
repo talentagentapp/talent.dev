@@ -10,9 +10,9 @@ class Talent extends BaseModel
         'bio'    => '',
         'skills' => '',
     ];
-    
+
 //============================relationships===========================
-    public function user() 
+    public function user()
     {
     	return $this->morphOne('User', 'role');
     }

@@ -16,11 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function(Blueprint $table)
         {
             $table->increments('id');
-
-            //role_id will be set when creating account
-            //true/false will correspond to type of role
-            $table->boolean('talent');
-
+            $table->string('role', 10);
             $table->string('email', 128)->unique();
             $table->string('username', 128)->unique();
             $table->string('password', 255);

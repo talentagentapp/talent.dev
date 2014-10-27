@@ -8,8 +8,8 @@ class Tag extends BaseModel
     [
         'tag' => 'required|alpha',
     ];
-    
-    //function tags represents relationships, and is polymorphic to 'User' and 'Role' 
+
+    //function tags represents relationships, and is polymorphic to 'User' and 'Role'
     public function tags()
     {
         // --Not sure about 'role'--

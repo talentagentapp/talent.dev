@@ -76,7 +76,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     //         case 'not say':
     //             return "I'd rather not say."
     //             break;
-            
+
     //         default:
     //             return 'Sex'
     //             break;
@@ -87,7 +87,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     {
         return $this->morphTo();
     }
-    
+
     public function comments()
     {
         return $this->hasMany('Comment');

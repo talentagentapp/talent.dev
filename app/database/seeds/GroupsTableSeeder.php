@@ -9,17 +9,17 @@ class GroupsTableSeeder extends Seeder
 	{
         DB::table('groups')->delete();
 
-		$faker = Faker::create();
+        $faker = Faker::create();
 
-		foreach(range(1, 5) as $index)
-		{
-			Group::create([
+        for ($i=0; $i < 5; $i++) {
+            $group = new Group;
+            $group->fill([
                 'name'        => $faker->word,
                 'description' => $faker->paragraph($nbSentences = 3),
                 'img'         => $faker->imageUrl($width = 640, $height = 480),
                 'created_at'  => $faker->dateTimeThisYear($max = 'now'),
-			]);
-		}
-	}
-
+                ]);
+            $group->forceSave();
+        }
+    }
 }
