@@ -6,6 +6,7 @@
 <div class="container">
     <h1>Our Users</h1>
     <hr>
+
     @forelse($users as $user)
     <div class='row'>
         <div class='col-md-4'>
@@ -21,5 +22,11 @@
     @empty
     <p>No mo' users.</p>
     @endforelse
+
+    <div class='row'>
+        <div class='col-md-12'>
+            {{-- $users->links() --}}
+        </div>
+    </div>
 </div>
 @stop

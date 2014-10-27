@@ -26,6 +26,12 @@
             <p>No mo' gigs.</p>
             @endforelse
         </div>
-    </div> 
-</div>     
+    </div>
+
+    <div class='row'>
+        <div class='col-md-12'>
+            {{-- $gigs->links() --}}
+        </div>
+    </div>
+</div>
 @stop
