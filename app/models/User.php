@@ -10,6 +10,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
     use UserTrait, RemindableTrait;
 
+
+
     /**
      * The database table used by the model.
      *
@@ -40,10 +42,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     ];
 
     //=========================attributes===========================
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);
-    }
+
+    protected $hashable = ['password'];
 
     public function setEmailAttribute($value)
     {

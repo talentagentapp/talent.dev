@@ -4,7 +4,14 @@ class BaseController extends Controller
 {
     public function __construct()
     {
-        $this->beforeFilter('csrf', ['on' => ['post', 'delete', 'put']]);
+        // // call base controller constructor
+        // parent::__construct();
+
+        // run auth filter before all methods on this controller except index and show
+        $this->beforeFilter('auth', array('except' => array('showLanding')));
+
+        // require csrf token for all post, delete, and put actions
+        $this->beforeFilter('csrf', array('on' => array('post', 'delete', 'put')));
     }
 
     /**
