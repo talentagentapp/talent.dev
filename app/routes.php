@@ -23,6 +23,8 @@ Route::resource('users', 'UsersController');
 
 Route::resource('gigs', 'GigsController');
 
+Route::get('/homepage', 'HomeController@showHomePage');
+
 Route::get('/admin', function()
 {
 
