@@ -10,12 +10,14 @@
     @forelse($users as $user)
     <div class='row'>
         <div class='col-md-4'>
-            <img src="{{ $user->img }}" height='300px' width='300px'>
+            <a href="{{ action('UsersController@show', $user->id) }}"><img src="{{ $user->img }}" height='250px' width='250px'></a>
         </div>
         <div class='col-md-8'>
-            <h3>{{{ $user->first . ' ' . $user->last }}}</h3>
+            <h3>{{{ $user->first . ' ' . $user->last }}} <small>[should say agent or talent]</small></h3>
             <p>{{{ $user->experience }}} Years of Experience.</p>
             <p>{{{ $user->bio }}}</p>
+
+             <a class="btn btn-sm btn-default" href="{{ action('UsersController@show', $user->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
     <hr>
