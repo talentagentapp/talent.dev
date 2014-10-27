@@ -9,7 +9,7 @@
     @forelse($users as $user)
     <div class='row'>
         <div class='col-md-4'>
-            <img src="{{ $user->img }}" alt="">
+            <img src="{{ $user->img }}" height='300px' width='300px'>
         </div>
         <div class='col-md-8'>
             <h3>{{{ $user->first . ' ' . $user->last }}}</h3>
