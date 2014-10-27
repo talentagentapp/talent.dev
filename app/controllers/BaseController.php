@@ -11,7 +11,7 @@ class BaseController extends Controller
         $this->beforeFilter('auth', array('except' => array('showLanding')));
 
         // require csrf token for all post, delete, and put actions
-        $this->beforeFilter('csrf', array('on' => array('create', 'edit', 'update')));
+        $this->beforeFilter('csrf', array('on' => array('post', 'delete', 'put')));
     }
 
     /**
