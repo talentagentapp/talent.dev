@@ -1,18 +1,7 @@
 @extends('layouts.master')
+<head>
+  <style>
 
-@section('title', "Landing")
-
-<style>
-  /*refactor to correctly enable*/
- /* .content
-  {
-    background-color: black;
-    color: white;
-    border-style: solid;
-    border-width: 2px;
-    border-color: white;
-  }
-*/
   #bg
   {
     position: fixed; 
@@ -20,7 +9,10 @@
     left: -50%; 
     width: 200%; 
     height: 200%;
+    background-color: black;
+    ;
   }
+
   #bg img
   {
     position: absolute; 
@@ -31,52 +23,91 @@
     margin: auto; 
     min-width: 50%;
     min-height: 50%;
+    -webkit-animation: mymove 10s infinite; /* Chrome, Safari, Opera */
+    animation: mymove 10s;
   }
 
+  */
   footer
   {
     margin: 50px 0;
   }
 
-   <!-- Sets background image  -->
-  body 
-  /*{
-    background-image: url(/img/movie_projector.gif);
+  .col-sm-1
+  {
+    color: white;
+  }
+
+/*#body
+{
+  min-width: 600px;
+  background-origin: padding-box;
   }*/
 
+  .row
+  {
+    /*position: relative;*/
+    float: right;
+    padding-top: 350px;
+    color: white;
+  }
 
-@section('content')
+  h1 {
+    /*position: absolute;*/
+    font-family: Origin, Helvetica Light, sans-serif; 
+    text-transform: uppercase; 
+    font-size: 10rem; 
+    color: rgb(255,242,181); 
+    background-image: -webkit-linear-gradient(rgb(255,242,181) 28%, 
+      rgb(77,77,77) 40%, rgb(255,242,181) 54%); 
+    text-align: center; 
+    -webkit-background-clip:text; 
+    -webkit-text-fill-color: transparent; 
+    letter-spacing: .5rem;
+    -webkit-text-stroke: 1px black; text-stroke: 1px black, thickness color;
+  }
 
-<div class="container">
-  <div class="row">
-     {{ Form::open(array('action' => 'HomeController@doLogin', 'class' => 'form-horizontal', 'id' => 'login-page')) }}
-    <div class="form-group">
-      {{ Form::label('username', 'Username:', array('class' => "col-sm-1 control-label")) }}
-      <div class="col-sm-4">
-        {{ Form::text('username', Input::old('username'), array('class' => "form-control")) }}
+  /*Allow for animation of <h1> text*/
+  /*standard syntax*/
+  @keyframes mymove 
+  {
+    50% {opacity: 0;}
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes mymove {
+    50% {opacity: 0;}
+  }
+
+
+/*@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+  }*/
+
+  </style>
+</head>
+
+  <!-- <div id="bg">
+    <img src="/img/bright.jpg" alt=""> 
+  </div> -->
+  <div id="bg">
+    <img src="/img/single_star.jpg" alt""> 
+    <img src="/img/girl.jpg" alt"">
+    <img src="/img/joan_of_arc.jpg" alt"">
+  </div>  
+
+  <!-- <div class="container"> -->
+   <!--  <div class="row">
+      <div class="col-md-12"><h1>Talent. </h1>
+        <div class="col-md-0">
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      {{ Form::label('password', 'Password:', array('class' => "col-sm-1 control-label")) }}
-      <div class='col-sm-4'>
-        {{ Form::password('password', array('class' => 'form-control')) }}
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-1 col-sm-10">
-      <div class="checkbox">
-         {{ Form::checkbox('Remember me', 'yes', true) }}
-      </div>
-    </div>
-  </div>
-  <div class="form-group">    
-    <div class="form-group">
-      {{ Form::submit('Login', ['class' => 'btn btn-default']) }}
-    </div>
-  </div>
-</form> 
+    </div> -->
+    <!-- </div> -->
+    <!-- </body> -->
 
-</div> 
-
-@stop
