@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'create a gig')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -7,7 +9,7 @@
 
             @if ($errors->has())
             @foreach ($errors->all() as $error)
-            {{ $error }}        
+            {{ $error }}
             @endforeach
             @endif
 
@@ -31,18 +33,18 @@
                 {{ Form::text('location', Input::old('location'), ['id' => 'location', 'class' => 'form-control']) }}
                 @if($errors->has('location')) <div class="alert alert-danger" role="alert">{{ $errors->first('location') }}</div> @endif
             </div>
-            <div class='from-group'>
+            <div class='form-group'>
                 {{ Form::label('date', 'When is This Occurring:') }}
-                <br><input type='date' name='date' id='date' class='form-control'><br>
+                <input type='datetime-local' name='date' id='date' class='form-control'>
                 @if($errors->has('date')) <div class="alert alert-danger" role="alert">{{ $errors->first('date') }}</div> @endif
             </div>
-            <div class='from-group'>
+            <div class='form-group'>
                 {{ Form::submit('Create Gig', ['class' => 'btn btn-default']) }}
             </div>
 
             {{ Form::close() }}
 
         </div>
-    </div> 
-</div>     
+    </div>
+</div>
 @stop
