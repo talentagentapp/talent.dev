@@ -12,8 +12,8 @@ class HomeController extends BaseController
     {
         $rules =
         [
-        'email'    => 'required|email',
-        'password' => 'required|alpha_dash|min:5|max:25'
+            'email'    => 'required|email',
+            'password' => 'required|alpha_dash|min:5|max:25'
         ];
 
         $validator = Validator::make(Input::all(), $rules);
@@ -27,9 +27,9 @@ class HomeController extends BaseController
         } else {
                 // attempt to do the login
             if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
-                return Redirect::intended('/');
+                return Redirect::action('UsersController@index');
             } else {        
-                return Redirect::action('HomeController@showLanding');
+                return Redirect::action('UsersController@showLanding');
 
             }
         }
@@ -44,5 +44,10 @@ class HomeController extends BaseController
     public function showAbout()
     {
         return View::make('about');
+    }
+
+    public function showHomePage()
+    {
+        return View::make('homePage');
     }
 }

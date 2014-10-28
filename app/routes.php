@@ -14,6 +14,8 @@ Route::get('/', 'HomeController@showLanding');
 
 Route::post('/', 'HomeController@doLogin');
 
+Route::get('/logout', 'HomeController@doLogout');
+
 Route::resource('users', 'UsersController');
 
 //->with('newUserType', $newUserType);
@@ -22,6 +24,8 @@ Route::resource('users', 'UsersController');
 // //$newUserType refers which kind of user input request, for agent or talent.
 
 Route::resource('gigs', 'GigsController');
+
+Route::get('/homepage', 'HomeController@showHomePage');
 
 Route::get('/admin', function()
 {

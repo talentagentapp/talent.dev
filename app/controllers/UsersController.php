@@ -2,16 +2,16 @@
 
 class UsersController extends \BaseController
 {
-	// public function __construct()
- //    {
- //        // call base controller constructor
- //        parent::__construct();
+	public function __construct()
+    {
+        // call base controller constructor
+        parent::__construct();
 
- //        // run auth filter before all methods on this controller except index and show
- //        $this->beforeFilter('auth');
- //    }
+        // run auth filter before all methods on this controller except index and show
+        $this->beforeFilter('auth');
+	}
 
-	
+
 	/**
 	 * Display a listing of users
 	 *
@@ -32,7 +32,7 @@ class UsersController extends \BaseController
 
 		// return View::make('users.index')->with('users', $users);
 
-		$users = User::all()->paginate(4);
+		$users = User::all();
 
 		return View::make('users.index')->with('users', $users);
 
@@ -73,7 +73,7 @@ class UsersController extends \BaseController
 			App::abort(404);
 		}
 
-		//TODO: write 404 error 
+		//TODO: write 404 error
 		return View::make('users.show')->with('user', $user);
 
 	}
@@ -104,7 +104,7 @@ class UsersController extends \BaseController
 	 */
 	public function update($id)
 	{
-		// Refers to error messages 
+		// Refers to error messages
 		$user = User::find($id);
 
 		//write a 404 statement for fail
@@ -157,7 +157,7 @@ class UsersController extends \BaseController
 
 		} else {
 
-			// bool for agent / talent option 
+			// bool for agent / talent option
 
 			if (Input::get('talent') == 1) {
 				$talent = new Talent();
@@ -182,7 +182,7 @@ class UsersController extends \BaseController
 
 					Log::error('Agent validator failed', Input::all());
 				}
-			} 
+			}
 
 			// =======================end validator====================
 			//this can be a method in a model
@@ -195,11 +195,11 @@ class UsersController extends \BaseController
 			}
 
 			$message = 'User was successfully saved';
-			
+
 			Session::flash('successMessage', $message);
 			Log::info($message, Input::all());
 
 			return Redirect::action('UsersController@show',$user->id);
 		}
-	}	
+	}
 }

@@ -21,11 +21,19 @@
                 <p>Description: {{{ $gig->description }}}</p>
 
                 <p>When: {{{ $gig->date }}}</p>
+
+                 <a class="btn btn-sm btn-default" href="{{ action('GigsController@show', $gig->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
             </article>
             @empty
             <p>No mo' gigs.</p>
             @endforelse
         </div>
-    </div> 
-</div>     
+    </div>
+
+    <div class='row'>
+        <div class='col-md-12'>
+            {{-- $gigs->links() --}}
+        </div>
+    </div>
+</div>
 @stop

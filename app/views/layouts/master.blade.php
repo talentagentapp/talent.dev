@@ -2,44 +2,34 @@
 <html>
 <head>
   <title>@yield('title', 'Talent Site')</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="language" content="english">
-  <meta name="description" content="">
-  <meta name="author" content=""> 
-  
   <link rel="icon" href="/img/favicon.ico">
-
-  <!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-  <title>Sliding Box with CSS3 Transitions</title>
-  <meta name="author" content="Jake Rocheleau">
-  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
-  <link rel="icon" href="http://designshack.net/favicon.ico"> -->
-  
-  <!-- <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/master.blade.css">  -->
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   @yield('style')
-
-</head>    
+</head>
 <body>
+
+  <!-- Sets background image  -->
+<!-- <div id="bg">
+  <img src="/img/slow_metropolis.gif" alt="">
+</div> -->
 
   <!--Logic for sliding navbar  -->
 <!-- <div class="tophiddenbar" id="tophiddenbar">
     <div class="container">
       <div id="topbar"><a href="http://designshack.net">Back to Design Shack</a
         <li><a href="#contact">Contact Me</a></li>
-        </div> 
-    </div>  
+        </div>
+    </div>
   </div> -->
 
-  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -85,7 +75,6 @@
     </div>
   </nav>
 
-
 @yield('content')
 
 
@@ -94,11 +83,13 @@
     <div class="row">
       <div class="col-lg-12">
         <hr>
-        <p>Adam | Audrey | Cory | Codeup | 2014</p>
+        <p>adam | audrey | cory | codeup | 2014</p>
       </div>
     </div>
   </div>
 </footer>
+
+@yield('bottom-script')
 
 </body>
 </html>
