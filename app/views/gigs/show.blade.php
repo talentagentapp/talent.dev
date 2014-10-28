@@ -6,7 +6,11 @@
 <div class="container">
     <div class="row">
         <div class='col-md-12'>
-            <h2>{{{ $gig->name }}}</h2>
+            <h2>{{{ $gig->name }}}
+                @if(Auth::user()->id == $gig->user_id)
+                <small> <a href={{ action('GigsController@edit', $gig->id) }}>edit</a></small>
+                @endif
+            </h2>
             <p>by [Agent Name Here]</p>
             <p>At: {{{ $gig->location }}}</p>
             <p>When: {{{ $gig->date }}}</p>

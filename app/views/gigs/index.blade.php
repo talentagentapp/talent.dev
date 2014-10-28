@@ -6,7 +6,11 @@
 <div class="container">
     <div class="row">
         <div class='col-md-12'>
-            <h2>Available Gigs</h2>
+            <h2>Available Gigs
+                @if(Auth::check())
+                <small><a href="{{ action('GigsController@create') }}">create</a></small>
+                @endif
+            </h2>
             <hr>
 
             @forelse($gigs as $gig)
