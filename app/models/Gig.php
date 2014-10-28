@@ -12,8 +12,8 @@ class Gig extends BaseModel
         'date'        => 'required|date',
     ];
 
-    public function agents()
+    public function users()
     {
-        return $this->belongsTo('Agent');
+        return $this->belongsTo('User');
     }
 }

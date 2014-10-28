@@ -88,6 +88,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         return $this->morphTo();
     }
 
+    public function groups()
+    {
+        return $this->hasOne('Group');
+    }
+
     public function comments()
     {
         return $this->hasMany('Comment');

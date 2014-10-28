@@ -1,64 +1,68 @@
 @extends('layouts.master')
 
-@section('contents')
-	<div class='container'>
-		<div id="createToggle">
-			<p>create user<p>
-			<div id="createUserToggle">
-				<a class="btn btn-primary" href="?=talent">talent</a>
-				<br>
-				<a class="btn btn-primary" href="?=agent">agent or manager</a>
-			</div>
-		</div>
-			<br>
-			@if(!Auth::user())
-			<div id="loginToggle">
-				<p>login</p>
-				<div id="loginInfoToggle">
-					{{ Form::open(['action' => 'HomeController@doLogin', 'method' => 'POST'])}}
-					<div class='form-group'>
-						{{ Form::label('email', 'Email') }}
-						{{ Form::email('email', Input::old('email')) }}
-						{{$errors->first('email', '<span class="help-block">:message</span>')}}
-					</div>
-					<div class='form-group'>
-						{{ Form::label('password', 'Password') }}
-						{{ Form::password('password') }}
-						{{$errors->first('password', '<span class="help-block">:message</span>')}}
-					</div>
-					<div class='form-group'>
-						<button class='btn btn-primary'>Submit</button>
-					</div>
-					{{ Form::close()}}
-				</div>
-			</div>
-			@else
-			<p>Logout</p>
-			@endif
-	</div>
+@section('title', 'landing page')
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<script>
+@section('content')
+<div class='container'>
+    <div class='row'>
 
-		$("#loginInfoToggle").hide();
+        <div class='col-md-6'>
+            <div id="createToggle">
+                <h2>create user</h2>
+                <div id="createUserToggle">
+                    <a class="btn btn-default" href="?=talent">talent</a>
+                    <p>or</p>
+                    <a class="btn btn-default" href="?=agent">agent or manager</a>
+                </div>
+            </div>
+        </div>
 
-		$("#createUserToggle").hide();
+        <div class='col-md-6'>
+            @if(!Auth::user())
+            <div id="loginToggle">
+                <h2>login</h2>
+                <div id="loginInfoToggle">
+                    {{ Form::open(['action' => 'HomeController@doLogin', 'method' => 'POST'])}}
+                    <div class='form-group'>
+                        {{ Form::email('email', Input::old('email'), ['class' => 'form-control', 'placeholder' => 'email']) }}
+                        {{$errors->first('email', '<span class="help-block">:message</span>')}}
+                    </div>
+                    <div class='form-group'>
+                        {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'password']) }}
+                        {{$errors->first('password', '<span class="help-block">:message</span>')}}
+                    </div>
+                    <div class='form-group'>
+                        <button class='btn btn-default'>submit</button>
+                    </div>
+                    {{ Form::close()}}
+                </div>
+            </div>
+            @else
+            <p>Logout</p>
+            @endif
+        </div>
+    </div>
+</div>
+@stop
 
-		$("#loginToggle").hover(
-			function()
-			{
-				$("#loginInfoToggle").toggle("slow");
-			});
+@section('bottom-script')
+<script>
 
-		$("#createToggle").hover(
-			function()
-			{
-				$("#createUserToggle").toggle("slow");
-			});
+$("#loginInfoToggle").hide();
 
-		</script>
+$("#createUserToggle").hide();
 
-	</body>
-	</html>
+$("#loginToggle").hover(
+    function()
+    {
+        $("#loginInfoToggle").toggle("slow");
+    });
+
+$("#createToggle").hover(
+    function()
+    {
+        $("#createUserToggle").toggle("slow");
+    });
+
+</script>
+@stop

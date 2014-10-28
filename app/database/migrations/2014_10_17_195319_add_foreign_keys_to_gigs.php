@@ -15,8 +15,8 @@ class AddForeignKeysToGigs extends Migration {
 		Schema::table('gigs', function(Blueprint $table)
 		{
 			//NULLABLE IS TEMPORARY
-			$table->integer('agent_id')->unsigned()->nullable();
-			$table->foreign('agent_id')->references('id')->on('agents');
+			$table->integer('user_id')->unsigned()->nullable();
+			$table->foreign('user_id')->references('id')->on('users');
 		});
 	}
 
