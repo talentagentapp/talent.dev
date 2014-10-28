@@ -4,7 +4,7 @@ class Gig extends BaseModel
 {
     protected $table = 'gigs';
 
-    public static $rules =
+    public $rules =
     [
         'name'        => 'required',
         'description' => '',
