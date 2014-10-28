@@ -85,9 +85,7 @@ footer
   <div class="form-group">
     <div class="col-sm-offset-9 col-sm-10">
       <p>Not a Member Yet?</p>
-      {{-- Form::submit('Create an account!', ['class' => 'btn btn-default']) --}}
-      <li><a href="{{{ action('UsersController@create') }}}">Create an Account!</a>
-
+      {{ Form::submit('Create an account!', ['class' => 'btn btn-default']) }}
     </div>
   </div>
 </div> 
