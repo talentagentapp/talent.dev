@@ -113,7 +113,7 @@ class GigsController extends \BaseController
 
     protected function saveGig(Gig $gig)
     {
-
+        //TODO:stop using hidden form to get user_id in create.blade
         $attributes = Input::only('name', 'description', 'location', 'date');
         $gig = new Gig($attributes);
 
