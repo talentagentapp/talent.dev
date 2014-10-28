@@ -2,6 +2,8 @@
 
 class Gig extends BaseModel
 {
+    protected $fillable = ['name', 'description', 'location', 'date'];
+
     protected $table = 'gigs';
 
     public $rules =

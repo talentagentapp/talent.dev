@@ -88,7 +88,7 @@ class GigsController extends \BaseController
      * @return Response
      */
     public function update($id)
-    {   
+    {
         //**find or fail optional
         $gig = Gig::find($id);
         //write a 404 statement for fail
@@ -113,40 +113,36 @@ class GigsController extends \BaseController
 
     protected function saveGig(Gig $gig)
     {
-        $validator = Validator::make(Input::all(), Gig::$rules);
+        // $validator = Validator::make(Input::all(), Gig::$rules);
 
-        if ($validator->fails()) {
-            Session::flash('errorMessage', 'Your Gig must have a name, description...');
-            Log::error('Gig validator failed', Input::all());
+        // if ($validator->fails()) {
+            // Session::flash('errorMessage', 'Your Gig must have a name, description...');
+            // Log::error('Gig validator failed', Input::all());
 
-            return Redirect::back()->withInput()->withErrors($validator);
-        } else {
+            // return Redirect::back()->withInput()->withErrors($validator);
+        // } else {
 
-            $gig->name        = Input::get('name');
-            $gig->description = Input::get('description');
-            $gig->date        = Input::get('date');
-            $gig->location    = Input::get('location');
+            // $gig->name        = Input::get('name');
+            // $gig->description = Input::get('description');
+            // $gig->location    = Input::get('location');
+            // $gig->date        = Input::get('date');
             //TODO: update to find the user that is writing this
             // $gig->agent_id    = Auth::user();
+            // }
 
-            if(Input::hasFile('image')) {
 
-                $file = Input::file('image');
-                $destination_path = public_path() . '/img/';
-                $filename = str_random(6) . '_' . $file->getClientOriginalName();
-                $uploadSuccess = $file->move($destination_path, $filename);
+        $attributes = Input::only('name', 'description', 'location', 'date');
+        $gig = new Gig($attributes);
 
-                $user->img = '/img/' . $filename;
-            }
-
-            $gig->save();
-
-            $message = 'Gig was successfully saved/updated';
-
-            Session::flash('successMessage', $message);
-            Log::info($message, Input::all());
-
-            return Redirect::action('GigsController@show', $gig->id);
+        if (!$gig->save()) {
+            return Redirect::to('gigs')->withErrors( $gig->getErrors() )->withInput();
         }
+
+        $message = 'Gig was successfully saved/updated';
+
+        Session::flash('successMessage', $message);
+        Log::info($message, Input::all());
+
+        return Redirect::action('GigsController@show', $gig->id);
     }
 }
