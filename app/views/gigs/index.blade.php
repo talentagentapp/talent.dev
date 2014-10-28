@@ -8,7 +8,6 @@
         <div class='col-md-12'>
             <h2>Available Gigs</h2>
             <hr>
-
             @forelse($gigs as $gig)
             <article>
                 <h3>{{{ $gig->name }}}</h3>
