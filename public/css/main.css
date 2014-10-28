@@ -37,6 +37,15 @@ footer
     margin: 50px 0;
 }
 
+.caltable
+{
+    table-layout: fixed; 
+}
+
+
+
+
+
 <!-- Sets background image  -->
 /* body
 {

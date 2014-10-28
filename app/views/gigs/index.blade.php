@@ -6,7 +6,25 @@
 <div class="container">
     <div class="row">
         <div class='col-md-12'>
-            <h2>Available Gigs</h2>
+            <h2>Available Gigs
+                <small>
+
+                    @if(Input::has('cdate'))
+                        <a href="?cdate={{{ Input::get('cdate') }}}&amp;cv=week">week</a>
+                        <a href="?cdate={{{ Input::get('cdate') }}}&amp;cv=day">day</a>
+                        @if(Input::has('cv'))
+                            <a href="?">month</a>
+                        @endif
+                    @else
+                        <a href="?cv=week">week</a>
+                        <a href="?cv=day">day</a>
+                        @if(Input::has('cv'))
+                            <a href="?">month</a>
+                        @endif
+                    @endif
+                </small>
+            </h2>
+            {{$displayCalendar}}
             <hr>
             @forelse($gigs as $gig)
             <article>
