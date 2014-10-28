@@ -99,4 +99,9 @@ class User extends BaseModel implements UserInterface, RemindableInterface, Hash
     {
         return $this->hasOne('Group');
     }
+
+    public function gigs()
+    {
+        return $this->hasMany('Gig');
+    }
 }

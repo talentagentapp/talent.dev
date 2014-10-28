@@ -113,6 +113,7 @@ class GigsController extends \BaseController
 
     protected function saveGig(Gig $gig)
     {
+
         $attributes = Input::only('name', 'description', 'location', 'date');
         $gig = new Gig($attributes);
 

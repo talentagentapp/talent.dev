@@ -18,6 +18,8 @@
 
             {{ Form::open(['action' => 'GigsController@store', 'method' => 'POST']) }}
 
+            {{ From::hidden('user_id', Auth::id()) }}
+
             <div class='form-group'>
                 {{ Form::label('name', 'Name of Your Gig:') }}
                 {{ Form::text('name', Input::old('name'),['id' => 'name', 'class' => 'form-control']) }}

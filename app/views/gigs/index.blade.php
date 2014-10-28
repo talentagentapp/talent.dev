@@ -18,7 +18,7 @@
                 <h3>{{{ $gig->name }}}</h3>
 
                 <address>
-                    By [Agent Name Here].<br>
+                    By {{{ $gig->user->username  }}}.<br>
                     Where: {{{ $gig->location }}}<br>
                 </address>
 
