@@ -26,7 +26,7 @@
 
                 <p>When: {{{ $gig->date }}}</p>
 
-                 <a class="btn btn-sm btn-default" href="{{ action('GigsController@show', $gig->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-sm btn-default" href="{{ action('GigsController@show', $gig->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
             </article>
             @empty
             <p>No mo' gigs.</p>
