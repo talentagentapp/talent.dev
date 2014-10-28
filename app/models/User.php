@@ -5,12 +5,21 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends BaseModel implements UserInterface, RemindableInterface
+use \Esensi\Model\Contracts\HashingModelInterface;
+use \Illuminate\Database\Eloquent\Model as Eloquent;
+
+class User extends BaseModel implements UserInterface, RemindableInterface, HashingModelInterface
 {
 
     use UserTrait, RemindableTrait;
 
 
+    /**
+     * These are the attributes to hash before saving.
+     *
+     * @var array
+     */
+    protected $hashable = [ 'password' ];
 
     /**
      * The database table used by the model.
@@ -43,8 +52,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
     //=========================attributes===========================
 
-    protected $hashable = ['password'];
-
     public function setEmailAttribute($value)
     {
         $this->attributes['email'] = strtolower($value);
@@ -59,8 +66,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     {
         return ucfirst($value);
     }
-
-    //========================relationships=========================
 
     // public function getSexAttribute($value)
     // {
@@ -82,6 +87,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     //             break;
     //     }
     // }
+
+    //========================relationships=========================
 
     public function role()
     {
