@@ -30,8 +30,8 @@ class AddForeignKeysToGigs extends Migration {
 	{
 		Schema::table('gigs', function(Blueprint $table)
 		{
-			$table->dropForeign('gigs_agent_id_foreign');
-			$table->dropColumn('agent_id');
+			$table->dropForeign('gigs_user_id_foreign');
+			$table->dropColumn('user_id');
 		});
 	}
 
