@@ -113,25 +113,6 @@ class GigsController extends \BaseController
 
     protected function saveGig(Gig $gig)
     {
-        // $validator = Validator::make(Input::all(), Gig::$rules);
-
-        // if ($validator->fails()) {
-            // Session::flash('errorMessage', 'Your Gig must have a name, description...');
-            // Log::error('Gig validator failed', Input::all());
-
-            // return Redirect::back()->withInput()->withErrors($validator);
-        // } else {
-
-            // $gig->name        = Input::get('name');
-            // $gig->description = Input::get('description');
-            // $gig->location    = Input::get('location');
-            // $gig->date        = Input::get('date');
-            //TODO: update to find the user that is writing this
-            // $gig->agent_id    = Auth::user();
-            // }
-
-
-        $attributes = Input::only('name', 'description', 'location', 'date');
         $gig = new Gig($attributes);
 
         if (!$gig->save()) {
