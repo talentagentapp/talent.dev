@@ -10,9 +10,10 @@
             <div id="createToggle">
                 <h2>create user</h2>
                 <div id="createUserToggle">
-                    <a class="btn btn-default" href="?=talent">talent</a>
+                    <!-- TODO:change these to an action -->
+                    <a class="btn btn-default" href="users/create?role=talent">talent</a>
                     <p>or</p>
-                    <a class="btn btn-default" href="?=agent">agent or manager</a>
+                    <a class="btn btn-default" href="users/create?role=agent">agent or manager</a>
                 </div>
             </div>
         </div>
@@ -37,8 +38,6 @@
                     {{ Form::close()}}
                 </div>
             </div>
-            @else
-            <p>Logout</p>
             @endif
         </div>
     </div>
@@ -47,7 +46,6 @@
 
 @section('bottom-script')
 <script>
-
 
 $("#loginInfoToggle").hide();
 
