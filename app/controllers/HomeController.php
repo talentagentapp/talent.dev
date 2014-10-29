@@ -48,6 +48,10 @@ class HomeController extends BaseController
 
     public function showHomePage()
     {
-        return View::make('homePage');
+        $gigs= Gig::all();
+
+        $featured_user = User::('');
+
+        return View::make('homepage')->with('gigs', $gigs);
     }
 }
