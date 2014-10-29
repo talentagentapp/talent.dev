@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTagTalentTable extends Migration {
+class CreateTagTalentTable extends Migration
+{
 
 	/**
 	 * Run the migrations.
