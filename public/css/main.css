@@ -35,6 +35,11 @@ footer
     margin: 50px 0;
 }
 
+input
+{
+    color: black;
+}
+
 <!-- Sets background image  -->
 /* body
 {

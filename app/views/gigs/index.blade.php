@@ -6,7 +6,11 @@
 <div class="container">
     <div class="row">
         <div class='col-md-12'>
-            <h2>Available Gigs</h2>
+            <h2>Available Gigs
+                @if(Auth::check())
+                <small><a href="{{ action('GigsController@create') }}">create</a></small>
+                @endif
+            </h2>
             <hr>
 
             @forelse($gigs as $gig)
@@ -14,7 +18,7 @@
                 <h3>{{{ $gig->name }}}</h3>
 
                 <address>
-                    By [Agent Name Here].<br>
+                    By {{{ $gig->user->username }}}<br>
                     Where: {{{ $gig->location }}}<br>
                 </address>
 
@@ -22,7 +26,7 @@
 
                 <p>When: {{{ $gig->date }}}</p>
 
-                 <a class="btn btn-sm btn-default" href="{{ action('GigsController@show', $gig->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a href="{{ action('GigsController@show', $gig->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
             </article>
             @empty
             <p>No mo' gigs.</p>
