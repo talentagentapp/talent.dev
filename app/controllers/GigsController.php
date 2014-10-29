@@ -27,7 +27,7 @@ class GigsController extends \BaseController
         foreach($gigs as $gig)
         {
             $date = $gig->date;
-            $name = $gig->name;
+            $name = "<a class='gig-modal' href='/gigs/{$gig->id}'>{$gig->name}</a>";
             $location = $gig->location;
 
             $scheduledGigs[$date] = array($name, $location);
@@ -99,7 +99,15 @@ class GigsController extends \BaseController
             App:abort(404);
         }
 
-        return View::make('gigs.show')->with('gig', $gig)->with('agent', $agent);
+        if (Request::ajax()) {
+            return Response::json([
+                'gig'   => $gig->toJson(),
+                'agent' => $agent->toJson()
+            ]);
+        } else {
+            return View::make('gigs.show')->with('gig', $gig)->with('agent', $agent);
+        }
+
     }
 
     /**

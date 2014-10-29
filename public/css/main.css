@@ -42,6 +42,10 @@ footer
     table-layout: fixed; 
 }
 
+.modal-content
+{
+    color: black;
+}
 
 
 

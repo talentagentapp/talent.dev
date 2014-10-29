@@ -24,7 +24,26 @@
                     @endif
                 </small>
             </h2>
+
             {{$displayCalendar}}
+
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                         <h4 id="modalfontcolor" class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div id="modalfontcolor" class="modal-body">
+                            <p>Lots of things</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="modalfontcolor" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <hr>
             @forelse($gigs as $gig)
             <article>
@@ -53,4 +72,19 @@
         </div>
     </div>
 </div>
+@stop
+
+@section('bottom-script')
+<script type="text/javascript">
+    $('.gig-modal').click(function(event) {
+        var url = $(this).attr('href');
+
+        $.get(url, function(data) {
+            $('.bs-example-modal-lg').modal();
+            console.log(data);
+        });
+        
+        event.preventDefault();
+    });
+</script>
 @stop
