@@ -35,6 +35,19 @@ footer
     margin: 50px 0;
 }
 
+.caltable
+{
+    table-layout: fixed; 
+}
+
+.modal-content
+{
+    color: black;
+}
+
+
+
+
 <!-- Sets background image  -->
 /* body
 {
