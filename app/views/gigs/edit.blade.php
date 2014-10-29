@@ -14,7 +14,7 @@
 
             <div class='form-group'>
                 {{ Form::label('name', 'Name of Your Gig:') }}
-                {{ Form::text('name', $gig->name,['id' => 'name', 'class' => 'form-control']) }}
+                {{ Form::text('name', $gig->name, ['id' => 'name', 'class' => 'form-control']) }}
                 @if($errors->has('name')) <div class="alert alert-danger" role="alert">{{ $errors->first('name') }}</div> @endif
             </div>
             <div class='form-group'>
@@ -27,18 +27,18 @@
                 {{ Form::text('location', $gig->location, ['id' => 'location', 'class' => 'form-control']) }}
                 @if($errors->has('location')) <div class="alert alert-danger" role="alert">{{ $errors->first('location') }}</div> @endif
             </div>
-            <div class='from-group'>
+            <div class='form-group'>
                 {{ Form::label('date', 'When is This Occurring:') }}
-                <br><input type='date' name='date' id='date' class='form-control'><br>
+                <input type='datetime-local' name='date' id='date' class='form-control'>
                 @if($errors->has('date')) <div class="alert alert-danger" role="alert">{{ $errors->first('date') }}</div> @endif
             </div>
-            <div class='from-group'>
+            <div class='form-group'>
                 {{ Form::submit('Update Gig', ['class' => 'btn btn-default']) }}
             </div>
 
             {{ Form::close() }}
 
         </div>
-    </div> 
-</div>     
+    </div>
+</div>
 @stop

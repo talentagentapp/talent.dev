@@ -45,10 +45,11 @@ footer
     color: black;
 }
 
+input
+{
+    color: black;
+}
 
-
-
-<!-- Sets background image  -->
 /* body
 {
 background-image: url(/img/slow_metropolis.gif);

@@ -22,6 +22,7 @@
                             <a href="?">month</a>
                         @endif
                     @endif
+                    @if(Auth::check())<a href="{{ action('GigsController@create') }}">create</a>@endif
                 </small>
             </h2>
 
@@ -50,7 +51,7 @@
                 <h3>{{{ $gig->name }}}</h3>
 
                 <address>
-                    By [Agent Name Here].<br>
+                    By {{{ $gig->user->username }}}<br>
                     Where: {{{ $gig->location }}}<br>
                 </address>
 
@@ -58,7 +59,7 @@
 
                 <p>When: {{{ $gig->date }}}</p>
 
-                 <a class="btn btn-sm btn-default" href="{{ action('GigsController@show', $gig->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a href="{{ action('GigsController@show', $gig->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
             </article>
             @empty
             <p>No mo' gigs.</p>

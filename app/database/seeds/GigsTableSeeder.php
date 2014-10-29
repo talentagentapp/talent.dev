@@ -18,7 +18,8 @@ class GigsTableSeeder extends Seeder
                 'description' => $faker->paragraph($nbSentences = 3),
                 'date'        => $faker->dateTimeBetween($startDate = 'now', $endDate = '+3 years'),
                 'location'    => $faker->address,
-                'created_at'  => $faker->dateTimeThisYear($max = 'now')
+                'created_at'  => $faker->dateTimeThisYear($max = 'now'),
+                'user_id'     => $faker->numberBetween($min = 2, $max = 26)
                 ]);
             $gig->forceSave();
         }
