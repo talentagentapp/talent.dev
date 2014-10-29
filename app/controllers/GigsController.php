@@ -7,7 +7,6 @@ class GigsController extends \BaseController
     //     // call base controller constructor
     //     parent::__construct();
 
-    //     // run auth filter before all methods on this controller except index and show
     //     $this->beforeFilter('auth');
     // }
 
@@ -113,9 +112,11 @@ class GigsController extends \BaseController
 
     protected function saveGig(Gig $gig)
     {
-        //TODO:stop using hidden form to get user_id in create.blade
-        $attributes = Input::only('name', 'description', 'location', 'date');
-        $gig = new Gig($attributes);
+        $gig->name        = Input::get('name');
+        $gig->description = Input::get('description');
+        $gig->location    = Input::get('location');
+        $gig->date        = Input::get('date');
+        $gig->user_id     = Auth::id();
 
         if (!$gig->save()) {
             return Redirect::back()->withErrors($gig->getErrors())->withInput();
