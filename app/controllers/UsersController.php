@@ -25,7 +25,6 @@ class UsersController extends \BaseController
         // $query = User::with('user');
 
         // $query->where('  ', 'like', "%$search%");
-
         // $query->orWhere('   ', 'like', "%$search%");
 
         // $users = $query->orderBy('created_at', 'desc')->paginate(4);
@@ -38,6 +37,8 @@ class UsersController extends \BaseController
 
         // create IndexView with variables below
     }
+
+
     /**
      * Show the form for creating a new user
      *
@@ -47,6 +48,7 @@ class UsersController extends \BaseController
     {
         return View::make('users.create');
     }
+
 
     /**
      * Store a newly created user in storage.
@@ -59,6 +61,8 @@ class UsersController extends \BaseController
 
         return $this->saveUser($user);
     }
+
+
     /**
      * Display the specified user.
      *
@@ -78,12 +82,15 @@ class UsersController extends \BaseController
 
     }
 
+
     /**
      * Show the form for editing the specified user.
      *
      * @param  int  $id
      * @return Response
      */
+
+
     public function edit($id)
     {
         //**write authentication.
@@ -96,6 +103,8 @@ class UsersController extends \BaseController
         return View::make('users.edit')->with('user', $user);
 
     }
+
+
     /**
      * Update the specified user in storage.
      *
@@ -113,8 +122,11 @@ class UsersController extends \BaseController
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
         }
+
         return $this->saveUser($user);
     }
+
+
     /**
      * Remove the specified user from storage.
      *
