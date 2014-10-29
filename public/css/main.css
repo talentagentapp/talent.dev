@@ -1,9 +1,7 @@
 body
 {
     padding-top: 70px;
-
-    /*HERE FOR DEBUG ONLY*/
-    background-color: black;
+    background-image: url(/img/black_mamba.png);
 }
 
 .container

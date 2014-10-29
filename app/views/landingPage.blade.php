@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'landing page')
+@section('title', "Landing")
 
 @section('content')
 <div class='container'>
@@ -47,6 +47,7 @@
 
 @section('bottom-script')
 <script>
+
 
 $("#loginInfoToggle").hide();
 
