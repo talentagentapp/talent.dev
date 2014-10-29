@@ -48,6 +48,6 @@ class HomeController extends BaseController
 
     public function showHomePage()
     {
-        return View::make('homePage');
+        return View::make('homepage');
     }
 }
