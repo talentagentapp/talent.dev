@@ -28,7 +28,7 @@ class HomeController extends BaseController
                 // attempt to do the login
             if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
                 return Redirect::action('UsersController@index');
-            } else {        
+            } else {
                 return Redirect::action('UsersController@showLanding');
 
             }
@@ -50,7 +50,7 @@ class HomeController extends BaseController
     {
         $gigs= Gig::all();
 
-        $featured_user = User::('');
+        // $featured_user = User::('');
 
         return View::make('homepage')->with('gigs', $gigs);
     }

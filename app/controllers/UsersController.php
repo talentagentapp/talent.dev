@@ -187,10 +187,10 @@ class UsersController extends \BaseController
             // =======================end validator====================
             //this can be a method in a model
             if(Input::hasFile('image')) {
-                $file = Input::file('image');
+                $file             = Input::file('image');
                 $destination_path = public_path() . '/img/';
-                $filename = str_random(6) . '_' . $file->getClientOriginalName();
-                $uploadSuccess = $file->move($destination_path, $filename);
+                $filename         = str_random(6) . '_' . $file->getClientOriginalName();
+                $uploadSuccess    = $file->move($destination_path, $filename);
                 $user->image_name = '/img/' . $filename;
             }
 
