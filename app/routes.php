@@ -17,6 +17,7 @@ Route::post('/', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@doLogout');
 
 Route::resource('users', 'UsersController');
+
 //->with('newUserType', $newUserType);
 // //if you have a landing page that directs you to the index, then:
 // //->with($some-kinda-value-that-tells you whether its an agent or talent)

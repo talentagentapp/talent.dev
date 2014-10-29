@@ -47,6 +47,7 @@ class UsersController extends \BaseController
 	{
 		return View::make('users.create');
 	}
+
 	/**
 	 * Store a newly created user in storage.
 	 *
