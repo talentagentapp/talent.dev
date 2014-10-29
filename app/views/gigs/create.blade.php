@@ -38,6 +38,7 @@
                 <input type='datetime-local' name='date' id='date' class='form-control'>
                 @if($errors->has('date')) <div class="alert alert-danger" role="alert">{{ $errors->first('date') }}</div> @endif
             </div>
+
             <div class='form-group'>
                 {{ Form::submit('Create Gig', ['class' => 'btn btn-default']) }}
             </div>
