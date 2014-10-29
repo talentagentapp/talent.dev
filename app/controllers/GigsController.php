@@ -26,7 +26,9 @@ class GigsController extends \BaseController
         foreach($gigs as $gig)
         {
             $date = $gig->date;
-            //action method instead of href value
+            //action method instead of href value 
+            //possible issue with Calendar Model method setEvents may not take in blade syntax
+            //when it parses out HTML
             $name = "<a class='gig-modal' href='/gigs/{$gig->id}'>{$gig->name}</a>";
             $location = $gig->location;
 
