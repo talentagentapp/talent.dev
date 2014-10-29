@@ -40,6 +40,11 @@ footer
     table-layout: fixed; 
 }
 
+.caltable-header
+{
+    font-size: 20px;
+}
+
 .modal-content
 {
     color: black;

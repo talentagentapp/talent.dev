@@ -26,6 +26,7 @@ class GigsController extends \BaseController
         foreach($gigs as $gig)
         {
             $date = $gig->date;
+            //action method instead of href value
             $name = "<a class='gig-modal' href='/gigs/{$gig->id}'>{$gig->name}</a>";
             $location = $gig->location;
 
@@ -91,8 +92,6 @@ class GigsController extends \BaseController
     public function show($id)
     {
         $gig = Gig::findOrFail($id);
-        $agent_id = $gig->agent_id;
-        $agent = Agent::find($agent_id);
 
         if(!$gig) {
             App:abort(404);
@@ -100,8 +99,8 @@ class GigsController extends \BaseController
 
         if (Request::ajax()) {
             return Response::json([
-                'gig'   => $gig->toJson(),
-                'agent' => $agent->toJson()
+                'gig'  => $gig,
+                'user' => $gig->user
             ]);
         } else {
             return View::make('gigs.show')->with('gig', $gig)->with('agent', $agent);

@@ -22,7 +22,6 @@
                             <a href="?">month</a>
                         @endif
                     @endif
-                    @if(Auth::check())<a href="{{ action('GigsController@create') }}">create</a>@endif
                 </small>
             </h2>
 
@@ -33,9 +32,9 @@
                     <div class="modal-content">
                         <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                         <h4 id="modalfontcolor" class="modal-title" id="myModalLabel">Modal title</h4>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                         </div>
-                        <div id="modalfontcolor" class="modal-body">
+                        <div id="myModalBody" class="modal-body">
                             <p>Lots of things</p>
                         </div>
                         <div class="modal-footer">
@@ -44,6 +43,10 @@
                     </div>
                 </div>
             </div>
+
+            @if(Auth::check())
+            <a href="{{ action('GigsController@create') }}">create</a>
+            @endif
 
             <hr>
             @forelse($gigs as $gig)
@@ -77,15 +80,26 @@
 
 @section('bottom-script')
 <script type="text/javascript">
+
     $('.gig-modal').click(function(event) {
         var url = $(this).attr('href');
 
         $.get(url, function(data) {
+            $("#myModalLabel").text(data.gig.name)
+            $("#myModalBody").text(data.gig.description)
             $('.bs-example-modal-lg').modal();
-            console.log(data);
         });
-        
+
         event.preventDefault();
     });
+
+    $("td").not(':first').hover(
+      function () {
+        $(this).css("background","rgba(0,0,100,0.3)");
+      }, 
+      function () {
+        $(this).css("background","");
+      }
+    );
 </script>
 @stop
