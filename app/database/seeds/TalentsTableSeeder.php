@@ -11,12 +11,12 @@ class TalentsTableSeeder extends Seeder
 
         //DEMO SEED ACCOUNT
         $talent = new Talent;
-            $talent->fill([
-                'dob'        => 1932-02-26,
-                'skills'     => 'Guitar playing, songwriting, and singing.',
-                'user_id'    => 2,
-                ]);
-            $talent->forceSave();
+        $talent->fill([
+            'dob'        => '1932-02-26',
+            'skills'     => 'Guitar playing, songwriting, and singing.',
+            'user_id'    => 2,
+            ]);
+        $talent->forceSave();
 
         $faker = Faker::create();
 
