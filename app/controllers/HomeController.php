@@ -50,7 +50,9 @@ class HomeController extends BaseController
     {
         $gigs= Gig::all();
 
-        $featured_user = User::('');
+        // causing syntax error bc of empty string; commented out until 
+        // further notice
+        // $featured_user = User::('');
 
         return View::make('homepage')->with('gigs', $gigs);
     }
