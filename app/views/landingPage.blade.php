@@ -2,6 +2,24 @@
 
 @section('title', "Landing")
 
+@section('style')
+<style>
+body
+{
+  background: url(/img/fixedBackgroundoption.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+footer
+{
+    position: absolute;
+    bottom: 0;
+}
+</style>
+@stop
+
 @section('content')
 <div class='container'>
     <div class='row'>
