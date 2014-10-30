@@ -9,6 +9,15 @@ class TalentsTableSeeder extends Seeder
 	{
         DB::table('talents')->delete();
 
+        //DEMO SEED ACCOUNT
+        $talent = new Talent;
+            $talent->fill([
+                'dob'        => 1932-02-26,
+                'skills'     => 'Guitar playing, songwriting, and singing.',
+                'user_id'    => 2,
+                ]);
+            $talent->forceSave();
+
         $faker = Faker::create();
 
         for ($i=0; $i < 15; $i++) {

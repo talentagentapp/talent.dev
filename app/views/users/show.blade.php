@@ -7,9 +7,8 @@
 	<div class='row'>
 
 		<div class='col-md-8'>
-            <img src="{{ $user->img }}" alt="">
 			<h1>{{{ $user->first . ' ' . $user->last }}}</h1>
-			<img src="{{ $user->img }}">
+			<img src="{{ $user->img }}" class='img-thumbnail'>
 			<h4><a href="mailto:{{{ $user->email }}}">{{{ $user->email }}}</a></h4>
 			<p>{{{ $user->bio }}}</p>
 		</div>
