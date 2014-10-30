@@ -19,7 +19,23 @@ class UsersTableSeeder extends Seeder
             'first'      => 'Code',
             'last'       => 'Up',
             'img'        => '/img/jessie_mathews.jpg',
-            'bio'        => 'BEWARE THE ADMINISTRATOR AND BANHAMMER.',
+            'bio'        => 'I am the administrator.',
+            'experience' => '10+',
+            'sex'        => 'm',
+            ]);
+        $user->forceSave();
+
+        //SEED THE DEMO ACCOUNT
+        $user = new User;
+        $user->fill([
+            'role'       => 'talent',
+            'email'      => 'johnny@cash.com',
+            'username'   => 'theManInBlack',
+            'password'   => 'demoPass',
+            'first'      => 'Johnny',
+            'last'       => 'Cash',
+            'img'        => '/img/johnny_cash_1.jpg',
+            'bio'        => 'I was born in Kingsland, Arkansas and I love writing and playing country music.',
             'experience' => '10+',
             'sex'        => 'm',
             ]);

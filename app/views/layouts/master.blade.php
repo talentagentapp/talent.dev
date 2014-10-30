@@ -11,14 +11,8 @@
   <link rel="stylesheet" href="/css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  @yield('style')
 </head>
 <body>
-
-  <!-- Sets background image  -->
-<!-- <div id="bg">
-  <img src="/img/slow_metropolis.gif" alt="">
-</div> -->
 
   <!--Logic for sliding navbar  -->
 <!-- <div class="tophiddenbar" id="tophiddenbar">
@@ -76,7 +70,6 @@
   </nav>
 
 @yield('content')
-
 
 <footer>
   <div class='container'>

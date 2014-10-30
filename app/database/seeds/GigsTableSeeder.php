@@ -15,11 +15,11 @@ class GigsTableSeeder extends Seeder
             $gig = new Gig;
             $gig->fill([
                 'name'        => $faker->bs,
-                'description' => $faker->paragraph($nbSentences = 3),
-                'date'        => $faker->dateTimeBetween($startDate = 'now', $endDate = '+3 years'),
+                'description' => $faker->paragraph($nbSentences = 5),
+                'date'        => $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 month'),
                 'location'    => $faker->address,
                 'created_at'  => $faker->dateTimeThisYear($max = 'now'),
-                'user_id'     => $faker->numberBetween($min = 2, $max = 26)
+                'user_id'     => $faker->numberBetween($min = 3, $max = 27)
                 ]);
             $gig->forceSave();
         }

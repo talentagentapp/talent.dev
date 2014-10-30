@@ -2,13 +2,13 @@
 
 class GigsController extends \BaseController
 {
-    // public function __construct()
-    // {
-    //     // call base controller constructor
-    //     parent::__construct();
+    public function __construct()
+    {
+        // call base controller constructor
+        parent::__construct();
 
-    //     $this->beforeFilter('auth');
-    // }
+        $this->beforeFilter('auth');
+    }
 
     /**
      * Display a listing of gigs
@@ -26,7 +26,7 @@ class GigsController extends \BaseController
         foreach($gigs as $gig)
         {
             $date = $gig->date;
-            //action method instead of href value 
+            //action method instead of href value
             //possible issue with Calendar Model method setEvents may not take in blade syntax
             //when it parses out HTML
             $name = "<a class='gig-modal' href='/gigs/{$gig->id}'>{$gig->name}</a>";
@@ -59,7 +59,7 @@ class GigsController extends \BaseController
 
         $displayCalendar = $cal->generate();
 
-        return View::make('gigs.index')->with('displayCalendar', $displayCalendar)->with('gigs', $gigs); 
+        return View::make('gigs.index')->with('displayCalendar', $displayCalendar)->with('gigs', $gigs);
         //*****future search feature
     }
 
