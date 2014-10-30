@@ -95,6 +95,8 @@ class GigsController extends \BaseController
     {
         $gig = Gig::findOrFail($id);
 
+        $user = Auth::user();
+
         if(!$gig) {
             App:abort(404);
         }
@@ -105,7 +107,7 @@ class GigsController extends \BaseController
                 'user' => $gig->user
             ]);
         } else {
-            return View::make('gigs.show')->with('gig', $gig)->with('agent', $agent);
+            return View::make('gigs.show')->with('gig', $gig)->with('user', $user);
         }
 
     }
