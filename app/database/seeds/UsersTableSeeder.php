@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
         $user->fill([
             'role'       => 'talent',
             'email'      => 'johnny@cash.com',
-            'username'   => 'manInBlack',
+            'username'   => 'theManInBlack',
             'password'   => 'demoPass',
             'first'      => 'Johnny',
             'last'       => 'Cash',

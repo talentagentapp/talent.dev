@@ -8,7 +8,7 @@
 
 		<div class='col-md-8'>
 			<h1>{{{ $user->first . ' ' . $user->last }}}</h1>
-			<img src="{{ $user->img }}" class='img-thumbnail'>
+			<img src="{{ $user->img }}" class='img-thumbnail img-responsive'>
 			<h4><a href="mailto:{{{ $user->email }}}">{{{ $user->email }}}</a></h4>
 			<p>{{{ $user->bio }}}</p>
 		</div>
@@ -18,9 +18,9 @@
 			<hr>
 			<p>{{{ $user->skills }}}</p>
 			<p>I have {{{ $user->experience }}} years of experience.</p>
-			<p>Ect.</p>
-			<p>{{{ $user->sex }}}</p>
+			<p>Gender: {{{ $user->sex }}}</p>
             <p>[skills]</p>
+            <p>Ect.</p>
 		</div>
 	</div>
 
