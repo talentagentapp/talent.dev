@@ -65,7 +65,7 @@
   @yield('content')
 
   <footer>
-    <div class='container'>
+    <div class='container-fluid'>
       <div class="row">
         <div class="col-lg-12">
           <hr>
