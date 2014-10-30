@@ -29,7 +29,7 @@ class HomeController extends BaseController
             if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
                 return Redirect::action('UsersController@index');
             } else {
-                return Redirect::action('UsersController@showLanding');
+                return Redirect::action('HomeController@showLanding');
 
             }
         }
