@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/datepicker.css">
+  @yield('style')
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src ="/js/bootstrap-datepicker.js"></script>
-  <link rel="stylesheet" href="/css/datepicker.css">
-  @yield('style')
 </head>
 <body>
 
@@ -65,9 +65,8 @@
 
   @yield('content')
 
-
   <footer>
-    <div class='container'>
+    <div class='container-fluid'>
       <div class="row">
         <div class="col-lg-12">
           <hr>
@@ -78,8 +77,9 @@
   </footer>
 
   @yield('bottom-script')
+
   <script>
-    $('#nav_cal_dropdown').datepicker()
+  $('#nav_cal_dropdown').datepicker()
   </script>
 
 </body>

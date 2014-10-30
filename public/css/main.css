@@ -4,7 +4,7 @@ body
     background-image: url(/img/black_mamba.png);
 }
 
-.container
+.container, .container-fluid
 {
     color: white;
 }
@@ -48,7 +48,7 @@ footer
 
 .caltable
 {
-    table-layout: fixed; 
+    table-layout: fixed;
 }
 
 .caltable-header
