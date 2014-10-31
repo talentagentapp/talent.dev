@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTagTalentTable extends Migration
+class CreateTagUserTable extends Migration
 {
 
 	/**
@@ -13,12 +13,14 @@ class CreateTagTalentTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('tag_talent', function(Blueprint $table)
+		Schema::create('tag_user', function(Blueprint $table)
 		{
 			$table->integer('tag_id')->unsigned()->index();
 			$table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+
 			$table->integer('user_id')->unsigned()->index();
-			$table->foreign('user_id')->references('user_id')->on('talents')->onDelete('cascade');
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
 			$table->primary('tag_id', 'user_id');
 			$table->timestamps();
 		});
@@ -32,7 +34,7 @@ class CreateTagTalentTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('tag_talent');
+		Schema::drop('tag_user');
 	}
 
 }
