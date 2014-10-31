@@ -31,9 +31,9 @@ class UsersController extends \BaseController
 
         // return View::make('users.index')->with('users', $users);
 
-        $users = User::all();
+        $users = User::paginate(6);
 
-        return View::make('users.index')->with('users', $users);
+        return View::make('users.index')->with(array('users' => $users));
 
         // create IndexView with variables below
     }
