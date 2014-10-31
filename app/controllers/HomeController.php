@@ -28,8 +28,8 @@ class HomeController extends BaseController
                 // attempt to do the login
             if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
                 return Redirect::action('UsersController@index');
-            } else {        
-                return Redirect::action('UsersController@showLanding');
+            } else {
+                return Redirect::action('HomeController@showLanding');
 
             }
         }
@@ -50,7 +50,9 @@ class HomeController extends BaseController
     {
         $gigs= Gig::all();
 
-        $featured_user = User::('');
+        // causing syntax error bc of empty string; commented out until
+        // further notice
+        // $featured_user = User::('');
 
         return View::make('homepage')->with('gigs', $gigs);
     }

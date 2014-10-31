@@ -10,7 +10,7 @@
     @forelse($users as $user)
     <div class='row'>
         <div class='col-md-4'>
-            <a href="{{ action('UsersController@show', $user->id) }}"><img src="{{ $user->img }}" height='250px' width='250px'></a>
+            <a href="{{ action('UsersController@show', $user->id) }}"><img src="{{ $user->img }}" class='img-responsive'></a>
         </div>
         <div class='col-md-8'>
             <h3>{{{ $user->first . ' ' . $user->last }}} <small>{{{ $user->role }}}</small></h3>

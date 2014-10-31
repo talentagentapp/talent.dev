@@ -17,7 +17,6 @@ class ManageAccounts extends \BaseController
             } else {
                 return Redirect::to('/')->withErrors();
             }
-            //if not, return response\error message
         });
     }
 
