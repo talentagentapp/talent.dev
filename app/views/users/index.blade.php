@@ -4,7 +4,25 @@
 
 @section('content')
 <div class="container">
-    <h1>Our Users</h1>
+
+    <div class='row'>
+
+        <div class="col-md-4">
+            <h1>Our Users</h1>
+        </div>
+        <br>
+        <div class='col-md-8'>
+            {{ Form::open(['action' => 'UsersController@index', 'method' => 'GET']) }}
+            <div class="input-group form-group">
+                {{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'search for a user by name or tags']) }}
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type='submit'><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+            {{ Form::close() }}
+        </div>
+
+    </div>
     <hr>
 
     @forelse($users as $user)
@@ -17,7 +35,7 @@
             <p>{{{ $user->experience }}} Years of Experience.</p>
             <p>{{{ $user->bio }}}</p>
 
-             <a class="btn btn-sm btn-default" href="{{ action('UsersController@show', $user->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="btn btn-sm btn-default" href="{{ action('UsersController@show', $user->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
     <hr>
