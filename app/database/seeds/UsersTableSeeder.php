@@ -43,6 +43,7 @@ class UsersTableSeeder extends Seeder
             'bio'        => 'I was born in Kingsland, Arkansas and I love writing, playing music and walking the line.',
             'experience' => '10+',
             'sex'        => 'm',
+            // 'talent_id'  => 1,
             ]);
         $user->forceSave();
 
@@ -59,6 +60,7 @@ class UsersTableSeeder extends Seeder
             'bio'        => 'I helped pioneer the use of modes in jazz and was later at the forefront of free jazz.',
             'experience' => '10+',
             'sex'        => 'm',
+            // 'talent_id'  => 2,
             ]);
         $user->forceSave();
 
@@ -75,6 +77,7 @@ class UsersTableSeeder extends Seeder
             'bio'        => 'I am a self-styled gangsta Nancy Sinatra.',
             'experience' => '1-5',
             'sex'        => 'f',
+            // 'talent_id'  => 4,
             ]);
         $user->forceSave();
 
@@ -91,6 +94,7 @@ class UsersTableSeeder extends Seeder
             'bio'        => 'I am a great actor.',
             'experience' => '10+',
             'sex'        => 'm',
+            // 'talent_id'  => 5,
             ]);
         $user->forceSave();
 
