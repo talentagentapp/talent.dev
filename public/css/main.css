@@ -1,13 +1,57 @@
 body
 {
     padding-top     : 70px;
-    background-image: url(/img/black_mamba.png);
+    background-image: url(/img/diagmonds.png);
 }
 
 .container, .container-fluid
 {
     color: white;
 }
+
+.nav, .navbar-brand 
+{
+    font-family     : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-size       : 20px;
+    font-style      : normal;
+    font-variant    : normal;
+    font-weight     : 400;
+    font-color      : white; 
+}
+
+.navbar-inverse .navbar-brand 
+{
+color: #451515;
+}
+
+
+.navbar-inverse 
+{
+    background-image : -webkit-linear-gradient(top,#3c3c3c 0,#222 100%);
+    background-image : -o-linear-gradient(top,#3c3c3c 0,#222 100%);
+    background-image : -webkit-gradient(linear,left top,left bottom,from(#3c3c3c),to(#222));
+    background-image : linear-gradient(to bottom,rgba(207, 156, 42, 0.98) 0,rgba(0, 0, 0, 0.91) 100%);
+    filter           : progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+    filter           : progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+
+}
+
+.navbar-inverse .navbar-nav>li>a 
+{
+    color: #4A1616;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus 
+{
+    color: rgb(87, 88, 75);
+}
+
+.navbar-inverse .navbar-nav>.active>a:hover
+{
+    background-image: url(/img/diagmonds.png);
+}
+
 
 #bg
 {
