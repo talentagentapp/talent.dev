@@ -4,6 +4,9 @@
 
 @section('style')
 <style>
+.navbar-inverse 
+{ display: none; }
+
 body
 {
   background: url(/img/fixedBackgroundoption.jpg) no-repeat center center fixed;
@@ -17,6 +20,13 @@ footer
     position: absolute;
     bottom: 0;
 }
+
+h2
+{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-size: 35px;
+}
+
 </style>
 @stop
 
@@ -36,7 +46,7 @@ footer
 
         <div id="loginToggle" class='col-md-6'>
             @if(!Auth::user())
-            <h2>login</h2>
+            <h2>log in</h2>
             <div id="loginInfoToggle">
                 {{ Form::open(['action' => 'HomeController@doLogin', 'method' => 'POST'])}}
                 <div class='form-group'>
@@ -50,7 +60,7 @@ footer
                 <div class='form-group'>
                     <button class='btn btn-default'>submit</button>
                 </div>
-                {{ Form::close()}}
+                {{ Form::close()}}                
             </div>
             @endif
         </div>
