@@ -17,9 +17,9 @@
             </div>
         </div>
 
-        <div class='col-md-6'>
+        <div id="loginToggle" class='col-md-6'>
             @if(!Auth::user())
-            <div id="loginToggle">
+
                 <h2>login</h2>
                 <div id="loginInfoToggle">
                     {{ Form::open(['action' => 'HomeController@doLogin', 'method' => 'POST'])}}
@@ -36,7 +36,6 @@
                     </div>
                     {{ Form::close()}}
                 </div>
-            </div>
             @else
             <p>Logout</p>
             @endif
