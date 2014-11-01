@@ -68,6 +68,23 @@ class UsersTableSeeder extends Seeder
         $user->fill([
             //USER ID:4
             'role'       => 'talent',
+            'email'      => 'Jessica@email.com',
+            'username'   => 'jessieGirl',
+            'password'   => 'demoPass',
+            'first'      => 'Jessica',
+            'last'       => 'Lucas',
+            'img'        => '/img/girl_1.jpg',
+            'bio'        => 'I am from California and now reside in San Antonio. I have been playing piano since I was young.',
+            'experience' => '5-10',
+            'sex'        => 'f',
+            // 'talent_id'  => 3,
+            ]);
+        $user->forceSave();
+
+        $user = new User;
+        $user->fill([
+            //USER ID:5
+            'role'       => 'talent',
             'email'      => 'lana@sadgirl.com',
             'username'   => 'redDressGirl',
             'password'   => 'demoPass',
@@ -83,7 +100,7 @@ class UsersTableSeeder extends Seeder
 
         $user = new User;
         $user->fill([
-            //USER ID:5
+            //USER ID:6
             'role'       => 'talent',
             'email'      => 'orson@greenpeas.com',
             'username'   => 'rosebud',

@@ -52,7 +52,7 @@ class HomeController extends BaseController
 
         // causing syntax error bc of empty string; commented out until
         // further notice
-        // $featured_user = User::('');
+        // $featured_user = User::random(1);
 
         return View::make('homepage')->with('gigs', $gigs);
     }
