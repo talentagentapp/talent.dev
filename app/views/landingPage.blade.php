@@ -32,20 +32,9 @@ h2
 
 @section('content')
 <div class='container'>
+    @if(!Auth::user())
     <div class='row'>
-
-        <div id="createToggle" class='col-md-6'>
-            <h2>create user</h2>
-            <div id="createUserToggle">
-                <!-- TODO:change these to an action -->
-                <a class="btn btn-default" href="users/create?role=talent">talent</a>
-                <p>or</p>
-                <a class="btn btn-default" href="users/create?role=agent">agent or manager</a>
-            </div>
-        </div>
-
-        <div id="loginToggle" class='col-md-6'>
-            @if(!Auth::user())
+        <div id="loginToggle" class='col-md-6 col-md-offset-6'>
             <h2>log in</h2>
             <div id="loginInfoToggle">
                 {{ Form::open(['action' => 'HomeController@doLogin', 'method' => 'POST'])}}
@@ -60,9 +49,33 @@ h2
                 <div class='form-group'>
                     <button class='btn btn-default'>submit</button>
                 </div>
-                {{ Form::close()}}                
+                {{ Form::close()}}   
+            </div>    
+        </div>
+    </div>
+    <div class="row">
+        <div id="createToggle" class='col-md-6 col-md-offset-6'>
+            <h2>create user</h2>
+            <div id="createUserToggle">
+                <!-- TODO:change these to an action -->
+                <a class="btn btn-default" href="users/create?role=talent">talent</a>
+                <p>or</p>
+                <a class="btn btn-default" href="users/create?role=agent">agent or manager</a>
             </div>
-            @endif
+        </div>
+    </div>
+    @endif
+    <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+            <h2>mission statement</h2>
+            <p id="missionToggle">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
         </div>
     </div>
 </div>
@@ -72,20 +85,36 @@ h2
 <script>
 
 $("#loginInfoToggle").hide();
-
 $("#createUserToggle").hide();
 
-$("#loginToggle").hover(
-    function()
-    {
-        $("#loginInfoToggle").toggle("slow");
-    });
+var missionTimeout;
+var showMissionStatement = function() {
+    $("#missionToggle").show("slow");
+}
 
-$("#createToggle").hover(
-    function()
-    {
-        $("#createUserToggle").toggle("slow");
-    });
+$("#loginToggle").hover(function()
+{
+    clearTimeout(missionTimeout);
+
+    $("#loginInfoToggle").show("slow");
+    $("#createUserToggle").hide("slow");
+    $("#missionToggle").hide("slow");
+}, function() {
+    $("#loginInfoToggle").hide("slow");
+    missionTimeout = setTimeout(showMissionStatement, 200);
+});
+
+$("#createToggle").hover(function()
+{
+    clearTimeout(missionTimeout);
+    
+    $("#loginInfoToggle").hide("slow");
+    $("#createUserToggle").show("slow");
+    $("#missionToggle").hide("slow");
+}, function() {
+    $("#createUserToggle").hide("slow");
+    missionTimeout = setTimeout(showMissionStatement, 200);
+});
 
 </script>
 @stop
