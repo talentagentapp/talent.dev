@@ -11,7 +11,7 @@ use \Illuminate\Database\Eloquent\Model as Eloquent;
 class User extends BaseModel implements UserInterface, RemindableInterface, HashingModelInterface
 {
 
-    use UserTrait, RemindableTrait;
+    use UserTrait, RemindableTrait, Conner\Tagging\TaggableTrait;
 
 
     /**
@@ -67,26 +67,17 @@ class User extends BaseModel implements UserInterface, RemindableInterface, Hash
         return ucfirst($value);
     }
 
-    // public function getSexAttribute($value)
-    // {
-    //     switch ($value) {
-    //         case 'm':
-    //             return 'Male'
-    //             break;
-
-    //         case 'f':
-    //             return 'Female'
-    //             break;
-
-    //         case 'not say':
-    //             return "I'd rather not say."
-    //             break;
-
-    //         default:
-    //             return 'Sex'
-    //             break;
-    //     }
-    // }
+    public function getGenderStrAttribute()
+    {
+        switch($this->sex) {
+            case 'm':
+                return 'male';
+            case 'f':
+                return 'female';
+            default:
+                return $this->sex;
+        }
+    }
 
     //========================relationships=========================
 
@@ -104,4 +95,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface, Hash
     {
         return $this->hasMany('Gig');
     }
+
+    public function tags()
+    {
+        return $this->hasMany('Tag');
+    }
+    //=======================
+
 }

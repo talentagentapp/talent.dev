@@ -18,7 +18,8 @@
 			<hr>
 			<p>{{{ $user->skills }}}</p>
 			<p>I have {{{ $user->experience }}} years of experience.</p>
-			<p>Gender: {{{ $user->sex }}}</p>
+			<p>Gender: {{{ $user->gender_str }}}</p>
+
             <p>[skills]</p>
             <p>Ect.</p>
 		</div>
