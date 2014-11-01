@@ -17,11 +17,6 @@ class Talent extends BaseModel
     	return $this->morphOne('User', 'role');
     }
 
-    public function tags()
-    {
-        return $this->hasMany('Tag');
-    }
-
     public function groups()
     {
         return $this->belongsTo('Group');

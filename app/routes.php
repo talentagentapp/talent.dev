@@ -18,6 +18,8 @@ Route::get('/logout', 'HomeController@doLogout');
 
 Route::resource('users', 'UsersController');
 
+Route::get('/calendar', 'HomeController@showCalendar');
+
 //->with('newUserType', $newUserType);
 // //if you have a landing page that directs you to the index, then:
 // //->with($some-kinda-value-that-tells you whether its an agent or talent)
