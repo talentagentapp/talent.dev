@@ -64,7 +64,7 @@
     $("td").not(':first').hover(
       function () {
         $(this).css("background","rgba(0,0,100,0.3)");
-      }, 
+      },
       function () {
         $(this).css("background","");
       }
