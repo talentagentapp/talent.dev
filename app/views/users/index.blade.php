@@ -25,13 +25,14 @@ h1
             <h3>{{{ $user->first . ' ' . $user->last }}} <small>{{{ $user->role }}}</small></h3>
             <p>{{{ $user->experience }}} Years of Experience.</p>
             <p>{{{ $user->bio }}}</p>
+            <p>$user->talent->tag
 
              <a class="btn btn-sm btn-default" href="{{ action('UsersController@show', $user->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
     <hr>
     @empty
-    <p>No mo' users.</p>
+    <p>No more users.</p>
     @endforelse
 
     <div class='row'>

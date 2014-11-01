@@ -35,7 +35,7 @@ h2
     @if(!Auth::user())
     <div class='row'>
         <div id="loginToggle" class='col-md-6 col-md-offset-6'>
-            <h2>log in</h2>
+            <h2>login</h2>
             <div id="loginInfoToggle">
                 {{ Form::open(['action' => 'HomeController@doLogin', 'method' => 'POST'])}}
                 <div class='form-group'>
@@ -53,6 +53,7 @@ h2
             </div>    
         </div>
     </div>
+
     <div class="row">
         <div id="createToggle" class='col-md-6 col-md-offset-6'>
             <h2>create user</h2>
@@ -65,16 +66,17 @@ h2
         </div>
     </div>
     @endif
+    
     <div class="row">
         <div class="col-md-6 col-md-offset-6">
             <h2>mission statement</h2>
             <p id="missionToggle">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
         </div>
     </div>

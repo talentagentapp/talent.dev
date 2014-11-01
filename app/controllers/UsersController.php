@@ -32,10 +32,11 @@ class UsersController extends \BaseController
         // return View::make('users.index')->with('users', $users);
 
         $users = User::paginate(6);
+        
+        $tags = Tag::all()->orderBy('tag', 'asc');
 
-        return View::make('users.index')->with(array('users' => $users));
+        return View::make('users.index')->with(array('users' => $users))->with('tags', $tags);
 
-        // create IndexView with variables below
     }
 
 
@@ -46,7 +47,8 @@ class UsersController extends \BaseController
      */
     public function create()
     {
-        return View::make('users.create');
+        $tags = Tag::all();
+        return View::make('users.create')->with('tags', $tags);
     }
 
 
@@ -158,6 +160,7 @@ class UsersController extends \BaseController
         $user->last     = Input::get('last');
         $user->sex      = Input::get('sex');
         $user->bio      = Input::get('bio');
+        $user->tag('Singer');
 
         if (!$user->save()) {
 

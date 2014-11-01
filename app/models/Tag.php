@@ -9,21 +9,13 @@ class Tag extends BaseModel
         'tag' => 'required|alpha',
     ];
 
-    //function tags represents relationships, and is polymorphic to 'User' and 'Role'
-    public function tags()
-    {
-        // --Not sure about 'role'--
-        // many to many, maybe polymorphic?
-        morphMany('User', 'role');
-    }
-
     public function setTagAttribute($value)
     {
         $this->attributes['tag'] = strtolower($value);
     }
 
-    public function talents()
+    public function users()
     {
-        $this->belongsToMany('Talent');
+        $this->belongsToMany('User');
     }
 }

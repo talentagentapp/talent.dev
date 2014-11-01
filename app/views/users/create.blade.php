@@ -18,6 +18,7 @@
             {{ Form::open(array('action' => 'UsersController@store', 'files' => true, 'class' => 'form-horizontal', 'id' => "contact-form")) }}
 
             <h3>Contact Information</h3>
+
             <div class='form-group'>
                 {{ Form::label('first', 'First Name:', array('class' => 'col-sm-0 control-label')) }}
                 {{ Form::text('first', Input::old('first'), array('class' => 'form-control')) }}
@@ -93,8 +94,23 @@
 
             <h3>Special Options</h3>
 
-            @if(Input::has('talent'))
+            @if(Input::get('role') == 'talent')
             <!-- ===============TALENT OPTIONS=================== -->
+
+            <div class='form-group'>
+                {{ Form::label('group', 'group name:', array('class' => 'col-sm-0 control-label')) }}
+                {{ Form::text('group', Input::old('group'), array('class' => 'form-control')) }}
+                @if($errors->has('group')) <div class="alert alert-danger" role="alert">{{ $errors->first('group') }}</div> @endif
+                <p class="help-block">This step is optional. </p>
+            </div>
+
+            <div class='form-group'>
+                {{ Form::label('stage name', 'stage name:', array('class' => 'col-sm-0 control-label')) }}
+                {{ Form::text('stage name', Input::old('stage name'), array('class' => 'form-control')) }}
+                @if($errors->has('stage name')) <div class="alert alert-danger" role="alert">{{ $errors->first('group') }}</div> @endif
+                <p class="help-block">This step is optional. You can also enter a stage name.</p>
+            </div>
+
             <div class='form-group'>
                 {{ Form::label('skills', 'What skills do you have pertaining to this field:', array('class' => 'col-sm-0 control-label')) }}
                 {{ Form::text('skills', Input::old('first'), array('class' => 'form-control')) }}
@@ -106,7 +122,7 @@
                 <input type='date' name='dob' class='form-control'>
             </div>
 
-            @elseif(Input::has('agent'))
+            @elseif(Input::get('role') == 'agent')
             <!--===============AGENT OPTIONS=================== -->
             <div class="form-group">
                 {{ Form::label('company', 'What agency do you work with? :') }}
@@ -116,6 +132,21 @@
             @else
             <p>you did not follow the rules!</p>
             @endif
+
+            <div>
+                <p>Here are the tags</p>
+                
+                @if($errors->has('createTag')) <div class="alert alert-danger" role="alert">{{ $errors->first('createTag') }}</div> @endif
+                <div class="dropdown">
+                <!-- <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="Tags">Tags <b class="caret"></b></button> -->
+                  </button>
+                    <select name="tags" class="multiselect-container dropdown-menu" id="tag-selector" multiple="multiple" data-toggle="dropdown" >
+                        @foreach($tags as $tag)
+                            <option value="{{ $tag->tag }}">{{ $tag->tag }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -129,6 +160,10 @@
 @stop
 @section('bottom-script')
 <script>
+
+$('#tag-selector').multiselect({
+
+});
 
 $talentInputs = $('#talentInputs');
 $talentInputs.hide();
