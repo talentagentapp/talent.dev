@@ -21,25 +21,23 @@ body
 
 .navbar-inverse .navbar-brand 
 {
-color: #451515;
+color: #BCB2B2;
 }
-
 
 .navbar-inverse 
 {
-    background-image : -webkit-linear-gradient(top,#3c3c3c 0,#222 100%);
-    background-image : -o-linear-gradient(top,#3c3c3c 0,#222 100%);
-    background-image : -webkit-gradient(linear,left top,left bottom,from(#3c3c3c),to(#222));
-    background-image : linear-gradient(to bottom,rgba(207, 156, 42, 0.98) 0,rgba(0, 0, 0, 0.91) 100%);
-    filter           : progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
-    filter           : progid:DXImageTransform.Microsoft.gradient(enabled=false);
-    background-repeat: repeat-x;
-
+background-image: -webkit-linear-gradient(top,#3c3c3c 0,#222 100%);
+background-image: -o-linear-gradient(top,#3c3c3c 0,#222 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,from(#3c3c3c),to(#222));
+background-image: linear-gradient(to bottom,rgba(84, 79, 70, 0.98) 0,rgba(0, 0, 0, 0.91) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+background-repeat: repeat-x;
 }
 
 .navbar-inverse .navbar-nav>li>a 
 {
-    color: #4A1616;
+    color: #BCB2B2;
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus 
