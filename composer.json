@@ -7,8 +7,7 @@
         "laravel/framework": "4.2.*",
         "fzaninotto/faker": "~1.4",
         "esensi/model": "0.3.*",
-        "makzumi/calendar": "dev-master",
-        "rtconner/laravel-tagging": "0.4.*"
+        "makzumi/calendar": "dev-master"
     },
     "require-dev": {
         "way/generators": "~2.6"

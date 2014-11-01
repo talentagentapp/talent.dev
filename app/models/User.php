@@ -11,7 +11,7 @@ use \Illuminate\Database\Eloquent\Model as Eloquent;
 class User extends BaseModel implements UserInterface, RemindableInterface, HashingModelInterface
 {
 
-    use UserTrait, RemindableTrait, Conner\Tagging\TaggableTrait;
+    use UserTrait, RemindableTrait;
 
 
     /**
