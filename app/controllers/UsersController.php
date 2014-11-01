@@ -31,13 +31,12 @@ class UsersController extends \BaseController
 
         // return View::make('users.index')->with('users', $users);
 
-        $users = User::all();
-
+        $users = User::paginate(6);
+        
         $tags = Tag::all()->orderBy('tag', 'asc');
 
-        return View::make('users.index')->with('users', $users)->with('tags', $tags);
+        return View::make('users.index')->with(array('users' => $users))->with('tags', $tags);
 
-        // create IndexView with variables below
     }
 
 
