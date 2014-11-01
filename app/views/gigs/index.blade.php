@@ -8,11 +8,11 @@
         <div class='col-md-12'>
             <h2>Gigs
                 <small>
-
-            @if(Auth::check())
-            <a href="{{ action('GigsController@create') }}">create</a>
-            @endif
-
+                    @if(Auth::check())
+                    <a href="{{ action('GigsController@create') }}">create</a>
+                    @endif
+                </small>
+            </h2>
             <hr>
             @forelse($gigs as $gig)
             <article>
@@ -42,4 +42,3 @@
     </div>
 </div>
 @stop
-
