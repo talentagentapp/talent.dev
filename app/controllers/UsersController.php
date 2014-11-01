@@ -33,9 +33,10 @@ class UsersController extends \BaseController
 
         $users = User::all();
 
-        $tags = Tag::all()->orderBy('tag', 'asc');
+        // $tags = Tag::all()->orderBy('tag', 'asc');
 
-        return View::make('users.index')->with('users', $users)->with('tags', $tags);
+        return View::make('users.index')->with('users', $users);
+        // ->with('tags', $tags)
 
         // create IndexView with variables below
     }
