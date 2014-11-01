@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css">
   <script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
 </head>
+
 <body>
 
   <!-- Sets background image  -->
@@ -44,23 +45,23 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" <a href="/">Talent App</a></li>
+        <a class="navbar-brand" <a href="/">-talent app-</a></li>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li @if (Route::currentRouteUses('UsersController@index')) class='active' @endif><a href="{{ action('UsersController@index') }}">Users</a></li>
-          <li @if (Route::currentRouteUses('GigsController@index')) class='active' @endif><a href="{{ action('GigsController@index') }}">Gigs</a></li>
-          <li @if (Route::currentRouteUses('HomeController@showAbout')) class='active' @endif><a href="/about">About</a></li>
+          <li @if (Route::currentRouteUses('UsersController@index')) class='active' @endif><a href="{{ action('UsersController@index') }}">-users-</a></li>
+          <li @if (Route::currentRouteUses('GigsController@index')) class='active' @endif><a href="{{ action('GigsController@index') }}">-gigs-</a></li>
+          <li @if (Route::currentRouteUses('HomeController@showAbout')) class='active' @endif><a href="/about">-about-</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="nav_cal_dropdown" data-date-formate="dd-mm-yyyy" data-date="1-01-2014" >Events Calendar <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" id="nav_cal_dropdown" data-date-formate="dd-mm-yyyy" data-date="1-01-2014" >events calendar <span class="caret"></span></a>
           </li>
         </ul>
         <ul class='nav navbar-nav navbar-right'>
           @if (Auth::check())
           <li><a href="#">{{ Auth::user()->username }} is logged in</a></li>
-          <li><a href="/logout">Log Out</a></li>
+          <li><a href="/logout">log out</a></li>
           @else
-          <li><a href="/">Log In</a></li>
+          <li><a href="/">log in</a></li>
           @endif
         </ul>
       </div>

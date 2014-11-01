@@ -1,6 +1,15 @@
 @extends('layouts.master')
 
 @section('title', 'Users Index')
+@section('style')
+<style>
+h1
+{
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-size: 40px;
+}
+</style>
+@stop
 
 @section('content')
 <div class="container">
@@ -45,8 +54,10 @@
     @endforelse
 
     <div class='row'>
-        <div class='col-md-12'>
-            {{-- $users->links() --}}
+        <div class='col-md-8'>
+        </div>
+        <div class='col-md-4'>
+            {{ $users->links() }}
         </div>
     </div>
 </div>
