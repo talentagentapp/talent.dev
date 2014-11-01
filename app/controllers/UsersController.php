@@ -33,7 +33,7 @@ class UsersController extends \BaseController
 
         $users = User::paginate(6);
         
-        $tags = Tag::all()->orderBy('tag', 'asc');
+        $tags = Tag::orderBy('tag', 'ASC')->get();
 
         return View::make('users.index')->with(array('users' => $users))->with('tags', $tags);
 

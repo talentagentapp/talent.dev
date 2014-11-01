@@ -10,7 +10,7 @@
                         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                         </div>
                         <div id="myModalBody" class="modal-body">
-                            <p>Lots of things</p>
+                            <p>Modal Body</p>
                         </div>
                         <div class="modal-footer">
                             <button id="modalfontcolor" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
