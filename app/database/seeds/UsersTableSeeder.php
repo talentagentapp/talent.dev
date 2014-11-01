@@ -116,6 +116,60 @@ class UsersTableSeeder extends Seeder
         $user->forceSave();
 
 
+        $user = new User;
+        $user->fill([
+            //USER ID:6
+            'role'       => 'talent',
+            'email'      => 'audreyelopez@gmail.com',
+            'username'   => 'Audrey_elle',
+            'password'   => 'demoPass',
+            'first'      => 'Audrey',
+            'last'       => 'Lopez',
+            'img'        => '/img/audrey_1.jpg',
+            'bio'        => 'I .',
+            'experience' => '10+',
+            'sex'        => 'f',
+            // 'talent_id'  => 5,
+            ]);
+        $user->forceSave();
+
+
+        $user = new User;
+        $user->fill([
+            //USER ID:6
+            'role'       => 'talent',
+            'email'      => 'adam.j.vega@hotmail.com',
+            'username'   => 'av',
+            'password'   => 'demoPass',
+            'first'      => 'Adam',
+            'last'       => 'Vega',
+            'img'        => '/img/adam_1.jpg',
+            'bio'        => 'I am a great actor.',
+            'experience' => '10+',
+            'sex'        => 'm',
+            // 'talent_id'  => 5,
+            ]);
+        $user->forceSave();
+
+
+        $user = new User;
+        $user->fill([
+            //USER ID:6
+            'role'       => 'talent',
+            'email'      => 'coreyreylp@gmail.com',
+            'username'   => 'coray',
+            'password'   => 'demoPass',
+            'first'      => 'Cory',
+            'last'       => 'Rodriguez',
+            'img'        => '/img/cory_1.jpg',
+            'bio'        => 'I am a web developer.',
+            'experience' => '1-5',
+            'sex'        => 'm',
+            // 'talent_id'  => 5,
+            ]);
+        $user->forceSave();
+
+
 
         //SEED THE DATABASE
         for ($i=0; $i < 15; $i++) {
