@@ -25,8 +25,15 @@ class UsersController extends \BaseController
         $query = DB::table('users');
 
         $query->where('username', 'like', "%$search%");
-        $query->orWhere('first', 'like', "%$search%");
+        $query->orWhere('role', 'like', "%$search%");
+        // $query->orWhereHas('user', function($q)
+        // {
+        //     // $search = Input::get('search');
 
+        //     $q->where('email', 'like', "%$search%");
+        //     $q->where('first', 'like', "%$search");
+        //     $q->orwhere('last', 'like', "%$search");
+        // });
         $users = $query->orderBy('id', 'ASC')->paginate(6);
 
         $tags = Tag::orderBy('tag', 'ASC')->get();
