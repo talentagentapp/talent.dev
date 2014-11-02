@@ -20,18 +20,14 @@ class UsersController extends \BaseController
 
     public function index()
     {
-        // $search = Input::get('search');
+        $search = Input::get('search');
 
-        // $query = User::with('user');
+        $query = DB::table('users');
 
-        // $query->where('  ', 'like', "%$search%");
-        // $query->orWhere('   ', 'like', "%$search%");
+        $query->where('username', 'like', "%$search%");
+        $query->orWhere('first', 'like', "%$search%");
 
-        // $users = $query->orderBy('created_at', 'desc')->paginate(4);
-
-        // return View::make('users.index')->with('users', $users);
-
-        $users = User::paginate(6);
+        $users = $query->orderBy('id', 'ASC')->paginate(6);
 
         $tags = Tag::orderBy('tag', 'ASC')->get();
 
