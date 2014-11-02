@@ -5,8 +5,8 @@
 <style>
 h1
 {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-size: 40px;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-size: 40px;
 }
 </style>
 @stop
@@ -15,7 +15,6 @@ h1
 <div class="container">
 
     <div class='row'>
-
         <div class="col-md-4">
             <h1>Our Users</h1>
         </div>
@@ -30,7 +29,6 @@ h1
             </div>
             {{ Form::close() }}
         </div>
-
     </div>
     <hr>
 
@@ -43,7 +41,7 @@ h1
             <h3>{{{ $user->first . ' ' . $user->last }}} <small>{{{ $user->role }}}</small></h3>
             <p>{{{ $user->experience }}} Years of Experience.</p>
             <p>{{{ $user->bio }}}</p>
-            <p>$user->talent->tag
+            <p>$user->talent->tag</p>
 
             <a class="btn btn-sm btn-default" href="{{ action('UsersController@show', $user->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>

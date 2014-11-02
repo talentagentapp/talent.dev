@@ -139,13 +139,13 @@ class UsersTableSeeder extends Seeder
             //USER ID:6
             'role'       => 'talent',
             'email'      => 'adam.j.vega@hotmail.com',
-            'username'   => 'av',
+            'username'   => 'adamTheAtom',
             'password'   => 'demoPass',
             'first'      => 'Adam',
             'last'       => 'Vega',
             'img'        => '/img/adam_1.jpg',
             'bio'        => 'I am a great actor.',
-            'experience' => '10+',
+            'experience' => '1-5',
             'sex'        => 'm',
             // 'talent_id'  => 5,
             ]);
