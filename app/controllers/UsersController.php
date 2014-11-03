@@ -178,6 +178,8 @@ class UsersController extends \BaseController
                 $talent = new Talent();
 
                 $talent->dob        = Input::get('dob');
+
+                
                 $talent->experience = Input::get('experience');
                 $talent->skills     = Input::get('skills');
                 $talent->user_id    = $user->id;

@@ -6,7 +6,10 @@
 <div class='container'>
     <div class='row'>
         <div id='featured-talent'  class='col-md-8'>
-            <p>DANGIT</p>
+        <h1>Featured User</h1>
+            @foreach ($featuredUserArray as $featuredUser)
+            {{{$featuredUser['first'] . " " . $featuredUser['last']}}}
+            @endforeach
         </div>
         <div class='col-md-4' style='background-color:blue;'>
             @foreach ($gigs as $gig)

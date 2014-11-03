@@ -59,7 +59,7 @@ class GigsController extends \BaseController
 
         $displayCalendar = $cal->generate();
 
-        return View::make('gigs.index')->with('displayCalendar', $displayCalendar)->with('gigs', $gigs);
+        return View::make('gigs.index')->with('gigs', $gigs);
         //*****future search feature
     }
 
