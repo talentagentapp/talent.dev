@@ -5,17 +5,33 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class='col-md-12'>
-            <h2>Gigs
-                <small><br>
-            
-            @if(Auth::check())
-            <a class="btn btn-default btn-small active" href="{{ action('GigsController@create') }}">create an event</a>
-            @endif
+        <div class='col-md-4'>
+            <h2>gigs
+                <!-- <small> -->
+                    @if(Auth::check())
+                    <a class="btn btn-default btn-small" href="{{ action('GigsController@create') }}">create an event</a>
+                    @endif
+                <!-- </small> -->
+            </h2>
+        </div>
+        <br>
+        <div class='col-md-8'>
+            {{ Form::open(['action' => 'GigsController@index', 'method' => 'GET']) }}
+            <div class="input-group form-group">
+                {{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'search for a gig']) }}
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type='submit'><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+            {{ Form::close() }}
+        </div>
+    </div>
+    <hr>
 
-            <hr>
-            @forelse($gigs as $gig)
-            <article>
+    <div class="row">
+        <div class="col-md-12">
+             @forelse($gigs as $gig)
+             <article>
                 <h3>{{{ $gig->name }}}</h3>
 
                 <address>
@@ -42,4 +58,3 @@
     </div>
 </div>
 @stop
-

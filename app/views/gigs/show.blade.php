@@ -12,8 +12,8 @@
                 @endif
             </h2>
             <p>by {{{ $gig->user->username }}}</p>
-            <p>At: {{{ $gig->location }}}</p>
-            <p>When: {{{ $gig->date }}}</p>
+            <p>at: {{{ $gig->location }}}</p>
+            <p>when: {{{ $gig->date }}}</p>
             <hr>
 
             <p>{{{ $gig->description }}}</p>
@@ -22,7 +22,7 @@
 
     <div class="row">
         <div class='col-md-12'>
-            <h3>Comments</h3>
+            <h3>comments</h3>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

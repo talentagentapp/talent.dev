@@ -21,22 +21,23 @@ class UsersController extends \BaseController
     {
         $search = Input::get('search');
 
-        $query = User::with('user');
+        $query = DB::table('users');
 
-        $query->where('first', 'like', "%$search%");
+        $query->where('username', 'like', "%$search%");
+        $query->orWhere('role', 'like', "%$search%");
+        // $query->orWhereHas('user', function($q)
+        // {
+        //     // $search = Input::get('search');
 
-        $query->orWhere('last', 'like', "%$search%");
+        //     $q->where('email', 'like', "%$search%");
+        //     $q->where('first', 'like', "%$search");
+        //     $q->orwhere('last', 'like', "%$search");
+        // });
+        $users = $query->orderBy('id', 'ASC')->paginate(6);
 
-        $users = $query->orderBy('created_at', 'desc')->paginate(4);
+        $tags = Tag::orderBy('tag', 'ASC')->get();
 
-        $users = User::paginate(6);
-        
-        // $tags = Tag::orderBy('tag', 'ASC')->get();
-
-        return View::make('users.index')->with(array('users' => $users));
-
-        // ->with('tags', $tags);
-
+        return View::make('users.index')->with(array('users' => $users))->with('tags', $tags);
     }
 
 
