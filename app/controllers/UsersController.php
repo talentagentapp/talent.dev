@@ -11,7 +11,6 @@ class UsersController extends \BaseController
         $this->beforeFilter('auth', ['except' => ['create', 'store']]);
     }
 
-
     /**
      * Display a listing of users
      *
@@ -20,23 +19,23 @@ class UsersController extends \BaseController
 
     public function index()
     {
-        // $search = Input::get('search');
+        $search = Input::get('search');
 
-        // $query = User::with('user');
+        $query = User::with('user');
 
-        // $query->where('  ', 'like', "%$search%");
-        // $query->orWhere('   ', 'like', "%$search%");
+        $query->where('first', 'like', "%$search%");
 
-        // $users = $query->orderBy('created_at', 'desc')->paginate(4);
+        $query->orWhere('last', 'like', "%$search%");
 
-        // return View::make('users.index')->with('users', $users);
+        $users = $query->orderBy('created_at', 'desc')->paginate(4);
 
         $users = User::paginate(6);
         
-        $tags = Tag::orderBy('tag', 'ASC')->get();
+        // $tags = Tag::orderBy('tag', 'ASC')->get();
 
         return View::make('users.index')->with(array('users' => $users));
-        // ->with('tags', $tags)
+
+        // ->with('tags', $tags);
 
     }
 
@@ -102,7 +101,7 @@ class UsersController extends \BaseController
         //auth for user "edit" permissions on individual profiles
         //**double check next line
         $talent = User::find('talent');
-        $agent = User::find('agent');
+        $agent  = User::find('agent');
         return View::make('users.edit')->with('user', $user);
 
     }
@@ -152,8 +151,12 @@ class UsersController extends \BaseController
     protected function saveUser(User $user)
     {
         //====================begin validator===================
-
-        $user->talent   = Input::get('talent');
+        if(Input::get('role') == 'talent') {
+            $user->role = 'talent';
+        } else {
+            $user->role = 'agent';
+        }
+        // $user->talent   = Input::get('talent');
         $user->email    = Input::get('email');
         $user->username = Input::get('username');
         $user->password = Input::get('password');
@@ -161,7 +164,7 @@ class UsersController extends \BaseController
         $user->last     = Input::get('last');
         $user->sex      = Input::get('sex');
         $user->bio      = Input::get('bio');
-        $user->tag('Singer');
+        $user->experience = Input::get('experience');
 
         if (!$user->save()) {
 
@@ -175,12 +178,16 @@ class UsersController extends \BaseController
 
             // bool for agent / talent option
 
-            if (Input::get('talent') == 1) {
+            if (Input::get('talent')) {
                 $talent = new Talent();
 
-                $talent->dob     = Input::get('dob');
-                $talent->skills  = Input::get('skills');
-                $talent->user_id = $user->id;
+                $talent->dob        = Input::get('dob');
+
+
+                $talent->skills     = Input::get('skills');
+                $talent->user_id    = $user->id;
+                $talent->save();
+
                 if(!$talent->save()){
                     Session::flash('errorMessage', 'You did it wrong');
 
@@ -193,6 +200,8 @@ class UsersController extends \BaseController
 
                 $agent->company = Input::get('company');
                 $agent->user_id = $user->id;
+                $agent->save();
+
                 if(!$agent->save()){
                     Session::flash('errorMessage', 'You did it wrong');
 
@@ -215,7 +224,19 @@ class UsersController extends \BaseController
             Session::flash('successMessage', $message);
             Log::info($message, Input::all());
 
-            return Redirect::action('UsersController@show',$user->id);
+
         }
+
+        // $user->tags->tag = "artist";
+        // $user->save();
+        Auth::login($user);
+
+        return Redirect::action('HomeController@showHomePage');
+
+
+
+
+
+
     }
 }
