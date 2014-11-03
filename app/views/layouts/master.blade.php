@@ -22,20 +22,6 @@
 
 <body>
 
-  <!-- Sets background image  -->
-<!-- <div id="bg">
-  <img src="/img/slow_metropolis.gif" alt="">
-</div> -->
-
-<!--Logic for sliding navbar  -->
-<!-- <div class="tophiddenbar" id="tophiddenbar">
-    <div class="container">
-      <div id="topbar"><a href="http://designshack.net">Back to Design Shack</a
-        <li><a href="#contact">Contact Me</a></li>
-        </div>
-    </div>
-  </div> -->
-
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -45,16 +31,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" <a href="/">-talent app-</a></li>
+        <a class="navbar-brand" <a href="#">talent app</a></li>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li @if (Route::currentRouteUses('UsersController@index')) class='active' @endif><a href="{{ action('UsersController@index') }}">-users-</a></li>
-          <li @if (Route::currentRouteUses('GigsController@index')) class='active' @endif><a href="{{ action('GigsController@index') }}">-gigs-</a></li>
-          <li @if (Route::currentRouteUses('HomeController@showAbout')) class='active' @endif><a href="/about">-about-</a></li>
+          <li @if (Route::currentRouteUses('HomeController@showHomePage')) class='active' @endif><a href="{{ action('HomeController@showHomePage') }}">homepage</a></li>
+          <li @if (Route::currentRouteUses('UsersController@index')) class='active' @endif><a href="{{ action('UsersController@index') }}">users</a></li>
+          <li @if (Route::currentRouteUses('GigsController@index')) class='active' @endif><a href="{{ action('GigsController@index') }}">gigs</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="nav_cal_dropdown" data-date-formate="dd-mm-yyyy" data-date="1-01-2014" >events calendar <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" id="nav_cal_dropdown" data-date-formate="dd-mm-yyyy" data-date="1-01-2014" >current events <span class="caret"></span></a>
           </li>
+          <li @if (Route::currentRouteUses('HomeController@showAbout')) class='active' @endif><a href="/about">about</a></li>
         </ul>
         <ul class='nav navbar-nav navbar-right'>
           @if (Auth::check())

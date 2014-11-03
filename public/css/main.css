@@ -40,6 +40,12 @@ background-repeat: repeat-x;
     color: #BCB2B2;
 }
 
+a 
+{
+    color: #135792;
+    text-decoration: none;
+}
+
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus 
 {
     color: rgb(87, 88, 75);
@@ -100,10 +106,6 @@ footer
 
 input, li, .modal-content
 {
-    color: black;
+    color: rgb(47, 101, 242);
 }
 
-/* body
-{
-background-image: url(/img/slow_metropolis.gif);
-}*/
