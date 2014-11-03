@@ -99,16 +99,9 @@ class HomeController extends BaseController
 
         // causing syntax error bc of empty string; commented out until
         // further notice
-        $featuredUser = User::orderByRaw("RAND() LIMIT 1")->get();
-        $featuredUserArray = $featuredUser->toArray();
+        $featuredUser = User::orderByRaw("RAND()")->first();
 
-        foreach($featuredUser as $featured){
-            $featuredId = $featured['id'];
-        }
-
-        $user = User::find($featuredId);
-
-        return View::make('homepage')->with('gigs', $gigs)->with('user', $user);
+        return View::make('homepage')->with('gigs', $gigs)->with('user', $featuredUser);
     }
 
 
