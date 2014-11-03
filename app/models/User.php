@@ -38,7 +38,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface, Hash
 
     public $rules =
     [
-        'talent'             => 'required|in:0,1',
+        'role'               => 'required|alpha',
         'email'              => 'required|email',
         'username'           => 'required|alpha_dash|min:5|max:25',
         'password'           => 'required|min:5',
