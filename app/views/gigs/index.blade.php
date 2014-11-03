@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class='col-md-4'>
-            <h2>Gigs
+            <h2>gigs
                 <small>
                     @if(Auth::check())
                     <a href="{{ action('GigsController@create') }}">create</a>
