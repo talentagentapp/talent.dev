@@ -150,8 +150,12 @@ class UsersController extends \BaseController
     protected function saveUser(User $user)
     {
         //====================begin validator===================
-
-        $user->talent   = Input::get('talent');
+        if(Input::get('role') == 'talent') {
+            $user->role = 'talent';
+        } else {
+            $user->role = 'agent';
+        }
+        // $user->talent   = Input::get('talent');
         $user->email    = Input::get('email');
         $user->username = Input::get('username');
         $user->password = Input::get('password');
@@ -159,8 +163,7 @@ class UsersController extends \BaseController
         $user->last     = Input::get('last');
         $user->sex      = Input::get('sex');
         $user->bio      = Input::get('bio');
-
-        $user->save();
+        $user->experience = Input::get('experience');
 
         if (!$user->save()) {
 
@@ -179,8 +182,7 @@ class UsersController extends \BaseController
 
                 $talent->dob        = Input::get('dob');
 
-                
-                $talent->experience = Input::get('experience');
+
                 $talent->skills     = Input::get('skills');
                 $talent->user_id    = $user->id;
                 $talent->save();
