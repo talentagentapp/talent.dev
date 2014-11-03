@@ -211,7 +211,7 @@ class UsersTableSeeder extends Seeder
             //USER ID:7
             'role'       => 'agent',
             'email'      => 'FelicitaBToomer@armyspy.com',
-            'username'   => 'Tinte1991',
+            'username'   => 'Aily1950',
             'password'   => 'demoPass',
             'first'      => 'Felicita',
             'last'       => 'Toomer',
