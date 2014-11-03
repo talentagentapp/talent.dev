@@ -5,7 +5,9 @@
 @section('style')
 <style>
 .navbar-inverse 
-{ display: none; }
+{ 
+    display: none; 
+}
 
 body
 {
@@ -24,9 +26,24 @@ footer
 h2
 {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-size: 35px;
+    font-size: 50px;
+}
+a
+{
+    color: white;
+    text-decoration: none;
 }
 
+#missionToggle
+{
+    font-family     : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-size: 30px;
+    /*border: double 7px white;*/
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px; 
+}
 </style>
 @stop
 
@@ -62,22 +79,24 @@ h2
                 <a class="btn btn-default" href="users/create?role=talent">talent</a>
                 <p>or</p>
                 <a class="btn btn-default" href="users/create?role=agent">agent or manager</a>
-            </div>
+            </div><hr><br>
+        </div>
+    </div>
+    @else
+    <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+            <h2><a href="/logout">logout</a></h2>
         </div>
     </div>
     @endif
     
     <div class="row">
         <div class="col-md-6 col-md-offset-6">
-            <h2>mission statement</h2>
             <p id="missionToggle">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Rising star, bringing together the talented and the experienced. <br>
             </p>
+
+            <!-- <div id="loginInfoToggle"> -->
         </div>
     </div>
 </div>
