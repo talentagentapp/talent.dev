@@ -1,6 +1,12 @@
 @extends('layouts.master')
 
 @section('title', 'Homepage')
+<style>
+h3
+{
+    text-decoration:underline;
+}
+</style>
 
 @section('content')
 <div class='container'>
@@ -25,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class='col-md-4' style='background-color:blue;'>
+        <div class='col-md-4' style='background-color:#A19A97;'>
             @foreach ($gigs as $gig)
             <h3>{{{$gig->name}}}</h3>
             <p>{{{$gig->description}}}</p>

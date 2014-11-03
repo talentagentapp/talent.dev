@@ -34,6 +34,7 @@ class UsersController extends \BaseController
         // $tags = Tag::orderBy('tag', 'ASC')->get();
 
         return View::make('users.index')->with(array('users' => $users));
+
         // ->with('tags', $tags);
 
     }

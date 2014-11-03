@@ -7,10 +7,10 @@
     <div class="row">
         <div class='col-md-12'>
             <h2>Gigs
-                <small>
-
+                <small><br>
+            
             @if(Auth::check())
-            <a href="{{ action('GigsController@create') }}">create</a>
+            <a class="btn btn-default btn-small active" href="{{ action('GigsController@create') }}">create an event</a>
             @endif
 
             <hr>

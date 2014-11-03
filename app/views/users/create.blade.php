@@ -127,14 +127,14 @@
             <div class="form-group">
                 {{ Form::label('company', 'What agency do you work with? :') }}
                 {{ Form::text('company', Input::old('company'), array('class' => 'form-control')) }}
-            </div>
+            </div><br>
 
             @else
-            <p>you did not follow the rules!</p>
+            <p>Please complete all fields before submitting the form</p>
             @endif
 
             <div>
-                <p>Here are the tags</p>
+                <p>Please select any tags relevant to your profile</p>
                 
                 @if($errors->has('createTag')) <div class="alert alert-danger" role="alert">{{ $errors->first('createTag') }}</div> @endif
                 <div class="dropdown">
