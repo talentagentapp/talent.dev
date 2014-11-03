@@ -102,7 +102,13 @@ class HomeController extends BaseController
         $featuredUser = User::orderByRaw("RAND() LIMIT 1")->get();
         $featuredUserArray = $featuredUser->toArray();
 
-        return View::make('homepage')->with('gigs', $gigs)->with('featuredUserArray', $featuredUserArray);
+        foreach($featuredUser as $featured){
+            $featuredId = $featured['id'];
+        }
+
+        $user = User::find($featuredId);
+
+        return View::make('homepage')->with('gigs', $gigs)->with('user', $user);
     }
 
 
