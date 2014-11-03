@@ -144,7 +144,7 @@ class UsersTableSeeder extends Seeder
             'first'      => 'Adam',
             'last'       => 'Vega',
             'img'        => '/img/adam_1.jpg',
-            'bio'        => 'I am a great actor.',
+            'bio'        => 'I .',
             'experience' => '1-5',
             'sex'        => 'm',
             // 'talent_id'  => 5,
@@ -170,6 +170,60 @@ class UsersTableSeeder extends Seeder
         $user->forceSave();
 
 
+        $user = new User;
+        $user->fill([
+            //USER ID:7
+            'role'       => 'agent',
+            'email'      => 'jacob@email.com',
+            'username'   => 'jakesTown',
+            'password'   => 'demoPass',
+            'first'      => 'Jacob',
+            'last'       => 'Hernandez',
+            'img'        => '/img/man_2.jpg',
+            'bio'        => 'I am a agent that specializes in helping young, talented people.',
+            'experience' => '1-5',
+            'sex'        => 'm',
+            // 'agent_id'  => 1,
+            ]);
+        $user->forceSave();
+
+
+        $user = new User;
+        $user->fill([
+            //USER ID:7
+            'role'       => 'talent',
+            'email'      => 'ClarenceSStrong@rhyta.com',
+            'username'   => 'Tinte1991',
+            'password'   => 'demoPass',
+            'first'      => 'Clarence',
+            'last'       => 'Strong',
+            'img'        => '/img/man_1.jpg',
+            'bio'        => 'I am a guitar player, specializing in rock.',
+            'experience' => '1-5',
+            'sex'        => 'm',
+            // 'agent_id'  => 1,
+            ]);
+        $user->forceSave();
+
+
+        $user = new User;
+        $user->fill([
+            //USER ID:7
+            'role'       => 'agent',
+            'email'      => 'FelicitaBToomer@armyspy.com',
+            'username'   => 'Tinte1991',
+            'password'   => 'demoPass',
+            'first'      => 'Felicita',
+            'last'       => 'Toomer',
+            'img'        => '/img/girl_2.jpg',
+            'bio'        => 'I am a manager just starting my career.',
+            'experience' => '0-1',
+            'sex'        => 'f',
+            // 'agent_id'  => 1,
+            ]);
+        $user->forceSave();
+
+
 
         //SEED THE DATABASE
         for ($i=0; $i < 20; $i++) {
@@ -181,7 +235,7 @@ class UsersTableSeeder extends Seeder
                 'password'   => $faker->word,
                 'first'      => $faker->firstName,
                 'last'       => $faker->lastName,
-                'img'        => $faker->imageUrl($width = 300, $height = 300),
+                'img'        => $faker->imageUrl($width = 300, $height = 300, 'people'),
                 'bio'        => $faker->paragraph($nbSentences = 3),
                 'experience' => $faker->randomElement($array = ['0-1','1-5','5-10', '10+']),
                 'sex'        => $faker->randomElement($array = ['m','f','not say']),
