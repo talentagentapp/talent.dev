@@ -16,12 +16,9 @@
 		<div class='col-md-4'>
 			<h3>Additional Profile Information</h3>
 			<hr>
-			<p>{{{ $user->skills }}}</p>
+			<p>{{-- $user->talent->skills --}}</p>
 			<p>I have {{{ $user->experience }}} years of experience.</p>
-			<p>Gender: {{{ $user->gender_str }}}</p>
-
-            <p>[skills]</p>
-            <p>Ect.</p>
+			<p>{{{ $user->gender_str }}}</p>
 		</div>
 	</div>
 

@@ -76,8 +76,8 @@ class HomeController extends BaseController
         $cal->setTimeClass('ctime'); //Class Name for times column on day and week views
         //$cal->setEventsWrap(array('<p>', '</p>')); // Set the event's content wrapper
         //$cal->setDayWrap(array('<div>','</div>')); //Set the day's number wrapper
-        $cal->setNextIcon('>>'); //Can also be html: <i class='fa fa-chevron-right'></i>
-        $cal->setPrevIcon('<<'); // Same as above
+        $cal->setNextIcon("<span class='glyphicon glyphicon-chevron-right'></span>"); //Can also be html: <i class='fa fa-chevron-right'></i>
+        $cal->setPrevIcon("<span class='glyphicon glyphicon-chevron-left'></span>"); // Same as above
         $cal->setDayLabels(array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat')); //Label names for week days
         $cal->setMonthLabels(array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')); //Month names
         //$cal->setDateWrap(array('<div>','</div>')); //Set cell inner content wrapper
@@ -99,9 +99,9 @@ class HomeController extends BaseController
 
         // causing syntax error bc of empty string; commented out until
         // further notice
-        // $featured_user = User::('');
+        $featuredUser = User::orderByRaw("RAND()")->first();
 
-        return View::make('homepage')->with('gigs', $gigs);
+        return View::make('homepage')->with('gigs', $gigs)->with('user', $featuredUser);
     }
 
 
