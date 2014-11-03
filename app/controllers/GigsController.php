@@ -19,7 +19,7 @@ class GigsController extends \BaseController
     {
         $search = Input::get('search');
 
-        $query = DB::table('gigs');
+        $query = Gig::with('user');
 
         $query->where('name', 'like', "%$search%");
         $query->orWhere('location', 'like', "%$search%");
