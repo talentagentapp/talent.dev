@@ -26,10 +26,6 @@ class CreateUsersTable extends Migration
             $table->text('bio')->nullable();
             $table->enum('experience', ['0-1', '1-5', '5-10', '10+']);
             $table->enum('sex', ['m', 'f', 'not say']);
-            $table->string('oauth_provider', 255);
-            $table->string('oauth_uid', 255);
-            $table->string('twitter_oauth_token', 255);
-            $table->string('twitter_oauth_token_secret', 255);
             $table->rememberToken();
             $table->timestamps();
         });
