@@ -226,7 +226,7 @@ class UsersTableSeeder extends Seeder
 
 
         //SEED THE DATABASE
-        for ($i=0; $i < 20; $i++) {
+        for ($i=0; $i < 15; $i++) {
             $user = new User;
             $user->fill([
                 'role'       => $faker->randomElement($array =['talent', 'agent']),
