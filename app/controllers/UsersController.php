@@ -223,12 +223,14 @@ class UsersController extends \BaseController
             Session::flash('successMessage', $message);
             Log::info($message, Input::all());
 
-            return Redirect::action('UsersController@show',$user->id);
+
         }
 
-        $user->tags->tag = "artist";
-        $user->save();
+        // $user->tags->tag = "artist";
+        // $user->save();
+        Auth::login($user);
 
+        return Redirect::action('HomeController@showHomePage');
 
 
 
