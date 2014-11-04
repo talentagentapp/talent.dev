@@ -1,4 +1,10 @@
 @extends('layouts.master')
+<style>
+h3
+{
+    text-decoration: underline;
+}
+</style>
 
 @section('title', 'Gigs Index')
 
@@ -46,14 +52,15 @@
                 <a href="{{ action('GigsController@show', $gig->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
             </article>
             @empty
-            <p>No mo' gigs.</p>
+            <p>There are currently no upcoming gigs to display for this search </p>
             @endforelse
         </div>
     </div>
 
     <div class='row'>
-        <div class='col-md-12'>
-            {{-- $gigs->links() --}}
+            <hr>
+        <div class='col-md-4 col-md-offset-8'>
+            {{ $gigs->links() }}
         </div>
     </div>
 </div>
