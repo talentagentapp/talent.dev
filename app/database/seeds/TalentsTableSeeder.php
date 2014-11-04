@@ -45,7 +45,7 @@ class TalentsTableSeeder extends Seeder
 
         $faker = Faker::create();
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 6; $i++) {
             $talent = new Talent;
             $talent->fill([
                 'dob'        => $faker->dateTimeBetween($startDate = '-90 years', $endDate = '-18 years'),

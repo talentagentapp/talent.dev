@@ -126,7 +126,7 @@ class UsersTableSeeder extends Seeder
             'first'      => 'Audrey',
             'last'       => 'Lopez',
             'img'        => '/img/audrey_1.jpg',
-            'bio'        => 'I .',
+            'bio'        => 'I am a web developer, and I worked on a lot of the views for the site.',
             'experience' => '10+',
             'sex'        => 'f',
             // 'talent_id'  => 5,
@@ -144,7 +144,7 @@ class UsersTableSeeder extends Seeder
             'first'      => 'Adam',
             'last'       => 'Vega',
             'img'        => '/img/adam_1.jpg',
-            'bio'        => 'I .',
+            'bio'        => 'I am a web developer, and I worked on a lot of the controllers on this project.',
             'experience' => '1-5',
             'sex'        => 'm',
             // 'talent_id'  => 5,
@@ -162,7 +162,7 @@ class UsersTableSeeder extends Seeder
             'first'      => 'Cory',
             'last'       => 'Rodriguez',
             'img'        => '/img/cory_1.jpg',
-            'bio'        => 'I am a web developer.',
+            'bio'        => 'I am a web developer, I worked mostly on the databases for the project..',
             'experience' => '1-5',
             'sex'        => 'm',
             // 'talent_id'  => 5,
@@ -222,27 +222,6 @@ class UsersTableSeeder extends Seeder
             // 'agent_id'  => 1,
             ]);
         $user->forceSave();
-
-
-
-        //SEED THE DATABASE
-        for ($i=0; $i < 15; $i++) {
-            $user = new User;
-            $user->fill([
-                'role'       => $faker->randomElement($array =['talent', 'agent']),
-                'email'      => $faker->unique()->email,
-                'username'   => $faker->unique()->userName,
-                'password'   => $faker->word,
-                'first'      => $faker->firstName,
-                'last'       => $faker->lastName,
-                'img'        => $faker->imageUrl($width = 300, $height = 300, 'people'),
-                'bio'        => $faker->paragraph($nbSentences = 3),
-                'experience' => $faker->randomElement($array = ['0-1','1-5','5-10', '10+']),
-                'sex'        => $faker->randomElement($array = ['m','f','not say']),
-                'created_at' => $faker->dateTimeThisYear($max = 'now'),
-                ]);
-            $user->forceSave();
-        }
     }
 
 }
