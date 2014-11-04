@@ -227,17 +227,13 @@ class UsersController extends \BaseController
 
 
         }
-
-        // $user->tags->tag = "artist";
+        // $tag = Tag::find(1);
+        // $user->tags()->sync(array(1,2));
         // $user->save();
+
+
         Auth::login($user);
 
         return Redirect::action('HomeController@showHomePage');
-
-
-
-
-
-
     }
 }

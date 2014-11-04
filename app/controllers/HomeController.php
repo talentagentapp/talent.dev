@@ -95,7 +95,8 @@ class HomeController extends BaseController
 
     public function showHomePage()
     {
-        $gigs = Gig::all();
+
+        $gigs = Gig::all()->take(5);
 
         // causing syntax error bc of empty string; commented out until
         // further notice
