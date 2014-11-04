@@ -222,27 +222,6 @@ class UsersTableSeeder extends Seeder
             // 'agent_id'  => 1,
             ]);
         $user->forceSave();
-
-
-
-        //SEED THE DATABASE
-        for ($i=0; $i < 15; $i++) {
-            $user = new User;
-            $user->fill([
-                'role'       => $faker->randomElement($array =['talent', 'agent']),
-                'email'      => $faker->unique()->email,
-                'username'   => $faker->unique()->userName,
-                'password'   => $faker->word,
-                'first'      => $faker->firstName,
-                'last'       => $faker->lastName,
-                'img'        => $faker->imageUrl($width = 300, $height = 300, 'people'),
-                'bio'        => $faker->paragraph($nbSentences = 3),
-                'experience' => $faker->randomElement($array = ['0-1','1-5','5-10', '10+']),
-                'sex'        => $faker->randomElement($array = ['m','f','not say']),
-                'created_at' => $faker->dateTimeThisYear($max = 'now'),
-                ]);
-            $user->forceSave();
-        }
     }
 
 }
