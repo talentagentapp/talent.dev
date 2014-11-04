@@ -41,7 +41,6 @@ h1
             <h3>{{{ $user->first . ' ' . $user->last }}} <small>{{{ $user->role }}}</small></h3>
             <p>{{{ $user->experience }}} Years of Experience.</p>
             <p>{{{ $user->bio }}}</p>
-            <p>$user->talent->tag</p>
 
             <a class="btn btn-sm btn-default" href="{{ action('UsersController@show', $user->id) }}">more info <span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
