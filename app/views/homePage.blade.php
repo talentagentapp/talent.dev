@@ -12,7 +12,7 @@ h3
 <div class='container'>
     <div class='row'>
         <div id='featured-talent'  class='col-md-8'>
-        <h1>Featured User</h1>
+        <h1>Featured Talent</h1><br>
             <div class='row'>
 
                 <div class='col-md-8'>
@@ -42,12 +42,12 @@ h3
     <div class="row">
         
     </div>
-    <div id='bottom-row' class='row'>
+    <!-- <div id='bottom-row' class='row'>
         <div class='col-md-12'>
             <p>so much stuff in this row will be cool man someday</p>
         </div>
     </div>
-
+ -->
     
 </div>
 <div>

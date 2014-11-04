@@ -44,7 +44,7 @@ p, #name, .well
 <div class="container">
 	<div class="row">
 		<div class="col-md-4">
-			<img src="/img/edited3_headshot_adam.jpg" alt="..." class="img-circle img-responsive"> <br>
+			<img src="/img/edited3_headshot_adam.jpg" alt="Adam Vega" class="img-circle img-responsive"> <br>
 			<h3 id="name">Adam Vega</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum deleniti, quo nesciunt iusto rerum amet sequi. Cupiditate ab pariatur ratione! Earum suscipit laudantium obcaecati, culpa harum aperiam! Distinctio, reprehenderit, blanditiis.</p>
 			<div class="contact_info_heading">
@@ -56,9 +56,9 @@ p, #name, .well
 		</div>
 
 		<div class="col-md-4">
-			<img src="/img/edited4_headshot_audrey.jpg" alt="..." class="img-circle img-responsive">
+			<img src="/img/edited4_headshot_audrey.jpg" alt="Audrey Lopez" class="img-circle img-responsive">
 			<h3 id="name">Audrey Lopez</h3>
-			<p>Audrey Lopez worked in varying fields before settling into her career as a software and website developer with the help of the Codeup staff and numerous colleagues. Always gregarious, she now works predominately as a front end developer where user experience is still the key to her best work!</p>
+			<p>Audrey Lopez worked in varying fields before launching into her career as a software and website developer with the help of the Codeup staff and numerous colleagues. Always gregarious, she now works predominately as a front end developer where user experience is still the key to her best work!</p>
 			<div class="contact_info_heading">
 				<h3>Contact Info</h3>
 				<div id="contact_info"3>
@@ -70,9 +70,9 @@ p, #name, .well
 		</div>
 
 		<div class="col-md-4">
-			<img src="/img/edited3_headshot_cory.jpg" alt="..." class="img-circle img-responsive">
+			<img src="/img/edited3_headshot_cory.jpg" alt="Cory Rodriguez" class="img-circle img-responsive">
 			<h3 id="name">Cory Rodriguez</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 	Eum deleniti, quo nesciunt iusto rerum amet sequi. Cupiditate 	ab pariatur ratione! Earum suscipit laudantium obcaecati, culpa harum aperiam! Distinctio, reprehenderit, blanditiis.</p><hr>
+			<p>Cory Rodriguez graduated from a STEM based curriculum at Brooks Academy of Science and Engineering. As part of an internship program, he was placed at Codeup Technology Information and Services School. After his internship, he was invited to attend the fall student course; now graduated, he does freelance work and is looking to launch his career as a full stack web developer.</p><hr>
 			
 			<div class="contact_info_heading">
 				<h3>Contact Info</h3>

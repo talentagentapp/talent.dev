@@ -79,7 +79,8 @@ a
 
 #featured-talent
 {
-    background-color: red;
+    background-color: none;
+    text-decoration: underline;
 }
 
 #bottom-row

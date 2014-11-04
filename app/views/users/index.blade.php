@@ -52,9 +52,7 @@ h1
     @endforelse
 
     <div class='row'>
-        <div class='col-md-8'>
-        </div>
-        <div class='col-md-4'>
+        <div class='col-md-4 col-md-offset-8'>
             {{ $users->links() }}
         </div>
     </div>
