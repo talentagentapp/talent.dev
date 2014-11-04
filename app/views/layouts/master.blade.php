@@ -31,7 +31,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" <a href="#">talent app</a></li>
+        <a class="navbar-brand" <a href="#">rising talent</a></li>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">

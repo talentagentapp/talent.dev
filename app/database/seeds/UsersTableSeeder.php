@@ -127,7 +127,7 @@ class UsersTableSeeder extends Seeder
             'last'       => 'Lopez',
             'img'        => '/img/audrey_1.jpg',
             'bio'        => 'I am a web developer, and I worked on a lot of the views for the site.',
-            'experience' => '10+',
+            'experience' => '1-5',
             'sex'        => 'f',
             // 'talent_id'  => 5,
             ]);

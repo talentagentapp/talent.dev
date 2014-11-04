@@ -46,7 +46,7 @@ p, #name, .well
 		<div class="col-md-4">
 			<img src="/img/edited3_headshot_adam.jpg" alt="Adam Vega" class="img-circle img-responsive"> <br>
 			<h3 id="name">Adam Vega</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum deleniti, quo nesciunt iusto rerum amet sequi. Cupiditate ab pariatur ratione! Earum suscipit laudantium obcaecati, culpa harum aperiam! Distinctio, reprehenderit, blanditiis.</p>
+			<p>Adam Vega graduated with a degree in Architecture in 2012 from the University of Texas at San Antonio. After having worked in the field he decided to change careers to information technology. After graduating from Codeup he plans on pursuing an entry level web development job. He specialized in design and layout in both information and graphic arts.</p>
 			<div class="contact_info_heading">
 				<h3>Contact Info</h3>
 				<li>linkedin : </li>
@@ -66,20 +66,20 @@ p, #name, .well
 					<li>github : {{ HTML::link('http://github.com/audreyelopez') }}</li>
 					<li>email : {{ HTML::mailto('audreyelopez@gmail.com') }}</li>
 				</div>
-			</div>		
+			</div>
 		</div>
 
 		<div class="col-md-4">
 			<img src="/img/edited3_headshot_cory.jpg" alt="Cory Rodriguez" class="img-circle img-responsive">
 			<h3 id="name">Cory Rodriguez</h3>
 			<p>Cory Rodriguez graduated from a STEM based curriculum at Brooks Academy of Science and Engineering. As part of an internship program, he was placed at Codeup Technology Information and Services School. After his internship, he was invited to attend the fall student course; now graduated, he does freelance work and is looking to launch his career as a full stack web developer.</p><hr>
-			
+
 			<div class="contact_info_heading">
 				<h3>Contact Info</h3>
 				<li>linkedin : {{ HTML::link('http://www.linkedin.com/in/rodriguezcory') }}</li>
 				<li>github : {{ HTML::link('http://github.com/CoryRay') }}</li>
 				<li>email : {{ HTML::mailto('coreyreylp@gmail.com') }}</li>
-			</div><hr>	
+			</div><hr>
 		</div><br>
 		<div class="well well-lg">
 			<h1>About the Site</h1>
