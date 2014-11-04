@@ -11,7 +11,7 @@ class AgentsTableSeeder extends Seeder
 
         $faker = Faker::create();
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 5; $i++) {
             $agent = new Agent;
             $agent->fill([
                 'company'    => $faker->company,

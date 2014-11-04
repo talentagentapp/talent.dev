@@ -29,7 +29,7 @@ class GigsTableSeeder extends Seeder
                 'date'        => $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 month'),
                 'location'    => $faker->address,
                 'created_at'  => $faker->dateTimeThisYear($max = 'now'),
-                'user_id'     => $faker->numberBetween($min = 1, $max = 20)
+                'user_id'     => $faker->numberBetween($min = 1, $max = 12)
                 ]);
             $gig->forceSave();
         }
