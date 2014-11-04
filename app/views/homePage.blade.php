@@ -33,7 +33,6 @@
             <br>
             <hr>
             <h1>Your Info</h1>
-            <p>{{ Auth::user()->first }} {{ Auth::user()->last }}</p>
             <div class='col-md-8'>
                 <h1>{{{ Auth::user()->first . ' ' . Auth::user()->last }}}</h1>
                 <img src="{{ Auth::user()->img }}" class='img-thumbnail img-responsive'>
@@ -52,7 +51,7 @@
     </div>
     <div id='bottom-row' class='row'>
     </div>
-    
+
 </div>
 <div>
     {{--calendar--}}
