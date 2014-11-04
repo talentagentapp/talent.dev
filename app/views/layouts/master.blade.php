@@ -38,8 +38,7 @@
           <li @if (Route::currentRouteUses('HomeController@showHomePage')) class='active' @endif><a href="{{ action('HomeController@showHomePage') }}">homepage</a></li>
           <li @if (Route::currentRouteUses('UsersController@index')) class='active' @endif><a href="{{ action('UsersController@index') }}">users</a></li>
           <li @if (Route::currentRouteUses('GigsController@index')) class='active' @endif><a href="{{ action('GigsController@index') }}">gigs</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="nav_cal_dropdown" data-date-formate="dd-mm-yyyy" data-date="1-01-2014" >current events <span class="caret"></span></a>
+          <li @if (Route::currentRouteUses('HomeController@showCalendar')) class='active' @endif><a href="{{action('HomeController@showCalendar')}}">current events</a>
           </li>
           <li @if (Route::currentRouteUses('HomeController@showAbout')) class='active' @endif><a href="/about">about</a></li>
         </ul>
