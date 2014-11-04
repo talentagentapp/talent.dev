@@ -102,7 +102,7 @@ class HomeController extends BaseController
         // further notice
         $featuredUser = User::orderByRaw("RAND()")->first();
 
-        return View::make('homepage')->with('gigs', $gigs)->with('user', $featuredUser);
+        return View::make('homePage')->with('gigs', $gigs)->with('user', $featuredUser);
     }
 
 
