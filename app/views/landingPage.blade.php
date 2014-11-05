@@ -4,9 +4,9 @@
 
 @section('style')
 <style>
-.navbar-inverse 
-{ 
-    display: none; 
+.navbar-inverse
+{
+    display: none;
 }
 
 body
@@ -25,7 +25,7 @@ footer
 
 h2
 {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 50px;
 }
 a
@@ -36,13 +36,13 @@ a
 
 #missionToggle
 {
-    font-family     : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-size: 30px;
+    font-family     : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 25px;
     /*border: double 7px white;*/
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
 }
 </style>
 @stop
@@ -66,8 +66,8 @@ a
                 <div class='form-group'>
                     <button class='btn btn-default'>submit</button>
                 </div>
-                {{ Form::close()}}   
-            </div>    
+                {{ Form::close()}}
+            </div>
         </div>
     </div>
 
@@ -89,11 +89,12 @@ a
         </div>
     </div>
     @endif
-    
+
     <div class="row">
         <div class="col-md-6 col-md-offset-6">
+            <h2>Rising Talent</h2>
             <p id="missionToggle">
-                Rising star, bringing together the talented and the experienced. <br>
+                 Social media for the entertainment industry. Bringing together performing artists and the agents who are looking for them. Bridging the gap between the aspiring and the experienced, it's the place where connections are made!
             </p>
 
             <!-- <div id="loginInfoToggle"> -->
@@ -128,7 +129,7 @@ $("#loginToggle").hover(function()
 $("#createToggle").hover(function()
 {
     clearTimeout(missionTimeout);
-    
+
     $("#loginInfoToggle").hide("slow");
     $("#createUserToggle").show("slow");
     $("#missionToggle").hide("slow");
